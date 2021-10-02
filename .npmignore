@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+
+# Config files
+.gitignore
+.npmignore
+
+# Test files
+test
+__tests__
+*.test.*
+*.spec.*
+coverage
+.nyc_output
+
+# Secrets
+.env
+*.env
+
+# Tooling files
+.versionrc.js
+.prettierrc.yml
+tsconfig.*
+jest.conifg.js

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "lib": ["ES6"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES6",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"]
+}
