@@ -1,6 +1,7 @@
 # resolve-tspaths
 
-[![License](https://img.shields.io/:license-mit-blue.svg)](LICENSE)
+[![package](https://badge.fury.io/js/resolve-tspaths.svg)](https://www.npmjs.com/package/resolve-tspaths)
+[![license](https://img.shields.io/:license-mit-blue.svg)](LICENSE)
 
 If you use Typescript's
 [path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping)
