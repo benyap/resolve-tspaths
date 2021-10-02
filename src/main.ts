@@ -44,14 +44,19 @@ function main() {
 
     if (options.noEmit) {
       logger.info(
-        bold("tscpaths:"),
+        bold("resolve-tspaths:"),
         "discovered",
         changes.length,
         "file(s) for change (none actually changed since --noEmit was given)"
       );
     } else {
       applyChanges(changes);
-      logger.info(bold("tscpaths:"), "changed", changes.length, "file(s)");
+      logger.info(
+        bold("resolve-tspaths:"),
+        "changed",
+        changes.length,
+        "file(s)"
+      );
     }
   } catch (error: any) {
     if (error instanceof StepError) {
