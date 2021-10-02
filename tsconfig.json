@@ -7,13 +7,20 @@
     "target": "ES6",
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "removeComments": true,
+    "noEmit": true,
     "strict": true,
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["test/fixtures/**"]
 }

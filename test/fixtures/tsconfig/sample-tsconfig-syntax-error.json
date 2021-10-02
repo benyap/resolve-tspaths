@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["ES6"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES6",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  }
+  "include": ["src/**/*", "test/**/*"]
+}

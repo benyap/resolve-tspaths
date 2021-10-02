@@ -20,24 +20,21 @@
     "mapping",
     "compiler"
   ],
-  "main": "dist/cjs/main.js",
-  "module": "dist/esm/main.js",
+  "main": "dist/main.js",
   "files": [
-    "dist/cjs/**",
-    "dist/esm/**"
+    "dist/**"
   ],
   "bin": {
-    "tspaths": "dist/cjs/main.js"
+    "resolve-tspaths": "dist/main.js"
   },
   "scripts": {
     "prebuild": "yarn clear && yarn format",
-    "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc -p ./tsconfig.esm.json",
-    "build:cjs": "tsc -p ./tsconfig.cjs.json",
-    "clear": "rm -rf ./lib ./cjs ./coverage",
+    "build": "tsc -p tsconfig.build.json",
+    "postbuild": "yarn start:dev -p tsconfig.build.json",
+    "clear": "rm -rf ./dist ./coverage",
     "format": "prettier --write './src/**/*.ts'",
-    "start:dev": "ts-node src/main.ts",
-    "start": "node dist/cjs/main.js",
+    "start:dev": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start": "node dist/main.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
@@ -46,7 +43,7 @@
   "dependencies": {
     "ansi-colors": "4.1.1",
     "commander": "8.2.0",
-    "globby": "12.0.2"
+    "fast-glob": "3.2.7"
   },
   "devDependencies": {
     "@types/jest": "27.0.2",
@@ -56,6 +53,7 @@
     "standard-version": "9.3.1",
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
+    "tsconfig-paths": "3.11.0",
     "typescript": "4.4.3"
   }
 }
