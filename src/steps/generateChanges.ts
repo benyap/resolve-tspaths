@@ -3,8 +3,8 @@ import { dirname, relative, resolve } from "path";
 import { FileNotFoundError } from "~/utils/errors";
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
-export const IMPORT_REGEX =
-  /(?:require\(|import (?:.*from )?)['"]([^'"]*)['"]\)?/g;
+export const IMPORT_EXPORT_REGEX =
+  /(?:require\(|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
 
 const PATHS = [
   ".js",
@@ -73,28 +73,31 @@ export function replaceAliasPathsInFile(
   const originalText = readFileSync(filePath, "utf-8");
   const changes: TextChange[] = [];
 
-  const newText = originalText.replace(IMPORT_REGEX, (original, matched) => {
-    const result = aliasToRelativePath(
-      matched,
-      filePath,
-      aliases,
-      programPaths
-    );
+  const newText = originalText.replace(
+    IMPORT_EXPORT_REGEX,
+    (original, matched) => {
+      const result = aliasToRelativePath(
+        matched,
+        filePath,
+        aliases,
+        programPaths
+      );
 
-    if (!result.replacement) return original;
+      if (!result.replacement) return original;
 
-    const index = original.indexOf(matched);
-    changes.push({
-      original: result.original,
-      modified: result.replacement,
-    });
+      const index = original.indexOf(matched);
+      changes.push({
+        original: result.original,
+        modified: result.replacement,
+      });
 
-    return (
-      original.substring(0, index) +
-      result.replacement +
-      original.substring(index + matched.length)
-    );
-  });
+      return (
+        original.substring(0, index) +
+        result.replacement +
+        original.substring(index + matched.length)
+      );
+    }
+  );
 
   return { changed: originalText !== newText, text: newText, changes };
 }

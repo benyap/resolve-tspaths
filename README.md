@@ -49,22 +49,22 @@ convenient solution._
 _`resolve-tspaths` uses some reasonable defaults. For most cases, you probably
 won't need to specify any options._
 
-#### `--project, -p`
+#### `--project <project>, -p <project>`
 
 Specify the `tsconfig` that the program should use. If not provided, it defaults
 to `tsconfig.json`.
 
-#### `--src, -s`
+#### `--src <path>, -s <path>`
 
 Specify the source directory. If not provided, it defaults to `./src`.
 
-#### `--out, -o`
+#### `--out <path>, -o <path>`
 
 Specify the output directory of the compiled code where `resolve-tspaths` should
 perform its changes. If not provided, it will default to
 `compilerOptions.outDir` from your `tsconfig`.
 
-#### `--ext`
+#### `--ext <extensions>`
 
 Provide a comma separated list of file extensions in the output directory that
 the program should process. Defaults to `js,d.ts`, which will process `.js` and
