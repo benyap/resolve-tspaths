@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/benyap/resolve-tspaths/compare/v0.1.1...v0.1.2) (2021-10-22)
+
+
+### Bug Fixes
+
+* resolve exports (esm) ([89646f2](https://github.com/benyap/resolve-tspaths/commit/89646f22b232095bb2e52af00e63eb13ef53db3b))
+
 ### [0.1.1](https://github.com/benyap/resolve-tspaths/compare/v0.1.0...v0.1.1) (2021-10-02)
 
 
