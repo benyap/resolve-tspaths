@@ -84,7 +84,7 @@ Use this flag to not emit any changes to your files. Recommended to be used with
 
 ### [tsconfig-paths](https://github.com/dividab/tsconfig-paths)
 
-`tsconfig-paths` is a runtime dependency. This package is used at **build
+`tsconfig-paths` is a runtime dependency. `resolve-tspaths` is used at **build
 time**, which means your shipped code doesn't need to have this package
 included, and can run natively using Node or in the browser.
 
@@ -92,8 +92,8 @@ included, and can run natively using Node or in the browser.
 
 Performs the same function as **tscpaths** - but that project is no longer
 maintained. A pain point with that package was also that it no control over the
-logging which was extremely verbose. This package provides several more options
-for better control. It is also well tested.
+logging which was extremely verbose. `resolve-tspaths` provides several more
+options for better control, and it's also well tested.
 
 ## Inspiration
 
