@@ -1,0 +1,26 @@
+version: 2
+
+updates:
+  # Maintain dependencies for Github Actions
+  - package-ecosystem: "github-actions"
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: github-actions
+    labels:
+      - dependencies
+    assignees:
+      - benyap
+
+  # Maintain dependencies for npm
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: npm
+    labels:
+      - dependencies
+    assignees:
+      - benyap
