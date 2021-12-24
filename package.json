@@ -27,6 +27,9 @@
   "bin": {
     "resolve-tspaths": "dist/main.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prebuild": "yarn clear && yarn format",
     "build": "tsc -p tsconfig.build.json",
@@ -38,7 +41,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "release": "standard-version"
+    "release": "release-it"
   },
   "dependencies": {
     "ansi-colors": "4.1.1",
@@ -46,11 +49,13 @@
     "fast-glob": "3.2.7"
   },
   "devDependencies": {
+    "@release-it/bumper": "3.0.1",
+    "@release-it/conventional-changelog": "3.3.0",
     "@types/jest": "27.0.3",
     "@types/node": "17.0.4",
     "jest": "27.4.5",
     "prettier": "2.5.1",
-    "standard-version": "9.3.2",
+    "release-it": "14.11.8",
     "ts-jest": "27.1.2",
     "ts-node": "10.4.0",
     "tsconfig-paths": "3.12.0",
