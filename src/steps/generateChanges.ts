@@ -4,7 +4,7 @@ import { FileNotFoundError } from "~/utils/errors";
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
 export const IMPORT_EXPORT_REGEX =
-  /(?:require\(|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
+  /(?:(?:require\(|import\()|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
 
 const PATHS = [
   ".js",

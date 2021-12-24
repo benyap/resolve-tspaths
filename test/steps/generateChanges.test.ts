@@ -129,6 +129,16 @@ describe("steps/generateChanges", () => {
         ]
       `);
     });
+
+    it("matches dynamic import statements", () => {
+      const result = regex.exec(`import('package');`);
+      expect(result).toMatchInlineSnapshot(`
+        Array [
+          "import('package')",
+          "package",
+        ]
+      `);
+    });
   });
 
   describe(aliasToRelativePath.name, () => {
