@@ -159,7 +159,8 @@ Thanks goes to these wonderful people
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/benyap"><img src="https://avatars.githubusercontent.com/u/19235373?v=4?s=60" width="80px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Tests">⚠️</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/benyap"><img src="https://avatars.githubusercontent.com/u/19235373?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Tests">⚠️</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Chocobozzz"><img src="https://avatars.githubusercontent.com/u/5180488?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Chocobozzz</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/commits?author=Chocobozzz" title="Code">💻</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=Chocobozzz" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
