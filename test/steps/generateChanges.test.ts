@@ -57,6 +57,16 @@ describe("steps/generateChanges", () => {
     });
 
     it("matches export * statements", () => {
+      const result = regex.exec(`export * from 'package';`);
+      expect(result).toMatchInlineSnapshot(`
+        Array [
+          "export * from 'package'",
+          "package",
+        ]
+      `);
+    });
+
+    it("matches export * as statements", () => {
       const result = regex.exec(`export * as package from 'package';`);
       expect(result).toMatchInlineSnapshot(`
         Array [

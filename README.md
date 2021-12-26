@@ -17,8 +17,54 @@ relative paths - this means that you can develop using path aliases whilst still
 being able to ship working JavaScript code.
 
 _Yes, there are plugins that can handle this when you use bundlers such as
-Webpack or Rollup. But if you dont' want to use a bundler, this package is a
+Webpack or Rollup. But if you don't want to use a bundler, this package is a
 convenient solution._
+
+**Sample `tsconfig.json`:**
+
+```ts
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+}
+
+```
+
+The following types of paths are currently supported:
+
+**CommonJS imports**
+
+```ts
+const { ... } = require("~/some/path");
+```
+
+**ESM imports**
+
+```ts
+import * as stuff from "~/some/path";
+import stuff from "~/some/path";
+import { stuff } from "~/some/path";
+import { stuff as myStuff } from "~/some/path";
+```
+
+**ESM dynamic imports**
+
+```ts
+const stuff = await import("~/some/path");
+```
+
+**ESM exports**
+
+```ts
+export * from "~/some/path";
+export * as stuff from "~/some/path":
+export { stuff } from "~/some/path";
+export { stuff as myStuff } from "~/some/path";
+```
 
 ## Usage
 
