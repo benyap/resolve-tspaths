@@ -53,6 +53,7 @@
     "@release-it/conventional-changelog": "3.3.0",
     "@types/jest": "27.0.3",
     "@types/node": "17.0.4",
+    "all-contributors-cli": "6.20.0",
     "jest": "27.4.5",
     "prettier": "2.5.1",
     "release-it": "14.11.8",

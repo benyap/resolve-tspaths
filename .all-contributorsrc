@@ -1,0 +1,26 @@
+{
+  "projectName": "resolve-tspaths",
+  "projectOwner": "benyap",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "benyap",
+      "name": "Ben Yap",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19235373?v=4",
+      "profile": "https://github.com/benyap",
+      "contributions": [
+        "code",
+        "test",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

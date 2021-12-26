@@ -1,7 +1,7 @@
 # resolve-tspaths
 
-[![package](https://badge.fury.io/js/resolve-tspaths.svg)](https://www.npmjs.com/package/resolve-tspaths)
-[![license](https://img.shields.io/:license-mit-blue.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/resolve-tspaths?style=flat-square)](https://www.npmjs.com/package/resolve-tspaths)
+[![license](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](LICENSE)
 
 If you use Typescript's
 [path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping)
@@ -102,6 +102,29 @@ This project was heavily inspired by
 no longer maintained. My first attempt at building this library was based on a
 fork of `tscpaths`. Since the project has matured, it was moved out to its own
 repository.
+
+## Contributors
+
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/benyap"><img src="https://avatars.githubusercontent.com/u/19235373?v=4?s=60" width="80px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Tests">⚠️</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=benyap" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
 
 ## License
 
