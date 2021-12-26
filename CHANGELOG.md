@@ -1,3 +1,16 @@
+### [0.2.1](https://github.com/benyap/resolve-tspaths/compare/v0.2.0...v0.2.1) (2021-12-26)
+
+
+### Internal
+
+* update release name ([a53e954](https://github.com/benyap/resolve-tspaths/commit/a53e9541f19bfdbb8c7a6cfe9645b60f088a5d11))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([5aebb2a](https://github.com/benyap/resolve-tspaths/commit/5aebb2a0b87abf8f6434b9a70d4c1229731eac85))
+* update README.md [skip ci] ([3bb3623](https://github.com/benyap/resolve-tspaths/commit/3bb362338dc61d0bc5496ae0d02353d578555b51))
+
 ## [0.2.0](https://github.com/benyap/resolve-tspaths/compare/v0.1.2...v0.2.0) (2021-12-26)
 
 
