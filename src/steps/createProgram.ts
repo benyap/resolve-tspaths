@@ -1,6 +1,6 @@
 import { Command } from "commander";
 
-import { version } from "../version.json";
+import { version } from "~/version.json";
 
 const example = `
 Example:

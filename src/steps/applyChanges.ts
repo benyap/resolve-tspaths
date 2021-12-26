@@ -1,4 +1,5 @@
 import { writeFileSync } from "fs";
+
 import type { Change } from "~/types";
 
 /**

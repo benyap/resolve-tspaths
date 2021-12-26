@@ -1,6 +1,8 @@
 import { existsSync, readFileSync } from "fs";
 import { dirname, relative, resolve } from "path";
+
 import { FileNotFoundError } from "~/utils/errors";
+
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
 export const IMPORT_EXPORT_REGEX =

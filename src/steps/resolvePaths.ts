@@ -1,8 +1,8 @@
 import { resolve, dirname } from "path";
 
-import type { ProgramOptions, ProgramPaths, TSConfig } from "~/types";
-
 import { StepError, TSConfigPropertyError } from "~/utils/errors";
+
+import type { ProgramOptions, ProgramPaths, TSConfig } from "~/types";
 
 /**
  * Resolve paths provided to the program to absolute paths.

@@ -1,4 +1,5 @@
 import { resolve } from "path";
+
 import type { Alias, TSConfig } from "~/types";
 
 /**
