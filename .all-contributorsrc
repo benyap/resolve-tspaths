@@ -20,7 +20,18 @@
         "test",
         "doc"
       ]
+    },
+    {
+      "login": "Chocobozzz",
+      "name": "Chocobozzz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5180488?v=4",
+      "profile": "https://github.com/Chocobozzz",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
