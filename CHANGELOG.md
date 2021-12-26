@@ -1,3 +1,26 @@
+## [0.2.0](https://github.com/benyap/resolve-tspaths/compare/v0.1.2...v0.2.0) (2021-12-26)
+
+
+### Features
+
+* support dynamic imports ([92e7c79](https://github.com/benyap/resolve-tspaths/commit/92e7c794642018bb00347032705e13df825f9c03))
+
+
+### Documentation
+
+* document supported path types ([2caf7c6](https://github.com/benyap/resolve-tspaths/commit/2caf7c6f778b25d97400292586baddcd17060bcf))
+
+
+### Internal
+
+* add all-contributors ([d63a1d7](https://github.com/benyap/resolve-tspaths/commit/d63a1d72a67a1e4f83b331361437618fd3256eb1))
+* add commitlint ([e50fbab](https://github.com/benyap/resolve-tspaths/commit/e50fbaba26b2d9cc5f040b24b17d4f8d1df94bb4))
+* add CONTRIBUTING.md ([5481909](https://github.com/benyap/resolve-tspaths/commit/548190997be90fc6c740b80750724d7da0f4f912))
+* add dependabot.yml ([6712b99](https://github.com/benyap/resolve-tspaths/commit/6712b9919f32f64c1e91d60741431ed4ae0e8ebd))
+* format ([5761364](https://github.com/benyap/resolve-tspaths/commit/5761364ce0394d3d8942c089df2ee8b4a66f8d6f))
+* upgrade dependencies ([197ae37](https://github.com/benyap/resolve-tspaths/commit/197ae37dbc30752f61cce6352e12f6898e898c4a))
+* use release-it instead of standard-version ([170f859](https://github.com/benyap/resolve-tspaths/commit/170f859a52964ac2f0eac575c6f051e3bd86bff9))
+
 ### [0.1.2](https://github.com/benyap/resolve-tspaths/compare/v0.1.1...v0.1.2) (2021-10-22)
 
 
