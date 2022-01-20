@@ -1,8 +1,11 @@
-import {resolve} from "path";
-import {sync} from "fast-glob";
+import { resolve } from "path";
+import { sync } from "fast-glob";
 
 function convertPath(windowsPath: string) {
-    return windowsPath.replace(/^\\\\\?\\/, "").replace(/\\/g, '\/').replace(/\/\/+/g, '\/');
+  return windowsPath
+    .replace(/^\\\\\?\\/, "")
+    .replace(/\\/g, "/")
+    .replace(/\/\/+/g, "/");
 }
 
 /**
@@ -12,15 +15,15 @@ function convertPath(windowsPath: string) {
  * @param extensions A comma separated list of extensions to match.
  */
 export function getFilesToProcess(outPath: string, extensions: string) {
-    const normalizedOutPath = convertPath(outPath);
-    const extensionsList = extensions.split(",");
+  const normalizedOutPath = convertPath(outPath);
+  const extensionsList = extensions.split(",");
 
-    let glob = "*";
-    if (extensionsList.length === 1) glob = `*.${extensionsList[0]}`;
-    else if (extensionsList.length > 1) glob = `*.{${extensionsList.join(",")}}`;
+  let glob = "*";
+  if (extensionsList.length === 1) glob = `*.${extensionsList[0]}`;
+  else if (extensionsList.length > 1) glob = `*.{${extensionsList.join(",")}}`;
 
-    return sync(`${normalizedOutPath}/**/${glob}`, {
-        dot: true,
-        onlyFiles: true,
-    }).map((path) => resolve(path));
+  return sync(`${normalizedOutPath}/**/${glob}`, {
+    dot: true,
+    onlyFiles: true,
+  }).map((path) => resolve(path));
 }
