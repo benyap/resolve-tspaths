@@ -1,3 +1,38 @@
+### [0.2.2](https://github.com/benyap/resolve-tspaths/compare/v0.2.1...v0.2.2) (2022-01-21)
+
+
+### Bug Fixes
+
+* normalize path for fast-glob as fast-glob>3.0 doesn't support windows path; use absolute path in getFilesToProcess test ([2a2b64a](https://github.com/benyap/resolve-tspaths/commit/2a2b64aefd157dde271fb4a51d7cf912c6caeac5))
+
+
+### Dependencies
+
+* bump @commitlint/cli from 15.0.0 to 16.0.0 ([77a55a0](https://github.com/benyap/resolve-tspaths/commit/77a55a0afc8c3519f0ce21aaf06bcd4ea93a8f49))
+* bump @commitlint/cli from 16.0.0 to 16.0.1 ([6f5f8a5](https://github.com/benyap/resolve-tspaths/commit/6f5f8a5d6be2e7c0ef062fb54cd65a3e139ea584))
+* bump @commitlint/cli from 16.0.1 to 16.1.0 ([e9bd5c8](https://github.com/benyap/resolve-tspaths/commit/e9bd5c8d453fd440c7680dccb0dbeff35e6d26f4))
+* bump @commitlint/config-conventional from 15.0.0 to 16.0.0 ([ec86632](https://github.com/benyap/resolve-tspaths/commit/ec86632ed366d02c11f730673b95ef629058d1f1))
+* bump @types/jest from 27.0.3 to 27.4.0 ([a17d3ea](https://github.com/benyap/resolve-tspaths/commit/a17d3eaa8eff955e2ab47d94194b011f2bed07a4))
+* bump @types/node from 17.0.4 to 17.0.5 ([8e50b12](https://github.com/benyap/resolve-tspaths/commit/8e50b12bd9451f002eb2f4c9efce46e1fd544d92))
+* bump @types/node from 17.0.5 to 17.0.10 ([177f4a2](https://github.com/benyap/resolve-tspaths/commit/177f4a22e1dbec33c17ff4f021e8ba5e6c8794a6))
+* bump fast-glob from 3.2.7 to 3.2.11 ([a4c91b3](https://github.com/benyap/resolve-tspaths/commit/a4c91b38976cfa8be464e6e1ea8703da8013c0ed))
+* bump jest from 27.4.5 to 27.4.7 ([9f8ad77](https://github.com/benyap/resolve-tspaths/commit/9f8ad7776b7ad5b2cd4643a1e3bcfed32b7687a8))
+* bump release-it from 14.11.8 to 14.12.3 ([daa5d1b](https://github.com/benyap/resolve-tspaths/commit/daa5d1b776aecf52d5f356021af747163201166b))
+* bump ts-jest from 27.1.2 to 27.1.3 ([6e7b0ac](https://github.com/benyap/resolve-tspaths/commit/6e7b0ac63ba198793d812811c4f9a9e36115581c))
+
+
+### Internal
+
+* rename dependencies label prefix ([3e39df1](https://github.com/benyap/resolve-tspaths/commit/3e39df1af088a6d04a7db355cf5e269c8efaeeab))
+* run yarn format ([4150ece](https://github.com/benyap/resolve-tspaths/commit/4150ece906b33a9e31ebd763a4c726d19c93987f))
+* update release name format ([d318beb](https://github.com/benyap/resolve-tspaths/commit/d318beb12a97bc2f0e9be2c4b9b6a807b8b91496))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([c3a81a7](https://github.com/benyap/resolve-tspaths/commit/c3a81a7934eba3f22b8c32534be02ff784a33de0))
+* update README.md [skip ci] ([0e590b3](https://github.com/benyap/resolve-tspaths/commit/0e590b3d5c85392c5c6219026e7452ae966b9aa3))
+
 ### [0.2.1](https://github.com/benyap/resolve-tspaths/compare/v0.2.0...v0.2.1) (2021-12-26)
 
 
