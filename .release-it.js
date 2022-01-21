@@ -1,7 +1,7 @@
 module.exports = {
   github: {
     release: true,
-    releaseName: "v${version}",
+    releaseName: "Release ${version}",
   },
   npm: {
     publish: false,
@@ -23,6 +23,8 @@ module.exports = {
         types: [
           { type: "feat", section: "Features" },
           { type: "fix", section: "Bug Fixes" },
+          { type: "deps", section: "Dependencies" },
+          { type: "npm", section: "Dependencies" },
           { type: "docs", section: "Documentation" },
           { type: "chore", section: "Internal" },
           { type: "tooling", section: "Internal" },
