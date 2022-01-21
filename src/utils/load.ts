@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 import { FileNotFoundError, JSONFileParsingError } from "./errors";
 
 /**
- * Load a `json` file from the given path.
+ * Load a `json` or `jsonc` file from the given path.
  *
  * @param path The path to the module.
  * @param step The name of step this utility is used in. Used for error reporting.

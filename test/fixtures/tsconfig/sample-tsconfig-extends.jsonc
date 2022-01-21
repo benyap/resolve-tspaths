@@ -1,11 +1,6 @@
 {
-  "extends": "./sample-tsconfig.json",
+  "extends": "./nested/sample-parent-tsconfig.jsonc",
   "compilerOptions": {
-    "outDir": "dist",
-    "paths": {
-      "~/*": ["./src/*"],
-      // New path mapping
-      "@/*": ["./src/*"]
-    }
+    "outDir": "dist"
   }
 }

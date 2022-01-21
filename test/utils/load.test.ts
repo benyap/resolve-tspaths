@@ -38,21 +38,9 @@ describe("utils/loadJSON", () => {
             "ES6",
           ],
           "module": "CommonJS",
-          "moduleResolution": "Node",
-          "paths": Object {
-            "~/*": Array [
-              "./src/*",
-            ],
-          },
-          "resolveJsonModule": true,
-          "skipLibCheck": true,
           "strict": true,
           "target": "ES6",
         },
-        "include": Array [
-          "src/**/*",
-          "test/**/*",
-        ],
       }
     `);
   });

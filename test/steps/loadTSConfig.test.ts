@@ -1,7 +1,7 @@
 import { loadTSConfig } from "~/steps/loadTSConfig";
 
 describe("steps/loadTSConfig", () => {
-  it("loads tsconfig correctly", () => {
+  it("loads tsconfig (json) correctly", () => {
     expect(loadTSConfig("test/fixtures/tsconfig/sample-tsconfig.json"))
       .toMatchInlineSnapshot(`
       Object {
@@ -29,11 +29,12 @@ describe("steps/loadTSConfig", () => {
     `);
   });
 
-  it("loads tsconfig with extends correctly", () => {
+  it("loads tsconfig (jsonc) with extends correctly", () => {
     expect(loadTSConfig("test/fixtures/tsconfig/sample-tsconfig-extends.jsonc"))
       .toMatchInlineSnapshot(`
       Object {
         "compilerOptions": Object {
+          "baseUrl": ".",
           "lib": Array [
             "ES6",
           ],
@@ -41,11 +42,8 @@ describe("steps/loadTSConfig", () => {
           "moduleResolution": "Node",
           "outDir": "dist",
           "paths": Object {
-            "@/*": Array [
-              "./src/*",
-            ],
             "~/*": Array [
-              "./src/*",
+              "nested/src/*",
             ],
           },
           "resolveJsonModule": true,
@@ -53,7 +51,6 @@ describe("steps/loadTSConfig", () => {
           "strict": true,
           "target": "ES6",
         },
-        "extends": "./sample-tsconfig.json",
         "include": Array [
           "src/**/*",
           "test/**/*",

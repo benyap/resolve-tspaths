@@ -1,6 +1,7 @@
 export interface TSConfig {
   extends?: string;
   compilerOptions?: TSConfigCompilerOptions;
+  [key: string]: any;
 }
 
 export interface TSConfigCompilerOptions {
