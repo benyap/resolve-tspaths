@@ -1,3 +1,29 @@
+### [0.2.3](https://github.com/benyap/resolve-tspaths/compare/v0.2.2...v0.2.3) (2022-01-21)
+
+
+### Bug Fixes
+
+* compilerOptions.paths not being resolved relative to extended config ([6ce9cfe](https://github.com/benyap/resolve-tspaths/commit/6ce9cfe54b8681dc284d5c5a0f445813138f09fd))
+* support parsing tsconfig with multiline comments ([b910f28](https://github.com/benyap/resolve-tspaths/commit/b910f28c2ca6ed136dbfc4d4f3cb1833c8dfab4d))
+
+
+### Dependencies
+
+* bump @release-it/conventional-changelog from 3.3.0 to 4.1.0 ([ed19888](https://github.com/benyap/resolve-tspaths/commit/ed198882994e7c97f417c1220c61ec3243ffce2f))
+* bump typescript from 4.5.4 to 4.5.5 ([400e44e](https://github.com/benyap/resolve-tspaths/commit/400e44ebe171c501ebd2973c9b7dc8f75943b385))
+
+
+### Internal
+
+* reduce dependabot schedule ([64a4105](https://github.com/benyap/resolve-tspaths/commit/64a410575c6e84c993a65b335cab67c68cbf3f13))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([5d52a6d](https://github.com/benyap/resolve-tspaths/commit/5d52a6db4f6c9bb49f60ab22924eeed09fcddc75))
+* update LICENSE year ([049df7d](https://github.com/benyap/resolve-tspaths/commit/049df7dcf0cd82b2f4b4c4fdab94abc1e5e77a32))
+* update README.md [skip ci] ([72daae5](https://github.com/benyap/resolve-tspaths/commit/72daae55779698948d952e06ce3c08eb431f1b81))
+
 ### [0.2.2](https://github.com/benyap/resolve-tspaths/compare/v0.2.1...v0.2.2) (2022-01-21)
 
 
