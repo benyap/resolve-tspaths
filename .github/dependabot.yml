@@ -7,7 +7,7 @@ updates:
     schedule:
       interval: daily
     commit-message:
-      prefix: github-actions
+      prefix: deps
     labels:
       - dependencies
     assignees:
@@ -19,7 +19,7 @@ updates:
     schedule:
       interval: daily
     commit-message:
-      prefix: npm
+      prefix: deps
     labels:
       - dependencies
     assignees:
