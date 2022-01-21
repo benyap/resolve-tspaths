@@ -57,7 +57,7 @@ describe("utils/loadJSON", () => {
     expect(() =>
       loadJSON("test/fixtures/tsconfig/sample-tsconfig-syntax-error.json", "")
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Error processing test/fixtures/tsconfig/sample-tsconfig-syntax-error.json: Failed to parse JSON. Unexpected string in JSON at position 253"`
+      `"Error processing test/fixtures/tsconfig/sample-tsconfig-syntax-error.json: Failed to parse JSON. Unexpected string in JSON at position 255"`
     );
   });
 });

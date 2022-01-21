@@ -1,6 +1,10 @@
 {
   "extends": "./nested/sample-parent-tsconfig.jsonc",
+  /**
+   * This is a multiline comment
+   */
   "compilerOptions": {
+    // This is a single line comment
     "outDir": "dist"
   }
 }

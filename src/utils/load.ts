@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import { stripComments } from "jsonc-parser";
 
 import { FileNotFoundError, JSONFileParsingError } from "./errors";
 
@@ -18,8 +19,8 @@ export function loadJSON<T = unknown>(path: string, step: string): T {
   }
 
   try {
-    data = data.replace(/ *\/\/.*/g, ""); // Remove comments
-    return JSON.parse(data) as T;
+    // Remove comments to create valid JSON from JSONC
+    return JSON.parse(stripComments(data)) as T;
   } catch (error: any) {
     throw new JSONFileParsingError(step, path, error.message);
   }

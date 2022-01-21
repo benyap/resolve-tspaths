@@ -4,10 +4,10 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "target": "ES6",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true, 
     "skipLibCheck": true,
     "strict": true,
-    "paths": {
+    "paths": { /** This is a comment **/
       "~/*": ["./src/*"]
     }
   }

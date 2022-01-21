@@ -1,7 +1,7 @@
 // This is a comment
 {
   "compilerOptions": {
-    // This is a comment
+    /* This is a comment */
     "lib": ["ES6"],
     "module": "CommonJS",
     "target": "ES6",
