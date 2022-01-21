@@ -30,6 +30,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "qiaoruntao",
+      "name": "qiaoruntao",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5846433?v=4",
+      "profile": "https://qiaoruntao.com",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
