@@ -56,7 +56,7 @@
     "@release-it/bumper": "3.0.1",
     "@release-it/conventional-changelog": "4.1.0",
     "@types/jest": "27.4.0",
-    "@types/node": "17.0.10",
+    "@types/node": "17.0.13",
     "all-contributors-cli": "6.20.0",
     "husky": "7.0.4",
     "jest": "27.4.7",
