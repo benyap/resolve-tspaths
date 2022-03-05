@@ -15,7 +15,6 @@ export function computeAliases(basePath: string, tsConfig: TSConfig): Alias[] {
       aliasPaths: paths[alias].map((path: string) =>
         resolve(basePath, path.replace(regex, ""))
       ),
-    }))
-    .filter(({ prefix }) => prefix);
+    }));
   return aliases;
 }
