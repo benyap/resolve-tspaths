@@ -1,3 +1,38 @@
+### [0.2.4](https://github.com/benyap/resolve-tspaths/compare/v0.2.3...v0.2.4) (2022-03-06)
+
+
+### Bug Fixes
+
+* resolve match-all glob correctly ([edcc08f](https://github.com/benyap/resolve-tspaths/commit/edcc08fbfb2ffe1399117f7864070773857c3a40))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([ad8e6ee](https://github.com/benyap/resolve-tspaths/commit/ad8e6ee4b862e91aecd12af291ad60cd761db29f))
+* update .all-contributorsrc [skip ci] ([92b30a2](https://github.com/benyap/resolve-tspaths/commit/92b30a2a0e93af6cbca231c9dbd0326d43833e9e))
+* update .all-contributorsrc [skip ci] ([9c8c2ea](https://github.com/benyap/resolve-tspaths/commit/9c8c2eae8ff834f057b18370e9eb3e91a67ee8d2))
+* update README.md [skip ci] ([5f92394](https://github.com/benyap/resolve-tspaths/commit/5f923943e6f8f9f98f5e0eeea2dfca3f2f0f31fd))
+* update README.md [skip ci] ([45a4b8f](https://github.com/benyap/resolve-tspaths/commit/45a4b8f0cd25af63595fcdcbeb730638f52c6d65))
+* update README.md [skip ci] ([3d80f7c](https://github.com/benyap/resolve-tspaths/commit/3d80f7cbf59ec58ec06ea9a1cd25898de965a8cf))
+
+
+### Dependencies
+
+* bump @commitlint/cli from 16.1.0 to 16.2.1 ([6314881](https://github.com/benyap/resolve-tspaths/commit/63148816c66a1379559f876a4471b996d10d43f1))
+* bump @types/node from 17.0.10 to 17.0.21 ([aa938c5](https://github.com/benyap/resolve-tspaths/commit/aa938c55e1f3a999adb1d9d791e14c0250666369))
+* bump actions/checkout from 2 to 3 ([1748175](https://github.com/benyap/resolve-tspaths/commit/174817561fd8c5049c9c47748b2e2254af7ad37f))
+* bump actions/setup-node from 2 to 3 ([7e60bda](https://github.com/benyap/resolve-tspaths/commit/7e60bda8fd54e03350852e356a005820e7a1b18a))
+* bump commander from 8.3.0 to 9.0.0 ([04057ce](https://github.com/benyap/resolve-tspaths/commit/04057cee256342b3b7661507f20800f01fa161aa))
+* bump jest from 27.4.7 to 27.5.1 ([686e774](https://github.com/benyap/resolve-tspaths/commit/686e774fe18161d915f3d871ce3d01d56e6cfa79))
+* bump node-fetch from 2.6.6 to 2.6.7 ([ce7accc](https://github.com/benyap/resolve-tspaths/commit/ce7accca85d646c99aa11fe02a59a420fb289d67))
+* bump release-it from 14.12.3 to 14.12.5 ([5a74c4b](https://github.com/benyap/resolve-tspaths/commit/5a74c4baab497b7e8d9cf1015b8a37e1e533ba6b))
+* bump ts-node from 10.4.0 to 10.6.0 ([f9ea301](https://github.com/benyap/resolve-tspaths/commit/f9ea301781779105bf3eafb940e1c0715b62734a))
+
+
+### Internal
+
+* format ([683d8a1](https://github.com/benyap/resolve-tspaths/commit/683d8a1b8bcea27524e4d5fca5a47babcc2bf5f8))
+
 ### [0.2.3](https://github.com/benyap/resolve-tspaths/compare/v0.2.2...v0.2.3) (2022-01-21)
 
 
