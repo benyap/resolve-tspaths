@@ -2141,14 +2141,6 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
-deprecated-obj@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/deprecated-obj/-/deprecated-obj-2.0.0.tgz#e6ba93a3989f6ed18d685e7d99fb8d469b4beffc"
-  integrity sha512-CkdywZC2rJ8RGh+y3MM1fw1EJ4oO/oNExGbRFv0AQoMS+faTd3nO7slYjkj/6t8OnIMUE+wxh6G97YHhK1ytrw==
-  dependencies:
-    flat "^5.0.2"
-    lodash "^4.17.20"
-
 deprecation@^2.0.0, deprecation@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/deprecation/-/deprecation-2.3.1.tgz#6368cbdb40abf3373b525ac87e4a260c3a700919"
@@ -2421,11 +2413,6 @@ find-up@^5.0.0:
   dependencies:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
-
-flat@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
-  integrity sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
 
 form-data@4.0.0:
   version "4.0.0"
@@ -3751,7 +3738,7 @@ lodash.set@^4.3.2:
   resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
   integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
 
-lodash@4.17.21, lodash@^4.11.2, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0:
+lodash@4.17.21, lodash@^4.11.2, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -4511,10 +4498,10 @@ registry-url@^5.0.0:
   dependencies:
     rc "^1.2.8"
 
-release-it@14.12.3:
-  version "14.12.3"
-  resolved "https://registry.yarnpkg.com/release-it/-/release-it-14.12.3.tgz#634c91796eba38c7113c095e1dff218b0e4542e7"
-  integrity sha512-qek7ml9WaxpXSjLpU4UGCF9nWpDgOODL1gZTuydafs1HdQPAeYOd2od8I8lUL4NlEKW2TirDhH4aFTVIpP3/cQ==
+release-it@14.12.5:
+  version "14.12.5"
+  resolved "https://registry.yarnpkg.com/release-it/-/release-it-14.12.5.tgz#aaf9802545717f299e14d1dbf025afa7bf956668"
+  integrity sha512-mGFbbX8eEKMOhfjq5mZAgGppT8CME1T+vj6xA5tAPYSCuPpcNEDjqiG1tJfPy/XImZI4uS3U6pNP5KyDpy9etg==
   dependencies:
     "@iarna/toml" "2.2.5"
     "@octokit/rest" "18.12.0"
@@ -4522,7 +4509,6 @@ release-it@14.12.3:
     chalk "4.1.2"
     cosmiconfig "7.0.1"
     debug "4.3.3"
-    deprecated-obj "2.0.0"
     execa "5.1.1"
     form-data "4.0.0"
     git-url-parse "11.6.0"
