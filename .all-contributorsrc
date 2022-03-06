@@ -41,6 +41,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "4nickel",
+      "name": "Felix Viernickel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57354511?v=4",
+      "profile": "https://github.com/4nickel",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
