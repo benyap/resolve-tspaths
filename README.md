@@ -66,9 +66,7 @@ export { stuff } from "~/some/path";
 export { stuff as myStuff } from "~/some/path";
 ```
 
-## Usage
-
-`resolve-tspaths` is a command line utility.
+## CLI Usage
 
 1. Install as a dev dependency using npm or yarn.
 
@@ -88,6 +86,25 @@ export { stuff as myStuff } from "~/some/path";
        "build": "tsc && resolve-tspaths"
      }
    }
+   ```
+
+## Programmatic Usage
+
+1. Install as a dev dependency using npm or yarn.
+
+   ```sh
+   yarn add -D resolve-tspaths
+   ```
+
+   ```sh
+   npm install --save-dev resolve-tspaths
+   ```
+
+2. Import the `resolveTsPaths` function and call it with the appropriate
+   options.
+
+   ```ts
+   import { resolveTsPaths } from "resolve-tspaths";
    ```
 
 ## Options
@@ -120,11 +137,15 @@ the program should process. Defaults to `js,d.ts`, which will process `.js` and
 
 Use this flag to print verbose logs to the console.
 
+This option is only available when using the CLI.
+
 #### `--noEmit`
 
 Use this flag to not emit any changes to your files. Recommended to be used with
 `--verbose` for debugging which files the program will change if you don't use
 `--noEmit`.
+
+This option is only available when using the CLI.
 
 ## Comparison to existing packages
 

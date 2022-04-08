@@ -7,7 +7,6 @@
     "target": "ES6",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "removeComments": true,
     "noEmit": true,
     "strict": true,
     "noErrorTruncation": true,
