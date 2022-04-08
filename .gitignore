@@ -20,5 +20,8 @@ dist
 # Yarn Integrity file
 .yarn-integrity
 
+# Coverage
+coverage
+
 # dotenv environment variables file
 .env
