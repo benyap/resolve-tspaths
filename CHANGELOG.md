@@ -1,4 +1,39 @@
-### [0.2.4](https://github.com/benyap/resolve-tspaths/compare/v0.2.3...v0.2.4) (2022-03-06)
+
+
+## [0.3.0](https://github.com/benyap/resolve-tspaths/compare/v0.2.4...v0.3.0) (2022-04-08)
+
+
+### Features
+
+* export resolveTsPaths function for use as commonjs module ([f269326](https://github.com/benyap/resolve-tspaths/commit/f2693266e85c2a4e920cfb68fdb1d66716ad1a2d))
+
+
+### Dependencies
+
+* bump @commitlint/cli from 16.2.1 to 16.2.3 ([cdee2e5](https://github.com/benyap/resolve-tspaths/commit/cdee2e5c1e30fe7ec80d473291a4a81bb8d7987f))
+* bump @commitlint/config-conventional from 16.0.0 to 16.2.1 ([c07185b](https://github.com/benyap/resolve-tspaths/commit/c07185bff7919b9a9c095e34f0f57b61764b5431))
+* bump @release-it/conventional-changelog from 4.1.0 to 4.2.2 ([7aa36e4](https://github.com/benyap/resolve-tspaths/commit/7aa36e421d6689a7eb6e334e883e121d9d19b85a))
+* bump @types/jest from 27.4.0 to 27.4.1 ([4dd214f](https://github.com/benyap/resolve-tspaths/commit/4dd214fdd70d3c008dfa9ae86cea49b1d82caa31))
+* bump @types/node from 17.0.21 to 17.0.23 ([8513ca0](https://github.com/benyap/resolve-tspaths/commit/8513ca0dfd7936c578538fc098ab8aa73e75f681))
+* bump commander from 9.0.0 to 9.1.0 ([6e6a5e7](https://github.com/benyap/resolve-tspaths/commit/6e6a5e7cfa25e858c2d0c41d96d5de668761bed1))
+* bump minimist from 1.2.5 to 1.2.6 ([aa68235](https://github.com/benyap/resolve-tspaths/commit/aa68235d543810c83e98747439473eb4ab30b377))
+* bump prettier from 2.5.1 to 2.6.2 ([1406f78](https://github.com/benyap/resolve-tspaths/commit/1406f78cd86c52d763f812d2c0702453e0bb4979))
+* bump release-it from 14.12.5 to 14.14.0 ([06d79a9](https://github.com/benyap/resolve-tspaths/commit/06d79a962e23108d8ba49898fec095936dc2acbb))
+* bump ts-jest from 27.1.3 to 27.1.4 ([1e934c8](https://github.com/benyap/resolve-tspaths/commit/1e934c84ad7719be00f0825583762e2d2107dc16))
+* bump ts-node from 10.6.0 to 10.7.0 ([f572a43](https://github.com/benyap/resolve-tspaths/commit/f572a437aa3a7206ecb6eb653ec8ebcca52a7754))
+* bump tsconfig-paths from 3.12.0 to 3.14.1 ([2436946](https://github.com/benyap/resolve-tspaths/commit/24369462417abc420f31eed351a40aa265da63af))
+* bump typescript from 4.5.5 to 4.6.3 ([53b926d](https://github.com/benyap/resolve-tspaths/commit/53b926d9e5ec28b4fab80db13d8a6f1a1c2b80be))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([b13447f](https://github.com/benyap/resolve-tspaths/commit/b13447fb64ab0886e0d6c02671461ea10e3ef137))
+* update README.md [skip ci] ([1323138](https://github.com/benyap/resolve-tspaths/commit/1323138e8d00af956bca083c28cc167fa46b8a6f))
+
+
+### Internal
+
+* move build to release-it hook ([84a53ba](https://github.com/benyap/resolve-tspaths/commit/84a53ba5a5c7ab06d94975e43dc89f59bb05c806))### [0.2.4](https://github.com/benyap/resolve-tspaths/compare/v0.2.3...v0.2.4) (2022-03-06)
 
 
 ### Bug Fixes
