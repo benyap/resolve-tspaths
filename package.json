@@ -33,7 +33,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "prebuild": "yarn clear && yarn format",
+    "prebuild": "yarn clear",
     "build": "tsc -p tsconfig.build.json",
     "postbuild": "yarn start:dev -p tsconfig.build.json",
     "clear": "rm -rf ./dist ./coverage",
@@ -43,7 +43,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "release": "yarn test && yarn build && yarn release-it"
+    "release": "yarn test && yarn release-it"
   },
   "dependencies": {
     "ansi-colors": "4.1.1",
