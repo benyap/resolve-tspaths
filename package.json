@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "ansi-colors": "4.1.1",
-    "commander": "9.0.0",
+    "commander": "9.1.0",
     "fast-glob": "3.2.11",
     "jsonc-parser": "3.0.0"
   },
