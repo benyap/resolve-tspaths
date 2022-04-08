@@ -8,7 +8,7 @@ import type { ProgramOptions, ProgramPaths, TSConfig } from "~/types";
  * Resolve paths provided to the program to absolute paths.
  */
 export function resolvePaths(
-  options: ProgramOptions,
+  options: Pick<ProgramOptions, "out" | "project" | "src">,
   tsConfig: TSConfig
 ): ProgramPaths {
   const { baseUrl, outDir, paths } = tsConfig.compilerOptions ?? {};

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolveTsPaths runs as a module 1`] = `
+"export {};
+"
+`;
+
+exports[`resolveTsPaths runs as a module 2`] = `
+"export {};
+"
+`;
+
+exports[`resolveTsPaths runs as a module 3`] = `
+"import {} from \\"package\\";
+import {} from \\"../root\\";
+import {} from \\"~/non-existent-path\\";
+"
+`;
+
+exports[`resolveTsPaths runs as a module 4`] = `
+"import {} from \\"package\\";
+import {} from \\"../root\\";
+import {} from \\"~/non-existent-path\\";
+"
+`;
+
+exports[`resolveTsPaths runs as a module 5`] = `
+"import {} from \\"package\\";
+import {} from \\"../../root\\";
+import {} from \\"~/non-existent-path\\";
+"
+`;
+
+exports[`resolveTsPaths runs as a module 6`] = `
+"import {} from \\"package\\";
+import {} from \\"../../root\\";
+import {} from \\"~/non-existent-path\\";
+"
+`;
