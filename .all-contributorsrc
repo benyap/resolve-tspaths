@@ -52,6 +52,15 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "tcK1",
+      "name": "Kaic Bastidas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9873486?v=4",
+      "profile": "http://kaic.dev",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
