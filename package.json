@@ -52,7 +52,7 @@
     "jsonc-parser": "3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.2.3",
+    "@commitlint/cli": "16.2.4",
     "@commitlint/config-conventional": "16.2.4",
     "@release-it/bumper": "3.0.1",
     "@release-it/conventional-changelog": "4.3.0",
