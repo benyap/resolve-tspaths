@@ -9,7 +9,7 @@ import { TSConfigPropertyError } from "~/utils/errors";
  * Load the tsconfig file. If the file extends another tsconfig,
  * it will be recursively loaded.
  *
- * @param path The path to the tsconfig file.
+ * @param basePath The path to the tsconfig file.
  */
 export function loadTSConfig(basePath: string): TSConfig {
   const baseConfig = loadJSON<TSConfig>(basePath, "loadTSConfig");
