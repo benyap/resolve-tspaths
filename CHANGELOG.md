@@ -1,5 +1,35 @@
 
 
+## [0.4.0](https://github.com/benyap/resolve-tspaths/compare/v0.3.0...v0.4.0) (2022-05-14)
+
+
+### Features
+
+* pass --ext as list instead of comma-separated string ([23a4cce](https://github.com/benyap/resolve-tspaths/commit/23a4cce7aa9b1b88c436917d5edf3dbcc108ba25))
+
+
+### Internal
+
+* add deps to commitlint ([fc5a5b3](https://github.com/benyap/resolve-tspaths/commit/fc5a5b3fd7831c165a8acd88a6bc9406589ebaf6))
+* add test for resolving aliases from nested path ([1e8aaf0](https://github.com/benyap/resolve-tspaths/commit/1e8aaf0280d6ca0b9c317e11e1b53fac8ecdc2f8))
+* gitignore coverage directory ([43b2814](https://github.com/benyap/resolve-tspaths/commit/43b28142ee3e8dfcc7254c449b4c333f8e6ef1dd))
+* rename some start scripts ([ad267c5](https://github.com/benyap/resolve-tspaths/commit/ad267c5aa58f13440ae95a18621509e2b38f39be))
+
+
+### Dependencies
+
+* bump @commitlint/cli from 16.2.3 to 16.2.4 ([6094bf5](https://github.com/benyap/resolve-tspaths/commit/6094bf5f127e8b1f14fb539d6e91394ca44cc4d4))
+* bump @commitlint/config-conventional from 16.2.1 to 16.2.4 ([102aa50](https://github.com/benyap/resolve-tspaths/commit/102aa5047bfe848a7316acb4a65225decf2a11c8))
+* bump @release-it/conventional-changelog from 4.2.2 to 4.3.0 ([5112bf2](https://github.com/benyap/resolve-tspaths/commit/5112bf2a67a4b8cfc427bddb8afbfa9eadc37638))
+* bump @types/jest, jest and ts-jest ([1ca13bb](https://github.com/benyap/resolve-tspaths/commit/1ca13bb6d26047689db191eac17c361db35552f4))
+* bump @types/node from 17.0.23 to 17.0.33 ([a6a5034](https://github.com/benyap/resolve-tspaths/commit/a6a503490d28b50be4894d475c5bd15ded69f61f))
+* bump commander from 9.1.0 to 9.2.0 ([0b4a92a](https://github.com/benyap/resolve-tspaths/commit/0b4a92a8c602f9664b6b7211741c58f7ea56509d))
+* bump husky from 7.0.4 to 8.0.1 ([ca95c62](https://github.com/benyap/resolve-tspaths/commit/ca95c626b9eb46acace3a1c292ce517ed2c112e3))
+* bump release-it from 14.14.0 to 14.14.3 ([b7b7547](https://github.com/benyap/resolve-tspaths/commit/b7b7547b3dff65878b5b364d3c542598df563cd7))
+* bump release-it, @release-it/bumper and @release-it/conventional-changelog ([831962c](https://github.com/benyap/resolve-tspaths/commit/831962c5eb72e41b4e59f9aec0b84baaa41248dc))
+* bump tsconfig-paths from 3.14.1 to 4.0.0 ([dac2b9e](https://github.com/benyap/resolve-tspaths/commit/dac2b9eca02db53bb172d02e1088d9b5f6b1d8ff))
+* bump typescript from 4.6.3 to 4.6.4 ([16ca3fd](https://github.com/benyap/resolve-tspaths/commit/16ca3fdc9bec58f1b3aae781c73d81352a82864d))
+
 ## [0.3.0](https://github.com/benyap/resolve-tspaths/compare/v0.2.4...v0.3.0) (2022-04-08)
 
 
