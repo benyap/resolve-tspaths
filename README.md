@@ -127,11 +127,11 @@ Specify the output directory of the compiled code where `resolve-tspaths` should
 perform its changes. If not provided, it will default to
 `compilerOptions.outDir` from your `tsconfig`.
 
-#### `--ext <extensions>`
+#### `--ext <extension...>`
 
-Provide a comma separated list of file extensions in the output directory that
-the program should process. Defaults to `js,d.ts`, which will process `.js` and
-`.d.ts` files.
+Provide a (space separatated) list of file extensions in the output directory
+that the program should process. Defaults to `js` and `d.ts`, which will process
+`.js` and `.d.ts` files.
 
 #### `--verbose`
 

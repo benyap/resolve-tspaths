@@ -1,4 +1,4 @@
-import {getFilesToProcess} from "~/steps/getFilesToProcess";
+import { getFilesToProcess } from "~/steps/getFilesToProcess";
 import * as path from "path";
 
 describe("steps/getFilesToProcess", () => {
@@ -6,21 +6,21 @@ describe("steps/getFilesToProcess", () => {
     // absolute path is passed to getFilesToProcess function, so we have to convert it
     const cwd = process.cwd();
     const testDirectory = path.join(cwd, "test/fixtures/files");
-    const files = getFilesToProcess(testDirectory, "js");
+    const files = getFilesToProcess(testDirectory, ["js"]);
     expect(files).toHaveLength(1);
   });
 
   it("gets files with multiple extensions correctly", () => {
     const cwd = process.cwd();
     const testDirectory = path.join(cwd, "test/fixtures/files");
-    const files = getFilesToProcess(testDirectory, "js,ts");
+    const files = getFilesToProcess(testDirectory, ["js", "ts"]);
     expect(files).toHaveLength(2);
   });
 
   it("gets nested files correctly", () => {
     const cwd = process.cwd();
     const testDirectory = path.join(cwd, "test/fixtures/files");
-    const files = getFilesToProcess(testDirectory, "tsx");
+    const files = getFilesToProcess(testDirectory, ["tsx"]);
     expect(files).toHaveLength(2);
   });
 });

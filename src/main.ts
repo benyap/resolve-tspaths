@@ -2,17 +2,17 @@
 
 import { bold } from "ansi-colors";
 
-import { Logger } from "./utils/logger";
-import { StepError } from "./utils/errors";
-import type { ProgramOptions } from "./types";
+import type { ProgramOptions } from "~/types";
+import { Logger } from "~/utils/logger";
+import { StepError } from "~/utils/errors";
 
-import { createProgram } from "./steps/createProgram";
-import { loadTSConfig } from "./steps/loadTSConfig";
-import { resolvePaths } from "./steps/resolvePaths";
-import { computeAliases } from "./steps/computeAliases";
-import { getFilesToProcess } from "./steps/getFilesToProcess";
-import { generateChanges } from "./steps/generateChanges";
-import { applyChanges } from "./steps/applyChanges";
+import { createProgram } from "~/steps/createProgram";
+import { loadTSConfig } from "~/steps/loadTSConfig";
+import { resolvePaths } from "~/steps/resolvePaths";
+import { computeAliases } from "~/steps/computeAliases";
+import { getFilesToProcess } from "~/steps/getFilesToProcess";
+import { generateChanges } from "~/steps/generateChanges";
+import { applyChanges } from "~/steps/applyChanges";
 
 function main() {
   const program = createProgram();

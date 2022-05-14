@@ -17,8 +17,8 @@ export interface ProgramOptions {
   src: string;
   /** Path to the output directory. */
   out?: string;
-  /** A comma seperated list of file extensions that will be matched for replacement. */
-  ext: string;
+  /** A list of file extensions that will be matched for replacement. */
+  ext: string[];
   /** If `true`, verbose logs will be printed for degugging. */
   verbose: boolean;
   /** If `true`, changes will not be emitted. */

@@ -20,7 +20,7 @@ export function createProgram() {
     .option("-p, --project <file>", "path to tsconfig.json", "tsconfig.json")
     .option("-s, --src <path>", "source root path", "src")
     .option("-o, --out <path>", "output root path")
-    .option("--ext <extensions>", "extension types", "js,d.ts")
+    .option("--ext <extensions...>", "extension types", ["js", "d.ts"] as any)
     .option("--verbose", "output logs", false)
     .option("--noEmit", "changes will not be emitted", false);
 

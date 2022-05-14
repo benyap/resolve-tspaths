@@ -1,7 +1,8 @@
 import { resolve } from "path";
 import { sync } from "fast-glob";
 
-function convertPath(windowsPath: string) {
+// See https://github.com/benyap/resolve-tspaths/pull/20
+function normalisePath(windowsPath: string) {
   return windowsPath
     .replace(/^\\\\\?\\/, "")
     .replace(/\\/g, "/")
@@ -12,15 +13,14 @@ function convertPath(windowsPath: string) {
  * Get the files in the output directory that should be processed.
  *
  * @param outPath The output directory.
- * @param extensions A comma separated list of extensions to match.
+ * @param extensions A list of extensions to match.
  */
-export function getFilesToProcess(outPath: string, extensions: string) {
-  const normalizedOutPath = convertPath(outPath);
-  const extensionsList = extensions.split(",");
+export function getFilesToProcess(outPath: string, extensions: string[]) {
+  const normalizedOutPath = normalisePath(outPath);
 
   let glob = "*";
-  if (extensionsList.length === 1) glob = `*.${extensionsList[0]}`;
-  else if (extensionsList.length > 1) glob = `*.{${extensionsList.join(",")}}`;
+  if (extensions.length === 1) glob = `*.${extensions[0]}`;
+  else if (extensions.length > 1) glob = `*.{${extensions.join(",")}}`;
 
   return sync(`${normalizedOutPath}/**/${glob}`, {
     dot: true,

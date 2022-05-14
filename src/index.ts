@@ -1,11 +1,11 @@
-import { ProgramOptions } from "./types";
+import { ProgramOptions } from "~/types";
 
-import { loadTSConfig } from "./steps/loadTSConfig";
-import { resolvePaths } from "./steps/resolvePaths";
-import { computeAliases } from "./steps/computeAliases";
-import { getFilesToProcess } from "./steps/getFilesToProcess";
-import { generateChanges } from "./steps/generateChanges";
-import { applyChanges } from "./steps/applyChanges";
+import { loadTSConfig } from "~/steps/loadTSConfig";
+import { resolvePaths } from "~/steps/resolvePaths";
+import { computeAliases } from "~/steps/computeAliases";
+import { getFilesToProcess } from "~/steps/getFilesToProcess";
+import { generateChanges } from "~/steps/generateChanges";
+import { applyChanges } from "~/steps/applyChanges";
 
 export type ResolveTsPathOptions = Omit<
   Partial<ProgramOptions>,
@@ -22,7 +22,7 @@ export async function resolveTsPaths(
   const {
     project = "tsconfig.json",
     src = "src",
-    ext = "js,d.ts",
+    ext = ["js", "d.ts"],
     out,
   } = options;
   const tsConfig = loadTSConfig(project);
