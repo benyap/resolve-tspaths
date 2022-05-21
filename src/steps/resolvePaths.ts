@@ -36,7 +36,9 @@ export function resolvePaths(
   const configFile = resolve(process.cwd(), options.project);
   const configPath = dirname(configFile);
   const basePath = resolve(configPath, baseUrl);
-  const srcPath = resolve(options.src);
+  const srcPath = resolve(
+    options.src ?? tsConfig?.compilerOptions?.rootDir ?? "src"
+  );
   const outPath = resolve(out);
 
   return { basePath, configPath, configFile, srcPath, outPath };

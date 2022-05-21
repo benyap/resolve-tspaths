@@ -5,13 +5,9 @@ import { computeAliases } from "~/steps/computeAliases";
 describe("steps/computeAliases", () => {
   it("computes aliases correctly from the root path", () => {
     const aliases = computeAliases(resolve("."), {
-      compilerOptions: {
-        paths: {
-          "*": ["./lib/*"],
-          "~/*": ["./src/*", "./root/*"],
-          "@app": ["./src/app/*"],
-        },
-      },
+      "*": ["./lib/*"],
+      "~/*": ["./src/*", "./root/*"],
+      "@app": ["./src/app/*"],
     });
 
     expect(aliases).toHaveLength(3);
@@ -27,13 +23,9 @@ describe("steps/computeAliases", () => {
 
   it("computes aliases correctly using a nested path", () => {
     const aliases = computeAliases(resolve("./src"), {
-      compilerOptions: {
-        paths: {
-          "*": ["../lib/*"],
-          "~/*": ["./*", "../root/*"],
-          "@app": ["./app/*"],
-        },
-      },
+      "*": ["../lib/*"],
+      "~/*": ["./*", "../root/*"],
+      "@app": ["./app/*"],
     });
 
     expect(aliases).toHaveLength(3);

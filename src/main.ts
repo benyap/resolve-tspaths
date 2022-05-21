@@ -24,13 +24,16 @@ function main() {
 
   try {
     const tsConfig = loadTSConfig(options.project);
-    const { baseUrl, outDir, paths } = tsConfig.compilerOptions ?? {};
-    logger.fancyParams("compilerOptions", { baseUrl, outDir, paths });
+    const { rootDir, outDir, baseUrl, paths } = tsConfig.compilerOptions ?? {};
+    logger.fancyParams("compilerOptions", { rootDir, outDir, baseUrl, paths });
 
     const programPaths = resolvePaths(options, tsConfig);
     logger.fancyParams("programPaths", programPaths);
 
-    const aliases = computeAliases(programPaths.basePath, tsConfig);
+    const aliases = computeAliases(
+      programPaths.basePath,
+      tsConfig?.compilerOptions?.paths ?? {}
+    );
     logger.fancyParams("aliases", aliases);
 
     const files = getFilesToProcess(programPaths.outPath, options.ext);

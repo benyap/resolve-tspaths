@@ -33,7 +33,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "clean": "rm -rf ./dist ./coverage",
+    "clean": "rm -rf ./dist/* ./coverage/*",
     "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.build.json",
     "postbuild": "yarn dev -p tsconfig.build.json --verbose",
