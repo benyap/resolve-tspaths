@@ -112,34 +112,34 @@ export { stuff as myStuff } from "~/some/path";
 _`resolve-tspaths` uses some reasonable defaults. For most cases, you probably
 won't need to specify any options._
 
-#### `--project <project>, -p <project>`
+#### `--project <path>, -p <path>`
 
-Specify the `tsconfig` that the program should use. If not provided, it defaults
-to `tsconfig.json`.
+Specify the path to the tsconfig file that the program should use. Defaults to
+"tsconfig.json" if not provided.
 
 #### `--src <path>, -s <path>`
 
-Specify the source directory. If not provided, it defaults to `./src` - so
-please make sure you specify an appropriate value for this if your code does not
-live inside a `src` directory.
+Specify the source directory. Defaults to `compilerOptions.rootDir` from your
+tsconfig if not provided. If `rootDir` is not defined in your tsconfig, it will
+default to "src".
 
 #### `--out <path>, -o <path>`
 
 Specify the output directory of the compiled code where `resolve-tspaths` should
-perform its changes. If not provided, it will default to
-`compilerOptions.outDir` from your `tsconfig`.
+perform its changes. Defaults to `compilerOptions.outDir` from your tsconfig if
+not provided.
 
 #### `--ext <extension...>`
 
 Provide a (space separatated) list of file extensions in the output directory
-that the program should process. Defaults to `js` and `d.ts`, which will process
-`.js` and `.d.ts` files.
+that the program should process. Defaults to `["js", "d.ts"]` to process js and
+type declaration files.
 
 #### `--verbose`
 
 Use this flag to print verbose logs to the console.
 
-This option is only available when using the CLI.
+_This option is only available when using the CLI._
 
 #### `--noEmit`
 
@@ -147,7 +147,7 @@ Use this flag to not emit any changes to your files. Recommended to be used with
 `--verbose` for debugging which files the program will change if you don't use
 `--noEmit`.
 
-This option is only available when using the CLI.
+_This option is only available when using the CLI._
 
 ## Comparison to existing packages
 

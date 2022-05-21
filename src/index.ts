@@ -27,7 +27,10 @@ export async function resolveTsPaths(
   } = options;
   const tsConfig = loadTSConfig(project);
   const programPaths = resolvePaths({ project, src, out }, tsConfig);
-  const aliases = computeAliases(programPaths.basePath, tsConfig);
+  const aliases = computeAliases(
+    programPaths.basePath,
+    tsConfig?.compilerOptions?.paths ?? {}
+  );
   const files = getFilesToProcess(programPaths.outPath, ext);
   const changes = generateChanges(files, aliases, programPaths);
   applyChanges(changes);

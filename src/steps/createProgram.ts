@@ -17,9 +17,9 @@ export function createProgram() {
     .version(version)
     .name("resolve-tspaths")
     .addHelpText("after", example)
-    .option("-p, --project <file>", "path to tsconfig.json", "tsconfig.json")
-    .option("-s, --src <path>", "source root path", "src")
-    .option("-o, --out <path>", "output root path")
+    .option("-p, --project <path>", "path to tsconfig file", "tsconfig.json")
+    .option("-s, --src <path>", "path to source directory")
+    .option("-o, --out <path>", "path to output directory")
     .option("--ext <extensions...>", "extension types", ["js", "d.ts"] as any)
     .option("--verbose", "output logs", false)
     .option("--noEmit", "changes will not be emitted", false);
