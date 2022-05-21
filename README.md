@@ -119,7 +119,9 @@ to `tsconfig.json`.
 
 #### `--src <path>, -s <path>`
 
-Specify the source directory. If not provided, it defaults to `./src`.
+Specify the source directory. If not provided, it defaults to `./src` - so
+please make sure you specify an appropriate value for this if your code does not
+live inside a `src` directory.
 
 #### `--out <path>, -o <path>`
 
