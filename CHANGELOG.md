@@ -1,5 +1,31 @@
 
 
+## [0.5.0](https://github.com/benyap/resolve-tspaths/compare/v0.4.0...v0.5.0) (2022-05-21)
+
+
+### Features
+
+* use rootDir as source directory if present in tsconfig ([cd8f461](https://github.com/benyap/resolve-tspaths/commit/cd8f461d7efdc2ff7ad2c880c074577a27180ad8))
+
+
+### Dependencies
+
+* bump @commitlint/cli from 16.2.4 to 17.0.0 ([#86](https://github.com/benyap/resolve-tspaths/issues/86)) ([10e65d1](https://github.com/benyap/resolve-tspaths/commit/10e65d1fdb3b134f5b0e0e4d320925bad26b0333))
+* bump @commitlint/config-conventional from 16.2.4 to 17.0.0 ([#87](https://github.com/benyap/resolve-tspaths/issues/87)) ([5991d21](https://github.com/benyap/resolve-tspaths/commit/5991d2102d8201f12d517ea4c1beb2938495220a))
+* bump @types/node from 17.0.33 to 17.0.35 ([#85](https://github.com/benyap/resolve-tspaths/issues/85)) ([cf5d825](https://github.com/benyap/resolve-tspaths/commit/cf5d825798e7aebd7000ae9831b2fea742e6dbcc))
+* bump ansi-colors from 4.1.1 to 4.1.3 ([#84](https://github.com/benyap/resolve-tspaths/issues/84)) ([302429f](https://github.com/benyap/resolve-tspaths/commit/302429f287efbcade61c2d600bc4da7ecab535b4))
+
+
+### Internal
+
+* update README ([b4b0ef0](https://github.com/benyap/resolve-tspaths/commit/b4b0ef04b27792bca04ca188a45fdd31a5ac9c54))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([9f9051e](https://github.com/benyap/resolve-tspaths/commit/9f9051e9461490556a36bbb2a784f23e9e319268))
+* update README.md [skip ci] ([697faa0](https://github.com/benyap/resolve-tspaths/commit/697faa0aea03e98ddf84d12d3bbe779f9d58a6e2))
+
 ## [0.4.0](https://github.com/benyap/resolve-tspaths/compare/v0.3.0...v0.4.0) (2022-05-14)
 
 
