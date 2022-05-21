@@ -187,6 +187,7 @@ Thanks goes to these wonderful people
     <td align="center"><a href="https://qiaoruntao.com"><img src="https://avatars.githubusercontent.com/u/5846433?v=4?s=80" width="80px;" alt=""/><br /><sub><b>qiaoruntao</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/commits?author=qiaoruntao" title="Code">💻</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=qiaoruntao" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/4nickel"><img src="https://avatars.githubusercontent.com/u/57354511?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Felix Viernickel</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3A4nickel" title="Bug reports">🐛</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=4nickel" title="Tests">⚠️</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=4nickel" title="Code">💻</a></td>
     <td align="center"><a href="http://kaic.dev"><img src="https://avatars.githubusercontent.com/u/9873486?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Kaic Bastidas</b></sub></a><br /><a href="#ideas-tcK1" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/Atlinx"><img src="https://avatars.githubusercontent.com/u/25368491?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Atlinx</b></sub></a><br /><a href="#ideas-Atlinx" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
