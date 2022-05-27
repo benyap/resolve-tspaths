@@ -61,7 +61,7 @@ const stuff = await import("~/some/path");
 
 ```ts
 export * from "~/some/path";
-export * as stuff from "~/some/path":
+export * as stuff from "~/some/path";
 export { stuff } from "~/some/path";
 export { stuff as myStuff } from "~/some/path";
 ```
