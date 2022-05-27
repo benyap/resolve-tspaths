@@ -1,5 +1,17 @@
 
 
+## [0.6.0](https://github.com/benyap/resolve-tspaths/compare/v0.5.0...v0.6.0) (2022-05-27)
+
+
+### Features
+
+* add Typescript as a peer dependency and use it to parse tsconfig ([aa936c5](https://github.com/benyap/resolve-tspaths/commit/aa936c5f12ba5a462ab031614426fbd2b060f4a8))
+
+
+### Dependencies
+
+* bump @commitlint/cli, ts-jest, ts-node, typescript ([9a8648f](https://github.com/benyap/resolve-tspaths/commit/9a8648f24674cc17df92288beece8485d96438b7))
+
 ## [0.5.0](https://github.com/benyap/resolve-tspaths/compare/v0.4.0...v0.5.0) (2022-05-21)
 
 
