@@ -24,7 +24,7 @@ function main() {
 
   try {
     const tsConfig = loadTSConfig(options.project);
-    const { rootDir, outDir, baseUrl, paths } = tsConfig.compilerOptions ?? {};
+    const { rootDir, outDir, baseUrl, paths } = tsConfig.options ?? {};
     logger.fancyParams("compilerOptions", { rootDir, outDir, baseUrl, paths });
 
     const programPaths = resolvePaths(options, tsConfig);
@@ -32,7 +32,7 @@ function main() {
 
     const aliases = computeAliases(
       programPaths.basePath,
-      tsConfig?.compilerOptions?.paths ?? {}
+      tsConfig?.options?.paths ?? {}
     );
     logger.fancyParams("aliases", aliases);
 

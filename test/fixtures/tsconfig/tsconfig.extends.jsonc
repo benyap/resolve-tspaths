@@ -1,5 +1,5 @@
 {
-  "extends": "./nested/sample-parent-tsconfig.jsonc",
+  "extends": "./test/fixtures/tsconfig/nested/tsconfig.parent.jsonc",
   /**
    * This is a multiline comment
    */

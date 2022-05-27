@@ -8,7 +8,7 @@
     "skipLibCheck": true,
     "strict": true,
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./app/*"]
     }
   },
   "include": ["src/**/*", "test/**/*"]

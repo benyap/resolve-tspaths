@@ -1,5 +1,6 @@
-import { getFilesToProcess } from "~/steps/getFilesToProcess";
 import * as path from "path";
+
+import { getFilesToProcess } from "~/steps/getFilesToProcess";
 
 describe("steps/getFilesToProcess", () => {
   it("gets files with one extension correctly", () => {

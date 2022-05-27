@@ -1,15 +1,8 @@
-export interface TSConfig {
-  extends?: string;
-  compilerOptions?: TSConfigCompilerOptions;
-  [key: string]: any;
-}
+import type { CompilerOptions, ParsedCommandLine } from "typescript";
 
-export interface TSConfigCompilerOptions {
-  baseUrl?: string;
-  outDir?: string;
-  rootDir?: string;
-  paths?: { [key: string]: string[] };
-}
+export type TSConfig = ParsedCommandLine;
+
+export type TSConfigCompilerOptions = CompilerOptions;
 
 export interface ProgramOptions {
   /**

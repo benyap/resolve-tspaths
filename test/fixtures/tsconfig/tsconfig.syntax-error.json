@@ -1,0 +1,13 @@
+{
+  "compilerOptions" {
+    "lib": ["ES6"]
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES6",
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+    "strict": tru
+    "paths" { /** This is a comment **/
+      "@/*": ["./src/*"]
+    }
+}

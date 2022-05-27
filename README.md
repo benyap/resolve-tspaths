@@ -68,14 +68,15 @@ export { stuff as myStuff } from "~/some/path";
 
 ## CLI Usage
 
-1. Install as a dev dependency using npm or yarn.
+1. Install as a dev dependency using npm or yarn, along with
+   [Typescript](https://www.npmjs.com/package/typescript) 3.x or later.
 
    ```sh
-   yarn add -D resolve-tspaths
+   yarn add -D resolve-tspaths typescript
    ```
 
    ```sh
-   npm install --save-dev resolve-tspaths
+   npm install --save-dev resolve-tspaths typescript
    ```
 
 2. Add it as a part of your build script in `package.json` after `tsc`.
@@ -90,14 +91,15 @@ export { stuff as myStuff } from "~/some/path";
 
 ## Programmatic Usage
 
-1. Install as a dev dependency using npm or yarn.
+1. Install as a dev dependency using npm or yarn, along with
+   [Typescript](https://www.npmjs.com/package/typescript) 3.x or later.
 
    ```sh
-   yarn add -D resolve-tspaths
+   yarn add -D resolve-tspaths typescript
    ```
 
    ```sh
-   npm install --save-dev resolve-tspaths
+   npm install --save-dev resolve-tspaths typescript
    ```
 
 2. Import the `resolveTsPaths` function and call it with the appropriate
