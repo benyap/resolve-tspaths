@@ -52,7 +52,7 @@
     "jsonc-parser": "3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.0.0",
+    "@commitlint/cli": "17.0.1",
     "@commitlint/config-conventional": "17.0.0",
     "@release-it/bumper": "4.0.0",
     "@release-it/conventional-changelog": "5.0.0",
@@ -63,9 +63,9 @@
     "jest": "28.1.0",
     "prettier": "2.6.2",
     "release-it": "15.0.0",
-    "ts-jest": "28.0.2",
-    "ts-node": "10.7.0",
+    "ts-jest": "28.0.3",
+    "ts-node": "10.8.0",
     "tsconfig-paths": "4.0.0",
-    "typescript": "4.6.4"
+    "typescript": "4.7.2"
   }
 }
