@@ -128,6 +128,18 @@ describe("steps/generateChanges", () => {
       `);
     });
 
+    it("matches const require.resolve statements", () => {
+      const result = regex.exec(
+        `const package = require.resolve('../package');`
+      );
+      expect(result).toMatchInlineSnapshot(`
+        Array [
+          "require.resolve('../package')",
+          "../package",
+        ]
+      `);
+    });
+
     it("matches const {} require statements", () => {
       const result = regex.exec(
         `const { package } = require('~/package/package');`
