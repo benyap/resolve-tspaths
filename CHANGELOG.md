@@ -1,5 +1,54 @@
 
 
+## [0.7.0](https://github.com/benyap/resolve-tspaths/compare/v0.6.0...v0.7.0) (2022-07-09)
+
+
+### Features
+
+* add support for require.resolve statements ([#119](https://github.com/benyap/resolve-tspaths/issues/119)) ([e3e14e6](https://github.com/benyap/resolve-tspaths/commit/e3e14e65775f68a601f741d33f56ece7501fb206))
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v9.3.0 ([#106](https://github.com/benyap/resolve-tspaths/issues/106)) ([ed0e848](https://github.com/benyap/resolve-tspaths/commit/ed0e848dbf838fe650bbacd289ea77fe9184f8a2))
+
+
+### Dependencies
+
+* bump @commitlint/cli from 17.0.1 to 17.0.2 ([#93](https://github.com/benyap/resolve-tspaths/issues/93)) ([7479565](https://github.com/benyap/resolve-tspaths/commit/7479565d12d25163fdbc09c172b5c6be7c2bf389))
+* bump @commitlint/config-conventional from 17.0.0 to 17.0.2 ([#94](https://github.com/benyap/resolve-tspaths/issues/94)) ([c71b1bc](https://github.com/benyap/resolve-tspaths/commit/c71b1bc39216f29e71cadc22ffe1741f290529b9))
+* bump @types/node from 17.0.35 to 17.0.38 ([#90](https://github.com/benyap/resolve-tspaths/issues/90)) ([eb43edd](https://github.com/benyap/resolve-tspaths/commit/eb43eddcef64516292e6e83edcdeff28d562caa3))
+* bump ts-jest from 28.0.3 to 28.0.4 ([#92](https://github.com/benyap/resolve-tspaths/issues/92)) ([ead8d8c](https://github.com/benyap/resolve-tspaths/commit/ead8d8c7deb0c3608f38880d3770064048304308))
+
+
+### Internal
+
+* **deps:** bump parse-url from 6.0.0 to 6.0.2 ([#118](https://github.com/benyap/resolve-tspaths/issues/118)) ([fdd403b](https://github.com/benyap/resolve-tspaths/commit/fdd403b442fe316748ac842535a4ea7c1b1b0c3d))
+* **deps:** update commitlint monorepo to v17.0.3 ([#114](https://github.com/benyap/resolve-tspaths/issues/114)) ([d80b1b5](https://github.com/benyap/resolve-tspaths/commit/d80b1b570789f58776fa8ba2a2a5163f7439e4be))
+* **deps:** update dependency @types/jest to v28 ([#107](https://github.com/benyap/resolve-tspaths/issues/107)) ([f7fa373](https://github.com/benyap/resolve-tspaths/commit/f7fa3732b5f0326e5c10b8bee6afc27f277b1f64))
+* **deps:** update dependency @types/jest to v28.1.3 ([#111](https://github.com/benyap/resolve-tspaths/issues/111)) ([9b86397](https://github.com/benyap/resolve-tspaths/commit/9b86397e8d31831a4958ba90eb8fd0bde31a1c5d))
+* **deps:** update dependency prettier to v2.7.0 ([#109](https://github.com/benyap/resolve-tspaths/issues/109)) ([b0d7c08](https://github.com/benyap/resolve-tspaths/commit/b0d7c08e82bb09c612c5c4f8dda5e047550e3545))
+* **deps:** update dependency prettier to v2.7.1 ([#110](https://github.com/benyap/resolve-tspaths/issues/110)) ([7145796](https://github.com/benyap/resolve-tspaths/commit/7145796a2a454c8c98e30da44ddcbf72e420fbb3))
+* **deps:** update dependency release-it to v15.1.0 ([#113](https://github.com/benyap/resolve-tspaths/issues/113)) ([f67c365](https://github.com/benyap/resolve-tspaths/commit/f67c365cd0d3fef077279367187a7626df1b1e5e))
+* **deps:** update dependency release-it to v15.1.1 ([#115](https://github.com/benyap/resolve-tspaths/issues/115)) ([98ee374](https://github.com/benyap/resolve-tspaths/commit/98ee374c8079361389b3821ce1fd700487d44040))
+* **deps:** update dependency ts-jest to v28.0.5 ([#108](https://github.com/benyap/resolve-tspaths/issues/108)) ([05d7cd9](https://github.com/benyap/resolve-tspaths/commit/05d7cd9eb37c6dd63d03e8a0c6290f4246c311bc))
+* **deps:** update dependency ts-node to v10.8.1 ([#102](https://github.com/benyap/resolve-tspaths/issues/102)) ([28949ab](https://github.com/benyap/resolve-tspaths/commit/28949ab726e8110463eac6bb9bcbce5c79a67d92))
+* **deps:** update dependency ts-node to v10.8.2 ([#117](https://github.com/benyap/resolve-tspaths/issues/117)) ([aaf6192](https://github.com/benyap/resolve-tspaths/commit/aaf6192f2687c4341fc0eb4a5a35920f58ed6dee))
+* **deps:** update dependency typescript to v4.7.3 ([#103](https://github.com/benyap/resolve-tspaths/issues/103)) ([2fbe1b8](https://github.com/benyap/resolve-tspaths/commit/2fbe1b873307ca10b42e524c004b90963907d106))
+* **deps:** update dependency typescript to v4.7.4 ([#112](https://github.com/benyap/resolve-tspaths/issues/112)) ([e06d3ad](https://github.com/benyap/resolve-tspaths/commit/e06d3ad3c29ba0de40a05c74c330ef4294d1d64c))
+* **deps:** update jest monorepo ([#105](https://github.com/benyap/resolve-tspaths/issues/105)) ([88f0e86](https://github.com/benyap/resolve-tspaths/commit/88f0e867d4dd57bd09a0db55bb896db56ba651d3))
+* **deps:** update jest monorepo ([#116](https://github.com/benyap/resolve-tspaths/issues/116)) ([afe9452](https://github.com/benyap/resolve-tspaths/commit/afe9452efa9b4cfcdb1989b5c97d062b9e8cd5bf))
+* use json for prettierrc ([698cbc7](https://github.com/benyap/resolve-tspaths/commit/698cbc7093ca12972a942a91acb286cec8e8d632))
+* use renovate instead of dependabot ([fd31497](https://github.com/benyap/resolve-tspaths/commit/fd314972e76a6c8fbb88fd7318cb429e3b07f66b))
+
+
+### Documentation
+
+* fix typo in README ([ce075c6](https://github.com/benyap/resolve-tspaths/commit/ce075c697afc28285982e871d8c28a79e94fc5d0))
+* update .all-contributorsrc [skip ci] ([976bb89](https://github.com/benyap/resolve-tspaths/commit/976bb8912fa14a692bd63e93102e959c03890947))
+* update documentation for require.resolve ([acdaae9](https://github.com/benyap/resolve-tspaths/commit/acdaae9742fc4e0984a54eb38e938beec7e0be4c))
+* update README.md [skip ci] ([82d6be0](https://github.com/benyap/resolve-tspaths/commit/82d6be0edde5c015e80b21a774b305dab8e67b73))
+
 ## [0.6.0](https://github.com/benyap/resolve-tspaths/compare/v0.5.0...v0.6.0) (2022-05-27)
 
 
