@@ -66,6 +66,13 @@ export { stuff } from "~/some/path";
 export { stuff as myStuff } from "~/some/path";
 ```
 
+**Node.JS
+[require.resolve](https://nodejs.org/api/modules.html#requireresolverequest-options)**
+
+```ts
+const path = require.resolve("~/some/path");
+```
+
 ## CLI Usage
 
 1. Install as a dev dependency using npm or yarn, along with
