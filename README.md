@@ -16,10 +16,6 @@ Use this package after `tsc` builds your code to replace any path aliases with
 relative paths - this means that you can develop using path aliases whilst still
 being able to ship working JavaScript code.
 
-_Yes, there are plugins that can handle this when you use bundlers such as
-Webpack or Rollup. But if you don't want to use a bundler, this package is a
-convenient solution._
-
 **Sample `tsconfig.json`:**
 
 ```ts

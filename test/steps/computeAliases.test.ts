@@ -1,6 +1,7 @@
 import { resolve } from "path";
 
 import { computeAliases } from "~/steps/computeAliases";
+import { InvalidAliasError } from "~/utils/errors";
 
 describe("steps/computeAliases", () => {
   it("computes aliases correctly from the root path", () => {
@@ -37,5 +38,25 @@ describe("steps/computeAliases", () => {
     expect(aliases[0].aliasPaths).toEqual([`${cwd}/lib`]);
     expect(aliases[1].aliasPaths).toEqual([`${cwd}/src`, `${cwd}/root`]);
     expect(aliases[2].aliasPaths).toEqual([`${cwd}/src/app`]);
+  });
+
+  it("throws an error if a path alias starting with ./ is detected", () => {
+    const attempt = () =>
+      computeAliases(resolve("."), {
+        "./*": ["./lib/*"],
+        "~/*": ["./src/*", "./root/*"],
+        "@app": ["./src/app/*"],
+      });
+    expect(attempt).toThrowError(InvalidAliasError);
+  });
+
+  it("throws an error if a path alias starting with ../ is detected", () => {
+    const attempt = () =>
+      computeAliases(resolve("."), {
+        "../*": ["./lib/*"],
+        "~/*": ["./src/*", "./root/*"],
+        "@app": ["./src/app/*"],
+      });
+    expect(attempt).toThrowError(InvalidAliasError);
   });
 });

@@ -168,6 +168,7 @@ describe("steps/generateChanges", () => {
     const root = `${cwd}/test/fixtures/change`;
     const aliases: Alias[] = [
       {
+        alias: "~/*",
         prefix: "~/",
         aliasPaths: [`${root}/src`, `${root}/src/alternateSrc`],
       },
@@ -277,6 +278,22 @@ describe("steps/generateChanges", () => {
       `);
     });
 
+    it("does not replace paths that are already relative", () => {
+      const result = aliasToRelativePath(
+        "../..",
+        "test/fixtures/change/out/nested/imports.js",
+        [{ alias: "*", prefix: "", aliasPaths: [`${root}/src`] }],
+        programPaths
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/nested/imports.js",
+          "original": "../..",
+        }
+      `);
+    });
+
     it("returns the correct relative path for an aliased path from a nested directory using a secondary alias", () => {
       const result = aliasToRelativePath(
         "~/alternate",
@@ -300,6 +317,7 @@ describe("steps/generateChanges", () => {
     const root = `${cwd}/test/fixtures/change`;
     const aliases: Alias[] = [
       {
+        alias: "~/*",
         prefix: "~/",
         aliasPaths: [`${root}/src`, `${root}/src/alternateSrc`],
       },
@@ -495,6 +513,7 @@ describe("steps/generateChanges", () => {
     const root = `${cwd}/test/fixtures/change`;
     const aliases: Alias[] = [
       {
+        alias: "~/*",
         prefix: "~/",
         aliasPaths: [`${root}/src`, `${root}/src/alternateSrc`],
       },

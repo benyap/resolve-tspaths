@@ -28,10 +28,7 @@ export function resolvePaths(
     );
 
   if (!paths)
-    throw new TSConfigPropertyError(
-      "resolveConfigPaths",
-      "compilerOptions.paths"
-    );
+    throw new TSConfigPropertyError(resolvePaths.name, "compilerOptions.paths");
 
   const configFile = resolve(process.cwd(), options.project);
   const configPath = dirname(configFile);
