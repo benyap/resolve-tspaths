@@ -15,7 +15,7 @@ import { FileNotFoundError } from "~/utils/errors";
  */
 export function loadTSConfig(path: string): TSConfig {
   const configFileName = findConfigFile(process.cwd(), sys.fileExists, path);
-  if (!configFileName) throw new FileNotFoundError("loadTSConfig", path);
+  if (!configFileName) throw new FileNotFoundError(loadTSConfig.name, path);
   const configFile = readConfigFile(configFileName, sys.readFile);
   const options = parseJsonConfigFileContent(configFile.config, sys, ".");
   return options;

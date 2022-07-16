@@ -20,14 +20,14 @@ export class FileNotFoundError extends FileError {
   }
 }
 
-export class JSONFileParsingError extends FileError {
-  constructor(step: string, path: string, message: string) {
-    super(step, path, `Failed to parse JSON. ${message}`);
-  }
-}
-
 export class TSConfigPropertyError extends StepError {
   constructor(public readonly step: string, public readonly property: string) {
     super(step, `${property} is not set in tsconfig`);
+  }
+}
+
+export class InvalidAliasError extends StepError {
+  constructor(public readonly step: string, public readonly alias: string) {
+    super(step, `The alias ${alias} is not permitted`);
   }
 }

@@ -120,10 +120,15 @@ export function aliasToRelativePath(
 ): { file: string; original: string; replacement?: string } {
   const { srcPath, outPath } = programPaths;
 
+  // Ignore any relative paths and return the original path
+  // ASSUMPTION: they are either not an alias, or have already been replaced
+  if (path.startsWith("./") || path.startsWith("../"))
+    return { file: filePath, original: path };
+
   for (const alias of aliases) {
     const { prefix, aliasPaths } = alias;
 
-    // Skip the alias if the path does not start with it
+    // Skip the alias if the path does not start with the prefix
     if (!path.startsWith(prefix)) continue;
 
     const pathRelative = path.substring(prefix.length);
