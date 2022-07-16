@@ -1,5 +1,29 @@
 
 
+## [0.7.1](https://github.com/benyap/resolve-tspaths/compare/v0.7.0...v0.7.1) (2022-07-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v9.4.0 ([#128](https://github.com/benyap/resolve-tspaths/issues/128)) ([cfa2c9a](https://github.com/benyap/resolve-tspaths/commit/cfa2c9a2a6fcd1fb71d63613c5be9503b8e36659))
+* do not replace existing relative paths ([8b1f4b7](https://github.com/benyap/resolve-tspaths/commit/8b1f4b747f298dcffb27f044e5029ae8939be877))
+
+
+### Internal
+
+* **deps:** update dependency @types/jest to v28.1.5 ([#123](https://github.com/benyap/resolve-tspaths/issues/123)) ([c3962cb](https://github.com/benyap/resolve-tspaths/commit/c3962cb1c327bba5f1deadff4734316616d5ee57))
+* **deps:** update dependency @types/jest to v28.1.6 ([#129](https://github.com/benyap/resolve-tspaths/issues/129)) ([eca457a](https://github.com/benyap/resolve-tspaths/commit/eca457a54d74491f19fee1f24dbd9fe8d2b5a67d))
+* **deps:** update dependency jest to v28.1.3 ([#124](https://github.com/benyap/resolve-tspaths/issues/124)) ([accb746](https://github.com/benyap/resolve-tspaths/commit/accb74657d37f4a96ab5237ce5effc5dc06e5217))
+* **deps:** update dependency release-it to v15.1.2 ([#130](https://github.com/benyap/resolve-tspaths/issues/130)) ([cce8c94](https://github.com/benyap/resolve-tspaths/commit/cce8c942ca0f6f7cc0d4fb56e9f57fb498717cf2))
+* **deps:** update dependency ts-jest to v28.0.6 ([#127](https://github.com/benyap/resolve-tspaths/issues/127)) ([fd75d4d](https://github.com/benyap/resolve-tspaths/commit/fd75d4defae46ccc3650a57e24370d5162bdb1c7))
+* **deps:** update dependency ts-node to v10.9.0 ([#125](https://github.com/benyap/resolve-tspaths/issues/125)) ([870e843](https://github.com/benyap/resolve-tspaths/commit/870e843280b77c83201da0654ec6540322c69c59))
+* **deps:** update dependency ts-node to v10.9.1 ([#126](https://github.com/benyap/resolve-tspaths/issues/126)) ([71c6c2c](https://github.com/benyap/resolve-tspaths/commit/71c6c2c8bf045c69649d478533317e3d1c9c4c2d))
+
+
+### Documentation
+
+* add wintercounter as a contributor for bug ([#132](https://github.com/benyap/resolve-tspaths/issues/132)) ([f774d37](https://github.com/benyap/resolve-tspaths/commit/f774d378345894eb07a67b84977797fd764043a0))
+
 ## [0.7.0](https://github.com/benyap/resolve-tspaths/compare/v0.6.0...v0.7.0) (2022-07-09)
 
 
