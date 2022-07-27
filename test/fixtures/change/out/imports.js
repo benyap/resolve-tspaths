@@ -5,6 +5,7 @@ const {} = require("~/nested/nested-path");
 const {} = require("~/nested/non-existent");
 const {} = require("@/non-existent");
 const {} = require("~/data.json");
+const {} = require("~/non-existent.json");
 
 // Module code
 function sample() {}

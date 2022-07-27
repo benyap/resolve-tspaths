@@ -142,7 +142,9 @@ export function aliasToRelativePath(
       // Makes sure that a source file exists at the module's path
       let ext = MODULE_EXTS.find((ext) => existsSync(`${modulePath}${ext}`));
       if (typeof ext !== "string")
-        ext = FILE_EXTS.find((ext) => modulePath.endsWith(ext));
+        ext = FILE_EXTS.find(
+          (ext) => modulePath.endsWith(ext) && existsSync(modulePath)
+        );
       if (typeof ext !== "string") continue;
 
       const srcDir = dirname(srcFile);
