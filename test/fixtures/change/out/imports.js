@@ -1,7 +1,8 @@
-const {} = require("~/root");
 const {} = require("package");
-const {} = require("~/nested/non-existent");
+const {} = require("~/root");
+const {} = require("~/nested");
 const {} = require("~/nested/nested-path");
+const {} = require("~/nested/non-existent");
 const {} = require("@/non-existent");
 
 // Module code
