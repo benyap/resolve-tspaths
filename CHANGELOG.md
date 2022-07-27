@@ -1,5 +1,17 @@
 
 
+## [0.7.4](https://github.com/benyap/resolve-tspaths/compare/v0.7.3...v0.7.4) (2022-07-27)
+
+
+### Bug Fixes
+
+* check for existence of .json files before replacing ([2312e55](https://github.com/benyap/resolve-tspaths/commit/2312e55c65b62dba94d4d4257c75cbb7a45c24e4))
+
+
+### Documentation
+
+* fix typo ([4f44eeb](https://github.com/benyap/resolve-tspaths/commit/4f44eeb8b38205380e37128f4840df7cc5819a43))
+
 ## [0.7.3](https://github.com/benyap/resolve-tspaths/compare/v0.7.2...v0.7.3) (2022-07-27)
 
 
