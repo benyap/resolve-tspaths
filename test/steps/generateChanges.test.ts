@@ -359,6 +359,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "./data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
@@ -368,6 +372,7 @@ describe("steps/generateChanges", () => {
           const {} = require(\\"./nested/nested-path\\");
           const {} = require(\\"~/nested/non-existent\\");
           const {} = require(\\"@/non-existent\\");
+          const {} = require(\\"./data.json\\");
 
           // Module code
           function sample() {}
@@ -435,6 +440,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "../data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
@@ -444,6 +453,7 @@ describe("steps/generateChanges", () => {
           const {} = require(\\"./nested-path\\");
           const {} = require(\\"~/nested/non-existent\\");
           const {} = require(\\"@/non-existent\\");
+          const {} = require(\\"../data.json\\");
 
           // Module code
           function sample() {}
@@ -506,6 +516,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "./data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
@@ -515,6 +529,7 @@ describe("steps/generateChanges", () => {
           import {} from \\"./nested/nested-path\\";
           import {} from \\"~/nested/non-existent\\";
           import {} from \\"@/non-existent\\";
+          import {} from \\"./data.json\\";
           export declare function sample(): void;
           "
         `);
@@ -575,6 +590,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "../data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
@@ -584,6 +603,7 @@ describe("steps/generateChanges", () => {
           import {} from \\"./nested-path\\";
           import {} from \\"~/nested/non-existent\\";
           import {} from \\"@/non-existent\\";
+          import {} from \\"../data.json\\";
           export declare function sample(): void;
           "
         `);
@@ -658,6 +678,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "./data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
       });
@@ -708,6 +732,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "../data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
       });
@@ -750,6 +778,10 @@ describe("steps/generateChanges", () => {
               "modified": "../../nested/nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "../../data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
       });
@@ -785,6 +817,10 @@ describe("steps/generateChanges", () => {
             Object {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
+            },
+            Object {
+              "modified": "./data.json",
+              "original": "~/data.json",
             },
           ]
         `);
@@ -836,6 +872,10 @@ describe("steps/generateChanges", () => {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
+            Object {
+              "modified": "../data.json",
+              "original": "~/data.json",
+            },
           ]
         `);
       });
@@ -877,6 +917,10 @@ describe("steps/generateChanges", () => {
             Object {
               "modified": "../../nested/nested-path",
               "original": "~/nested/nested-path",
+            },
+            Object {
+              "modified": "../../data.json",
+              "original": "~/data.json",
             },
           ]
         `);

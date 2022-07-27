@@ -8,7 +8,7 @@ import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 export const IMPORT_EXPORT_REGEX =
   /(?:(?:require\(|require\.resolve\(|import\()|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
 
-const EXTS = [
+const MODULE_EXTS = [
   ".js",
   ".jsx",
   ".ts",
@@ -17,7 +17,6 @@ const EXTS = [
   ".mjs",
   ".mdx",
   ".d.ts",
-  ".json",
   "/index.js",
   "/index.jsx",
   "/index.ts",
@@ -27,6 +26,8 @@ const EXTS = [
   "/index.mdx",
   "/index.d.ts",
 ];
+
+const FILE_EXTS = [".json"];
 
 /**
  * Generate the alias path mapping changes to apply to the provide files.
@@ -139,7 +140,9 @@ export function aliasToRelativePath(
       const modulePath = resolve(aliasPath, pathRelative);
 
       // Makes sure that a source file exists at the module's path
-      const ext = EXTS.find((ext) => existsSync(`${modulePath}${ext}`));
+      let ext = MODULE_EXTS.find((ext) => existsSync(`${modulePath}${ext}`));
+      if (typeof ext !== "string")
+        ext = FILE_EXTS.find((ext) => modulePath.endsWith(ext));
       if (typeof ext !== "string") continue;
 
       const srcDir = dirname(srcFile);
