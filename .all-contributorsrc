@@ -80,6 +80,15 @@
         "ideas",
         "bug"
       ]
+    },
+    {
+      "login": "ForestBeaver",
+      "name": "Forest",
+      "avatar_url": "https://avatars.githubusercontent.com/u/33011274?v=4",
+      "profile": "https://www.linkedin.com/in/forest-beaver-110965159/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
