@@ -195,6 +195,9 @@ Thanks goes to these wonderful people
     <td align="center"><a href="https://github.com/Atlinx"><img src="https://avatars.githubusercontent.com/u/25368491?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Atlinx</b></sub></a><br /><a href="#ideas-Atlinx" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://wintercounter.me"><img src="https://avatars.githubusercontent.com/u/963776?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Victor Vincent</b></sub></a><br /><a href="#ideas-wintercounter" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3Awintercounter" title="Bug reports">🐛</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/forest-beaver-110965159/"><img src="https://avatars.githubusercontent.com/u/33011274?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Forest</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3AForestBeaver" title="Bug reports">🐛</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
