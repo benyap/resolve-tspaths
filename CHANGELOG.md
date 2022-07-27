@@ -1,5 +1,23 @@
 
 
+## [0.7.2](https://github.com/benyap/resolve-tspaths/compare/v0.7.1...v0.7.2) (2022-07-27)
+
+
+### Bug Fixes
+
+* resolve path correctly when file and directory have same name ([9b4e7d1](https://github.com/benyap/resolve-tspaths/commit/9b4e7d1671795589a1dbfe797fc911cc3ad231ed))
+
+
+### Internal
+
+* **deps:** update dependency release-it to v15.2.0 ([#134](https://github.com/benyap/resolve-tspaths/issues/134)) ([07919bc](https://github.com/benyap/resolve-tspaths/commit/07919bcf7532684bfd5035c4390eb2efc4a4ecb4))
+* **deps:** update dependency ts-jest to v28.0.7 ([#133](https://github.com/benyap/resolve-tspaths/issues/133)) ([5e589f9](https://github.com/benyap/resolve-tspaths/commit/5e589f9f9b4ed72d32f3209664d9401f54c9c8bf))
+
+
+### Documentation
+
+* add ForestBeaver as a contributor for bug ([#137](https://github.com/benyap/resolve-tspaths/issues/137)) ([9c1a496](https://github.com/benyap/resolve-tspaths/commit/9c1a496de7ed8f8a2822ab124e56eafbaf22d2a6))
+
 ## [0.7.1](https://github.com/benyap/resolve-tspaths/compare/v0.7.0...v0.7.1) (2022-07-16)
 
 
