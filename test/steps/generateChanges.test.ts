@@ -352,21 +352,64 @@ describe("steps/generateChanges", () => {
               "original": "~/root",
             },
             Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"./root\\");
-          const {} = require(\\"package\\");
-          const {} = require(\\"~/nested/non-existent\\");
+          "const {} = require(\\"package\\");
+          const {} = require(\\"./root\\");
+          const {} = require(\\"./nested\\");
           const {} = require(\\"./nested/nested-path\\");
+          const {} = require(\\"~/nested/non-existent\\");
           const {} = require(\\"@/non-existent\\");
 
           // Module code
           function sample() {}
           module.exports = { sample };
+          "
+        `);
+      });
+
+      it("generates replacements for a file with exports at the root level correctly", () => {
+        const results = replaceAliasPathsInFile(
+          `${root}/out/exports.js`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "./root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+        expect(results.text).toMatchInlineSnapshot(`
+          "const {} = require(\\"package\\");
+          const {} = require(\\"./root\\");
+          const {} = require(\\"./nested\\");
+          const {} = require(\\"./nested/nested-path\\");
+          const {} = require(\\"~/nested/non-existent\\");
+          const {} = require(\\"@/non-existent\\");
+
+          module.exports = {
+            /* omitted */
+          };
           "
         `);
       });
@@ -385,21 +428,47 @@ describe("steps/generateChanges", () => {
               "original": "~/root",
             },
             Object {
+              "modified": "./",
+              "original": "~/nested",
+            },
+            Object {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"../root\\");
-          const {} = require(\\"package\\");
-          const {} = require(\\"~/nested/non-existent\\");
+          "const {} = require(\\"package\\");
+          const {} = require(\\"../root\\");
+          const {} = require(\\"./\\");
           const {} = require(\\"./nested-path\\");
+          const {} = require(\\"~/nested/non-existent\\");
           const {} = require(\\"@/non-existent\\");
 
           // Module code
           function sample() {}
           module.exports = { sample };
+          "
+        `);
+      });
+
+      it("generates replacements for a file that has an import matching a directory name correctly", () => {
+        const results = replaceAliasPathsInFile(
+          `${root}/out/directory/file.js`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../directory",
+              "original": "~/directory",
+            },
+          ]
+        `);
+        expect(results.text).toMatchInlineSnapshot(`
+          "const {} = require(\\"../directory\\");
           "
         `);
       });
@@ -430,16 +499,21 @@ describe("steps/generateChanges", () => {
               "original": "~/root",
             },
             Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"./root\\";
-          import {} from \\"package\\";
-          import {} from \\"~/nested/non-existent\\";
+          "import {} from \\"package\\";
+          import {} from \\"./root\\";
+          import {} from \\"./nested\\";
           import {} from \\"./nested/nested-path\\";
+          import {} from \\"~/nested/non-existent\\";
           import {} from \\"@/non-existent\\";
           export declare function sample(): void;
           "
@@ -460,17 +534,22 @@ describe("steps/generateChanges", () => {
               "original": "~/root",
             },
             Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "export {} from \\"./root\\";
-          export {} from \\"package\\";
-          export {} from \\"~/nested/non-existent\\";
-          export {} from \\"./nested/nested-path\\";
-          export {} from \\"@/non-existent\\";
+          "export * from \\"package\\";
+          export * from \\"./root\\";
+          export * from \\"./nested\\";
+          export * from \\"./nested/nested-path\\";
+          export * from \\"~/nested/non-existent\\";
+          export * from \\"@/non-existent\\";
           "
         `);
       });
@@ -489,19 +568,44 @@ describe("steps/generateChanges", () => {
               "original": "~/root",
             },
             Object {
+              "modified": "./",
+              "original": "~/nested",
+            },
+            Object {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"../root\\";
-          import {} from \\"package\\";
-          import {} from \\"~/nested/non-existent\\";
+          "import {} from \\"package\\";
+          import {} from \\"../root\\";
+          import {} from \\"./\\";
           import {} from \\"./nested-path\\";
-          import {} from \\"@/location\\";
+          import {} from \\"~/nested/non-existent\\";
           import {} from \\"@/non-existent\\";
           export declare function sample(): void;
+          "
+        `);
+      });
+
+      it("generates replacements for a file that has an import matching a directory name correctly", () => {
+        const results = replaceAliasPathsInFile(
+          `${root}/out/directory/file.d.ts`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../directory",
+              "original": "~/directory",
+            },
+          ]
+        `);
+        expect(results.text).toMatchInlineSnapshot(`
+          "import {} from \\"../directory\\";
           "
         `);
       });
@@ -523,118 +627,260 @@ describe("steps/generateChanges", () => {
       outPath: `${root}/out`,
     };
 
-    it("generates changes for cjs files correctly", () => {
-      const results = generateChanges(
-        [
-          `${root}/out/alternateSrc/alternate/index.js`,
-          `${root}/out/nested/index.js`,
-          `${root}/out/imports.js`,
-          `${root}/out/exports.js`,
-          `${root}/out/no-change.js`,
-        ],
-        aliases,
-        programPaths
-      );
-      expect(results).toHaveLength(3);
-      expect(results[0].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "../../root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "../../nested/nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
-      expect(results[1].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "../root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "./nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
-      expect(results[2].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "./root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "./nested/nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
+    describe("cjs", () => {
+      it("does not generate changes for non-relative packages", () => {
+        const results = generateChanges(
+          [`${root}/out/no-change.js`, `${root}/out/directory.js`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(0);
+      });
+
+      it("generates changes for imports correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/imports.js`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "./root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for exports correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/exports.js`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "./root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for nested paths correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/nested/index.js`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for paths with the same name as a directory", () => {
+        const results = generateChanges(
+          [`${root}/out/directory/file.js`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../directory",
+              "original": "~/directory",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for paths with multiple lookup locations correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/alternateSrc/alternate/index.js`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../../root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "../../nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "../../nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
     });
 
-    it("generates changes for esm files correctly", () => {
-      const results = generateChanges(
-        [
-          `${root}/out/alternateSrc/alternate/index.d.ts`,
-          `${root}/out/nested/index.d.ts`,
-          `${root}/out/imports.d.ts`,
-          `${root}/out/exports.d.ts`,
-          `${root}/out/no-change.d.ts`,
-        ],
-        aliases,
-        programPaths
-      );
-      expect(results).toHaveLength(4);
-      expect(results[0].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "../../root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "../../nested/nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
-      expect(results[1].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "../root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "./nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
-      expect(results[2].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "./root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "./nested/nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
-      expect(results[3].changes).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "modified": "./root",
-            "original": "~/root",
-          },
-          Object {
-            "modified": "./nested/nested-path",
-            "original": "~/nested/nested-path",
-          },
-        ]
-      `);
+    describe("esm", () => {
+      it("does not generate changes for non-relative packages", () => {
+        const results = generateChanges(
+          [`${root}/out/no-change.d.ts`, `${root}/out/directory.d.ts`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(0);
+      });
+
+      it("generates changes for imports correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/imports.d.ts`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "./root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for exports correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/exports.d.ts`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "./root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for nested paths correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/nested/index.d.ts`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "./",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "./nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for paths with the same name as a directory", () => {
+        const results = generateChanges(
+          [`${root}/out/directory/file.d.ts`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../directory",
+              "original": "~/directory",
+            },
+          ]
+        `);
+      });
+
+      it("generates changes for paths with multiple lookup locations correctly", () => {
+        const results = generateChanges(
+          [`${root}/out/alternateSrc/alternate/index.d.ts`],
+          aliases,
+          programPaths
+        );
+        expect(results).toHaveLength(1);
+        expect(results[0].changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "../../root",
+              "original": "~/root",
+            },
+            Object {
+              "modified": "../../nested",
+              "original": "~/nested",
+            },
+            Object {
+              "modified": "../../nested/nested-path",
+              "original": "~/nested/nested-path",
+            },
+          ]
+        `);
+      });
     });
   });
 });

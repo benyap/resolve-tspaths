@@ -8,7 +8,7 @@ import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 export const IMPORT_EXPORT_REGEX =
   /(?:(?:require\(|require\.resolve\(|import\()|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
 
-const PATHS = [
+const EXTS = [
   ".js",
   ".jsx",
   ".ts",
@@ -138,19 +138,29 @@ export function aliasToRelativePath(
     for (const aliasPath of aliasPaths) {
       const modulePath = resolve(aliasPath, pathRelative);
 
-      // File must exist in source directory
-      if (
-        existsSync(modulePath) ||
-        PATHS.some((ext) => existsSync(`${modulePath}${ext}`))
-      ) {
-        const rel = relative(dirname(srcFile), modulePath);
-        const replacement = rel.startsWith(".") ? rel : `./${rel}`;
-        return {
-          file: filePath,
-          original: path,
-          replacement: replacement.replace(/\\/g, "/"),
-        };
+      // Makes sure that a source file exists at the module's path
+      const ext = EXTS.find((ext) => existsSync(`${modulePath}${ext}`));
+      if (typeof ext !== "string") continue;
+
+      const srcDir = dirname(srcFile);
+      let newPath = relative(srcDir, modulePath);
+
+      // If the srcDir is the same as the modulePath and the matched extension
+      // does not start with "/", it means that there is a folder with the
+      // same name as the source file. We need to resolve the path relative
+      // to the source file, not the folder.
+      if (srcDir === modulePath && !ext.startsWith("/")) {
+        const regex = new RegExp(`${ext.replace(".", "\\.")}$`);
+        newPath = relative(srcDir, `${modulePath}${ext}`).replace(regex, "");
       }
+
+      const replacement = newPath.startsWith(".") ? newPath : `./${newPath}`;
+
+      return {
+        file: filePath,
+        original: path,
+        replacement: replacement.replace(/\\/g, "/"),
+      };
     }
   }
 
