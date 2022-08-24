@@ -207,7 +207,8 @@ Thanks goes to these wonderful people
 
 This project follows the
 [all-contributors](https://github.com/all-contributors/all-contributors)
-specification. Contributions of any kind welcome!
+specification. Contributions of any kind welcome! Please follow the
+[contributing guidelines](CONTRIBUTING.md).
 
 ## License
 

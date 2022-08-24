@@ -43,7 +43,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "release": "yarn test && yarn release-it"
+    "release": "yarn test && yarn release-it",
+    "contributors": "all-contributors"
   },
   "peerDependencies": {
     "typescript": ">=3.0.3"
