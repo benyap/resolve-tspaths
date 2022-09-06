@@ -1,0 +1,1 @@
+export { sameName } from "sameName";
