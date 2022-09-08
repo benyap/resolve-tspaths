@@ -633,6 +633,40 @@ describe("steps/generateChanges", () => {
           "
         `);
       });
+
+      it("replaces exports with the same name as the path correctly", () => {
+        const root = `${cwd}/test/fixtures/sameNameTest`;
+        const aliases: Alias[] = [
+          {
+            alias: "*",
+            prefix: "",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/reexportSameName.d.ts`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.changes).toHaveLength(1);
+        expect(results.changes).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "modified": "./sameName",
+              "original": "sameName",
+            },
+          ]
+        `);
+        expect(results.text).not.toContain(
+          'export { ./sameName } from "sameName"'
+        );
+        expect(results.text).toContain('export { sameName } from "./sameName"');
+      });
     });
   });
 

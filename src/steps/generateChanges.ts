@@ -88,7 +88,7 @@ export function replaceAliasPathsInFile(
 
       if (!result.replacement) return original;
 
-      const index = original.indexOf(matched);
+      const index = original.lastIndexOf(matched);
       changes.push({
         original: result.original,
         modified: result.replacement,
