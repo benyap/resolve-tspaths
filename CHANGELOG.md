@@ -1,5 +1,33 @@
 
 
+## [0.7.5](https://github.com/benyap/resolve-tspaths/compare/v0.7.4...v0.7.5) (2022-09-08)
+
+
+### Bug Fixes
+
+* replace last occurence of matched part, instead of first ([309ed87](https://github.com/benyap/resolve-tspaths/commit/309ed8727da284ff87937961f98d4839c410db78))
+
+
+### Documentation
+
+* add Zebreus as a contributor for bug, test ([#154](https://github.com/benyap/resolve-tspaths/issues/154)) ([37ce5ce](https://github.com/benyap/resolve-tspaths/commit/37ce5cecc135942a52db06e236726e0b11032098))
+
+
+### Internal
+
+* add cjs tests for same name export ([ffa8d45](https://github.com/benyap/resolve-tspaths/commit/ffa8d45bc074dce645a14c0073f37fdbdad87dc4))
+* **deps:** update commitlint monorepo ([#149](https://github.com/benyap/resolve-tspaths/issues/149)) ([fa33cd3](https://github.com/benyap/resolve-tspaths/commit/fa33cd36aa7d09565792d812915f9dfc1c75db98))
+* **deps:** update dependency @release-it/conventional-changelog to v5.1.0 ([#144](https://github.com/benyap/resolve-tspaths/issues/144)) ([d506b7a](https://github.com/benyap/resolve-tspaths/commit/d506b7a4bafa62b956fbb1a4ff05cd87ab6e9c9d))
+* **deps:** update dependency @types/jest to v28.1.7 ([#143](https://github.com/benyap/resolve-tspaths/issues/143)) ([3c91000](https://github.com/benyap/resolve-tspaths/commit/3c91000b2b5ea40e5a2feaaf87535118b5615f3f))
+* **deps:** update dependency @types/jest to v28.1.8 ([#145](https://github.com/benyap/resolve-tspaths/issues/145)) ([2f522ac](https://github.com/benyap/resolve-tspaths/commit/2f522ac959887810732a33fc690053d882141075))
+* **deps:** update dependency all-contributors-cli to v6.20.3 ([#153](https://github.com/benyap/resolve-tspaths/issues/153)) ([0de25f5](https://github.com/benyap/resolve-tspaths/commit/0de25f5e5bb46f7f2105386e12819910eb86e8f0))
+* **deps:** update dependency release-it to v15.3.0 ([#141](https://github.com/benyap/resolve-tspaths/issues/141)) ([5b9c866](https://github.com/benyap/resolve-tspaths/commit/5b9c8669285aa2d473e66364aa4be0ba97f9ea0b))
+* **deps:** update dependency release-it to v15.4.0 ([#146](https://github.com/benyap/resolve-tspaths/issues/146)) ([5072161](https://github.com/benyap/resolve-tspaths/commit/507216156cf6b70bfeddf3e0049059730d4c0dd7))
+* **deps:** update dependency release-it to v15.4.1 ([#150](https://github.com/benyap/resolve-tspaths/issues/150)) ([9079f8f](https://github.com/benyap/resolve-tspaths/commit/9079f8fa1ea244c969b8dd981d81a4119eb169b4))
+* **deps:** update dependency ts-jest to v28.0.8 ([#142](https://github.com/benyap/resolve-tspaths/issues/142)) ([f2c895c](https://github.com/benyap/resolve-tspaths/commit/f2c895c2b21835bd4f3cbabbabe6e5ac37742f38))
+* **deps:** update dependency tsconfig-paths to v4.1.0 ([#140](https://github.com/benyap/resolve-tspaths/issues/140)) ([7ca4391](https://github.com/benyap/resolve-tspaths/commit/7ca439127e7a4399cf1f7efd5cb1897513ac0e3c))
+* update contributors config ([ba2edcf](https://github.com/benyap/resolve-tspaths/commit/ba2edcfebf0d65ab859f8b3e5f3488b963c36674))
+
 ## [0.7.4](https://github.com/benyap/resolve-tspaths/compare/v0.7.3...v0.7.4) (2022-07-27)
 
 
