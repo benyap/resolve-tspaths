@@ -1,1 +1,0 @@
-export {sameName} from "sameName";

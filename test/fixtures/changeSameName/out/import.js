@@ -1,0 +1,1 @@
+const { sameName } = require("sameName");
