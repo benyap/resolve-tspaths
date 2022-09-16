@@ -1,12 +1,17 @@
-import { existsSync, readFileSync } from "fs";
-import { dirname, relative, resolve } from "path";
+import { existsSync, readFileSync, statSync } from "fs";
+import { basename, dirname, join, relative, resolve } from "path";
 
 import { FileNotFoundError } from "~/utils/errors";
 
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
 export const IMPORT_EXPORT_REGEX =
-  /(?:(?:require\(|require\.resolve\(|import\()|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
+  /((?:require\(|require\.resolve\(|import\()|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
+
+export const ESM_IMPORT_EXPORT_REGEX =
+  /(?:(?:import\()|(?:import|export)\s+(?:.*from\s+)?)['"]([^'"]*)['"]\)?/g;
+export const COMMONJS_IMPORT_EXPORT_REGEX =
+  /(?:(?:require\(|require\.resolve\()\s+)['"]([^'"]*)['"]\)/g;
 
 const MODULE_EXTS = [
   ".js",
@@ -17,17 +22,7 @@ const MODULE_EXTS = [
   ".mjs",
   ".mdx",
   ".d.ts",
-  "/index.js",
-  "/index.jsx",
-  "/index.ts",
-  "/index.tsx",
-  "/index.cjs",
-  "/index.mjs",
-  "/index.mdx",
-  "/index.d.ts",
 ];
-
-const FILE_EXTS = [".json"];
 
 /**
  * Generate the alias path mapping changes to apply to the provide files.
@@ -78,17 +73,22 @@ export function replaceAliasPathsInFile(
 
   const newText = originalText.replace(
     IMPORT_EXPORT_REGEX,
-    (original, matched) => {
+    (original, importStatement, importSpecifier) => {
+      // The import is an esm import, if it is inside a typescript (definition) file or if it uses `import` or `export`
+      const esmImport =
+        !filePath.endsWith(".ts") &&
+        (importStatement.includes("import") || importStatement.includes("export"));
       const result = aliasToRelativePath(
-        matched,
+        importSpecifier,
         filePath,
         aliases,
-        programPaths
+        programPaths,
+        esmImport
       );
 
       if (!result.replacement) return original;
 
-      const index = original.lastIndexOf(matched);
+      const index = original.lastIndexOf(importSpecifier);
       changes.push({
         original: result.original,
         modified: result.replacement,
@@ -97,7 +97,7 @@ export function replaceAliasPathsInFile(
       return (
         original.substring(0, index) +
         result.replacement +
-        original.substring(index + matched.length)
+        original.substring(index + importSpecifier.length)
       );
     }
   );
@@ -108,67 +108,134 @@ export function replaceAliasPathsInFile(
 /**
  * Convert an aliased path to a relative path.
  *
- * @param path The aliased path that needs to be mapped to a relative path.
- * @param filePath The location of the file that the aliased path was from.
+ * @param importSpecifier A import specifier as used in the source file
+ * @param outputFile The location of the file that the aliased path was from.
  * @param aliases The path mapping configuration from tsconfig.
  * @param programPaths Program options.
+ * @param esModule Whether the import will be resolved with ES module semantics or commonjs semantics
  */
 export function aliasToRelativePath(
-  path: string,
-  filePath: string,
+  importSpecifier: string,
+  outputFile: string,
   aliases: Alias[],
-  programPaths: Pick<ProgramPaths, "srcPath" | "outPath">
+  { srcPath, outPath }: Pick<ProgramPaths, "srcPath" | "outPath">,
+  esModule?: boolean
 ): { file: string; original: string; replacement?: string } {
-  const { srcPath, outPath } = programPaths;
+  const sourceFile = resolve(srcPath, relative(outPath, outputFile));
+  const sourceFileDirectory = dirname(sourceFile);
 
-  // Ignore any relative paths and return the original path
-  // ASSUMPTION: they are either not an alias, or have already been replaced
-  if (path.startsWith("./") || path.startsWith("../"))
-    return { file: filePath, original: path };
+  const importPathIsRelative =
+    importSpecifier.startsWith("./") || importSpecifier.startsWith("../");
 
-  for (const alias of aliases) {
-    const { prefix, aliasPaths } = alias;
+  const matchingAliases = aliases.filter(({ prefix }) =>
+    importSpecifier.startsWith(prefix)
+  );
 
-    // Skip the alias if the path does not start with the prefix
-    if (!path.startsWith(prefix)) continue;
+  const absoluteImportPaths = importPathIsRelative
+    ? [resolve(sourceFileDirectory, importSpecifier)]
+    : matchingAliases.flatMap(({ prefix, aliasPaths }) =>
+        aliasPaths.map((aliasPath) =>
+          resolve(aliasPath, importSpecifier.replace(prefix, ""))
+        )
+      );
 
-    const pathRelative = path.substring(prefix.length);
-    const srcFile = resolve(srcPath, relative(outPath, filePath));
+  const absoluteImport = absoluteImportPaths.reduce(
+    (acc, path) => acc || resolveImportPath(path),
+    undefined as undefined | ReturnType<typeof resolveImportPath>
+  );
 
-    // Find a matching alias path
-    for (const aliasPath of aliasPaths) {
-      const modulePath = resolve(aliasPath, pathRelative);
-
-      // Makes sure that a source file exists at the module's path
-      let ext = MODULE_EXTS.find((ext) => existsSync(`${modulePath}${ext}`));
-      if (typeof ext !== "string")
-        ext = FILE_EXTS.find(
-          (ext) => modulePath.endsWith(ext) && existsSync(modulePath)
-        );
-      if (typeof ext !== "string") continue;
-
-      const srcDir = dirname(srcFile);
-      let newPath = relative(srcDir, modulePath);
-
-      // If the srcDir is the same as the modulePath and the matched extension
-      // does not start with "/", it means that there is a folder with the
-      // same name as the source file. We need to resolve the path relative
-      // to the source file, not the folder.
-      if (srcDir === modulePath && !ext.startsWith("/")) {
-        const regex = new RegExp(`${ext.replace(".", "\\.")}$`);
-        newPath = relative(srcDir, `${modulePath}${ext}`).replace(regex, "");
-      }
-
-      const replacement = newPath.startsWith(".") ? newPath : `./${newPath}`;
-
-      return {
-        file: filePath,
-        original: path,
-        replacement: replacement.replace(/\\/g, "/"),
-      };
-    }
+  if (!absoluteImport) {
+    return {
+      file: outputFile,
+      original: importSpecifier,
+    };
   }
 
-  // If no alias was found, just return the original path
-  return { file: filePath, original: path };
+  const absoluteImportPath = esModule
+    ? absoluteImport.file
+    : absoluteImport.imported;
+
+  const relativeImportPath =
+    absoluteImport.type === "file"
+      ? join(
+          relative(sourceFileDirectory, dirname(absoluteImportPath)),
+          basename(absoluteImportPath)
+        )
+      : relative(sourceFileDirectory, absoluteImportPath);
+
+  const prefixedRelativePath = relativeImportPath.replace(
+    /^(?!\.+\/)/,
+    (m) => "./" + m
+  );
+
+  const extensionFixedRelativePath = prefixedRelativePath.replace(
+    /\.[^.]*ts[^.]*$/,
+    (match) => match.replace("ts", "js")
+  );
+
+  return {
+    file: outputFile,
+    original: importSpecifier,
+    ...(importSpecifier !== extensionFixedRelativePath
+      ? { replacement: extensionFixedRelativePath }
+      : {}),
+  };
+}
+
+/**
+ * Find the file that will be imported by the given import path.
+ *
+ * @param importPath An non-relative import path
+ */
+function resolveImportPath(importPath: string) {
+  const importPathTs = importPath.replace(/\.[^.]*js[^.]*$/, (match) =>
+    match.replace("js", "ts")
+  );
+  const importPathWithExtensions = MODULE_EXTS.map(
+    (ext) => `${importPath}${ext}`
+  );
+
+  const possiblePaths = [importPath, importPathTs, ...importPathWithExtensions];
+
+  const existingPath = possiblePaths.find((path) => isFile(path));
+  if (existingPath) {
+    return {
+      imported: importPath,
+      file: existingPath,
+      type: "file" as const,
+    };
+  }
+
+  // Try index files, if the path is a directory
+  const possiblePathsAsDirectory = isDirectory(importPath)
+    ? MODULE_EXTS.map((ext) => `${importPath}/index${ext}`)
+    : [];
+  const existingIndexPath = possiblePathsAsDirectory.find((path) =>
+    isFile(path)
+  );
+  if (existingIndexPath) {
+    return {
+      imported: importPath,
+      file: existingIndexPath,
+      type: "directory" as const,
+    };
+  }
+
+  return;
+}
+
+function isFile(path: string) {
+  try {
+    return statSync(path).isFile();
+  } catch (e) {
+    return false;
+  }
+}
+
+function isDirectory(path: string) {
+  try {
+    return statSync(path).isDirectory();
+  } catch (e) {
+    return false;
+  }
 }

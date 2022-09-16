@@ -1,0 +1,8 @@
+{
+    "name": "test-es-modules-extensions",
+    "version": "0.0.0",
+    "type": "module",
+    "dependencies": {
+        "typescript": "4.8.3"
+    }
+}

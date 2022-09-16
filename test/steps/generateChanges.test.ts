@@ -19,6 +19,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "import * as package from 'package'",
+          "import * as package from ",
           "package",
         ]
       `);
@@ -29,6 +30,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "import { package } from '~/package'",
+          "import { package } from ",
           "~/package",
         ]
       `);
@@ -41,6 +43,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "import { package as myPackage } from '../package'",
+          "import { package as myPackage } from ",
           "../package",
         ]
       `);
@@ -51,6 +54,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "import 'package'",
+          "import ",
           "package",
         ]
       `);
@@ -61,6 +65,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "export * from 'package'",
+          "export * from ",
           "package",
         ]
       `);
@@ -71,6 +76,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "export * as package from 'package'",
+          "export * as package from ",
           "package",
         ]
       `);
@@ -81,6 +87,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "export { package } from '~/package'",
+          "export { package } from ",
           "~/package",
         ]
       `);
@@ -93,6 +100,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "export { package as myPackage } from '../package'",
+          "export { package as myPackage } from ",
           "../package",
         ]
       `);
@@ -103,6 +111,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "export 'package'",
+          "export ",
           "package",
         ]
       `);
@@ -113,6 +122,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "require('package')",
+          "require(",
           "package",
         ]
       `);
@@ -123,6 +133,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "require('../package')",
+          "require(",
           "../package",
         ]
       `);
@@ -135,6 +146,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "require.resolve('../package')",
+          "require.resolve(",
           "../package",
         ]
       `);
@@ -147,6 +159,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "require('~/package/package')",
+          "require(",
           "~/package/package",
         ]
       `);
@@ -157,6 +170,7 @@ describe("steps/generateChanges", () => {
       expect(result).toMatchInlineSnapshot(`
         Array [
           "import('package')",
+          "import(",
           "package",
         ]
       `);
@@ -223,6 +237,60 @@ describe("steps/generateChanges", () => {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/root",
           "replacement": "./root",
+        }
+      `);
+    });
+
+    it("returns the correct file extension for esm modules", () => {
+      const result = aliasToRelativePath(
+        "~/root",
+        "test/fixtures/change/out/imports.js",
+        aliases,
+        programPaths,
+        true
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/imports.js",
+          "original": "~/root",
+          "replacement": "./root.js",
+        }
+      `);
+    });
+
+    it("returns the correct file extension for already relative esm modules", () => {
+      const result = aliasToRelativePath(
+        "./root",
+        "test/fixtures/change/out/imports.js",
+        aliases,
+        programPaths,
+        true
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/imports.js",
+          "original": "./root",
+          "replacement": "./root.js",
+        }
+      `);
+    });
+
+    it("returns the correct path for esm imports with extension", () => {
+      const result = aliasToRelativePath(
+        "~/root.js",
+        "test/fixtures/change/out/imports.js",
+        aliases,
+        programPaths,
+        true
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/imports.js",
+          "original": "~/root.js",
+          "replacement": "./root.js",
         }
       `);
     });
@@ -307,6 +375,58 @@ describe("steps/generateChanges", () => {
           "file": "test/fixtures/change/out/nested/imports.js",
           "original": "~/alternate",
           "replacement": "../alternateSrc/alternate",
+        }
+        `);
+    });
+
+    it("does replace paths for json imports", () => {
+      const result = aliasToRelativePath(
+        "~/data.json",
+        "test/fixtures/change/out/nested/imports.js",
+        aliases,
+        programPaths
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/nested/imports.js",
+          "original": "~/data.json",
+          "replacement": "../data.json",
+        }
+      `);
+    });
+
+    it("does replace paths for imports with the same name as the directory", () => {
+      const result = aliasToRelativePath(
+        "~/directory",
+        "test/fixtures/change/out/directory/file.js",
+        aliases,
+        programPaths
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/directory/file.js",
+          "original": "~/directory",
+          "replacement": "../directory",
+        }
+      `);
+    });
+
+    it("does replace paths for imports with the same name as the directory with esm", () => {
+      const result = aliasToRelativePath(
+        "~/directory",
+        "test/fixtures/change/out/directory/file.js",
+        aliases,
+        programPaths,
+        true
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/directory/file.js",
+          "original": "~/directory",
+          "replacement": "../directory.js",
         }
       `);
     });
@@ -519,6 +639,56 @@ describe("steps/generateChanges", () => {
         expect(results.text).toContain(
           'const { sameName } = require("./sameName");'
         );
+      });
+
+      it("works with es Modules", () => {
+        const root = `${cwd}/test/fixtures/esModuleExtensions`;
+        const aliases: Alias[] = [
+          {
+            alias: "*",
+            prefix: "",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/index.js`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.text).toContain(`import { alpha } from "./alpha.js"`);
+        expect(results.text).toContain(`import { beta } from "./beta.js"`);
+        expect(results.text).toContain(`import { gamma } from "./gamma.js"`);
+        expect(results.text).toContain(`import { delta } from "./delta.mjs"`);
+      });
+
+      it("works with d.ts files", () => {
+        const root = `${cwd}/test/fixtures/esModuleExtensions`;
+        const aliases: Alias[] = [
+          {
+            alias: "*",
+            prefix: "",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/index.d.ts`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.text).toContain(`import { alpha } from "./alpha"`);
+        expect(results.text).toContain(`import { beta } from "./beta.js"`);
+        expect(results.text).toContain(`import { gamma } from "./gamma"`);
+        expect(results.text).toContain(`import { delta } from "./delta.mjs"`);
       });
     });
 
