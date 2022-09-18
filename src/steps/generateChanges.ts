@@ -77,7 +77,8 @@ export function replaceAliasPathsInFile(
       // The import is an esm import, if it is inside a typescript (definition) file or if it uses `import` or `export`
       const esmImport =
         !filePath.endsWith(".ts") &&
-        (importStatement.includes("import") || importStatement.includes("export"));
+        (importStatement.includes("import") ||
+          importStatement.includes("export"));
       const result = aliasToRelativePath(
         importSpecifier,
         filePath,
@@ -169,7 +170,7 @@ export function aliasToRelativePath(
   );
 
   const extensionFixedRelativePath = prefixedRelativePath.replace(
-    /\.[^.]*ts[^.]*$/,
+    /\.[^/.]*ts[^/.]*$/,
     (match) => match.replace("ts", "js")
   );
 

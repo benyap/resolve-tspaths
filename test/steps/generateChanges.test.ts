@@ -430,6 +430,23 @@ describe("steps/generateChanges", () => {
         }
       `);
     });
+
+    it("does not mangle imports ending with ts", () => {
+      const result = aliasToRelativePath(
+        "./constants",
+        "test/fixtures/change/out/directory/file.js",
+        aliases,
+        programPaths,
+        true
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "file": "test/fixtures/change/out/directory/file.js",
+          "original": "./constants",
+        }
+      `);
+    });
   });
 
   describe(replaceAliasPathsInFile.name, () => {
