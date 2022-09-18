@@ -23,7 +23,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist/**",
+    "register.js",
+    "esm.mjs"
   ],
   "bin": {
     "resolve-tspaths": "dist/main.js"
