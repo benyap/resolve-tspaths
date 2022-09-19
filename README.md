@@ -204,9 +204,9 @@ Thanks goes to these wonderful people
     </tr>
     <tr>
       <td align="center"><a href="https://www.linkedin.com/in/forest-beaver-110965159/"><img src="https://avatars.githubusercontent.com/u/33011274?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Forest</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3AForestBeaver" title="Bug reports">🐛</a></td>
-      <td align="center"><a href="http://einhorn.jetzt"><img src="https://avatars.githubusercontent.com/u/1557253?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Zebreus</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3AZebreus" title="Bug reports">🐛</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=Zebreus" title="Tests">⚠️</a></td>
+      <td align="center"><a href="http://einhorn.jetzt"><img src="https://avatars.githubusercontent.com/u/1557253?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Zebreus</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3AZebreus" title="Bug reports">🐛</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=Zebreus" title="Tests">⚠️</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=Zebreus" title="Code">💻</a></td>
     </tr>
-  </tobdy>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->

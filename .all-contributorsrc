@@ -97,7 +97,8 @@
       "profile": "http://einhorn.jetzt",
       "contributions": [
         "bug",
-        "test"
+        "test",
+        "code"
       ]
     }
   ],
