@@ -23,12 +23,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/**",
-    "register.js",
-    "esm.mjs"
+    "dist/**"
   ],
   "bin": {
     "resolve-tspaths": "dist/main.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./esm": "./dist/loaders/esm.js",
+    "./cjs": "./dist/loaders/cjs.js"
   },
   "publishConfig": {
     "access": "public"

@@ -1,7 +1,7 @@
-import { computeAliases } from "./steps/computeAliases";
-import { aliasToRelativePath } from "./steps/generateChanges";
-import { loadTSConfig } from "./steps/loadTSConfig";
-import { resolvePaths } from "./steps/resolvePaths";
+import { computeAliases } from "~/steps/computeAliases";
+import { aliasToRelativePath } from "~/steps/generateChanges";
+import { loadTSConfig } from "~/steps/loadTSConfig";
+import { resolvePaths } from "~/steps/resolvePaths";
 
 function getCoreModules(builtinModules: string[] | undefined): {
   [key: string]: boolean;
@@ -44,57 +44,29 @@ function getCoreModules(builtinModules: string[] | undefined): {
   return coreModules;
 }
 
-const myOptions = {
-  /**
-   * Path to the project's tsconfig file. Defaults to "tsconfig.json"
-   * if not provided.
-   */
-  project: "tsconfig.json",
-  /**
-   * A list of file extensions that will be matched for replacement.
-   * Defaults to `["js", "d.ts"]` to handle js and type declaration
-   * files.
-   */
-  ext: ["js", "d.ts"],
-  /**
-   * If `true`, verbose logs will be printed for degugging.
-   */
-  verbose: false,
-  /**
-   * If `true`, changes will not be emitted.
-   */
-  noEmit: true,
-};
-
 /**
  * Installs a custom module load function that can adhere to paths in tsconfig.
  * Returns a function to undo paths registration.
  */
 export function register(): () => void {
-  console.log(process.argv);
-  //   const projectIndex = process.argv.findIndex(
-  //     (arg) => arg === "--project" || arg === "-P"
-  //   );
-  //process.env.npm_config_argv .original
-  //   if (projectIndex === -1) {
-  //     console.warn(
-  //       "resolve-tspaths loader will be skipped, because no project was specified"
-  //     );
-  //     throw new Error("No project specified");
-  //   }
-  const projectPath = process.env.TS_NODE_PROJECT || "tsconfig.json";
-  // process.argv[projectIndex + 1];
+  const projectIndex = process.argv.findIndex(
+    (arg) => arg === "--project" || arg === "-P"
+  );
+  const cliProjectPath =
+    projectIndex > -1 ? process.argv[projectIndex + 1] : undefined;
 
-  myOptions.project = projectPath;
+  const projectPath =
+    cliProjectPath || process.env.TS_NODE_PROJECT || "tsconfig.json";
 
   const tsConfig = loadTSConfig(projectPath);
-  //   const { rootDir, outDir, baseUrl, paths } = tsConfig.options ?? {};
   const programPaths = resolvePaths(
     {
       project: projectPath,
     },
     tsConfig
   );
+
+  programPaths.outPath = programPaths.srcPath;
 
   const aliases = computeAliases(
     programPaths.basePath,
@@ -137,3 +109,5 @@ export function register(): () => void {
     Module._resolveFilename = originalResolveFilename;
   };
 }
+
+register();

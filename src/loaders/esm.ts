@@ -2,15 +2,12 @@ import { loadTSConfig } from "~/steps/loadTSConfig.js";
 import { computeAliases } from "~/steps/computeAliases.js";
 import { resolvePaths } from "~/steps/resolvePaths.js";
 import { aliasToRelativePath } from "~/steps/generateChanges.js";
-
-console.log("Loading loader");
+import * as path from "path";
 
 const projectPath = process.env.TS_NODE_PROJECT || "tsconfig.json";
-// process.argv[projectIndex + 1];
 
 const tsConfig = loadTSConfig(projectPath);
-// console.log(tsConfig)
-//   const { rootDir, outDir, baseUrl, paths } = tsConfig.options ?? {};
+
 const programPaths = resolvePaths(
   {
     project: projectPath,
@@ -25,9 +22,6 @@ const aliases = computeAliases(
   tsConfig?.options?.paths ?? {}
 );
 
-console.log(programPaths);
-console.log(aliases);
-
 type ResolveResult = {
   /** A hint to the load hook (it might be ignored) 'builtin' | 'commonjs' | 'json' | 'module' | 'wasm' */
   format: string | null | undefined;
@@ -37,6 +31,10 @@ type ResolveResult = {
   url: string;
 };
 
+const includedFiles = tsConfig.fileNames.map((fileName) =>
+  path.resolve(programPaths.basePath, fileName)
+);
+
 export const resolve = async (
   specifier: string,
   context: { parentURL?: string },
@@ -45,28 +43,45 @@ export const resolve = async (
     context: { parentURL?: string }
   ) => ResolveResult
 ): Promise<ResolveResult> => {
-  console.log("#########################################");
-  const parent = context.parentURL || programPaths.srcPath + "/index.js";
-  console.log(specifier);
-  console.log(parent);
-  const newSpecifier = parent
+  const parent = context.parentURL;
+
+  if (!parent) {
+    // This path ensures, that you can use ts path aliases when starting the program
+    // like `node '~/index.js'` for src/index.ts
+    const realSpecifier = path.relative(
+      process.cwd(),
+      specifier.replace(/^[^:/.]+\:\/\//, "")
+    );
+
+    const newSpecifier =
+      aliasToRelativePath(
+        realSpecifier,
+        path.resolve(process.cwd(), "index.ts"),
+        aliases,
+        programPaths,
+        true
+      )?.replacement || specifier;
+
+    try {
+      return await nextResolve(newSpecifier, context);
+    } catch (e) {
+      return await nextResolve(specifier, context);
+    }
+  }
+
+  const parentWithoutProtocol = parent.replace(/^[^:/.]+\:\/\//, "");
+  const fileIsIncluded = includedFiles.includes(parentWithoutProtocol);
+
+  const newSpecifier = fileIsIncluded
     ? aliasToRelativePath(
         specifier,
-        parent.replace("file://", ""),
+        parentWithoutProtocol,
         aliases,
         programPaths,
         true
       )?.replacement || specifier
     : specifier;
-  console.log("Processing specifier: ", specifier, " => ", newSpecifier);
+  // console.log("Processing specifier: ", specifier, " => ", newSpecifier);
 
-  const nextResult = await nextResolve(newSpecifier, context);
-  // console.log("Processed specifier: ", specifier , " => ", newSpecifier)
-
-  // console.log("Next resolve:", nextResolve)
-  // console.log("Next result: ", nextResult?.url)
-
-  return nextResult;
-
-  throw new Error("HAHA lol");
+  return await nextResolve(newSpecifier, context);
 };
