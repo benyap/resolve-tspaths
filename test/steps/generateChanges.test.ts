@@ -658,7 +658,7 @@ describe("steps/generateChanges", () => {
         );
       });
 
-      it("works with ES modules", () => {
+      it("imports work with ES modules", () => {
         const root = `${cwd}/test/fixtures/esModuleExtensions`;
         const aliases: Alias[] = [
           {
@@ -672,18 +672,23 @@ describe("steps/generateChanges", () => {
           outPath: `${root}/out`,
         };
         const results = replaceAliasPathsInFile(
-          `${root}/out/index.js`,
+          `${root}/out/imports.js`,
           aliases,
           programPaths
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(`import { alpha } from "./alpha.js"`);
-        expect(results.text).toContain(`import { beta } from "./beta.js"`);
+        expect(results.text).toContain(`import { beta as b } from "./beta.js"`);
         expect(results.text).toContain(`import { gamma } from "./gamma.js"`);
-        expect(results.text).toContain(`import { delta } from "./delta.mjs"`);
+        expect(results.text).toContain(`import * as delta from "./delta.mjs"`);
+        expect(results.text).toContain(`import toast from "./test.json"`);
+        expect(results.text).toContain(`import("./alpha.js")`);
+        expect(results.text).toContain(`import("./beta.js")`);
+        expect(results.text).toContain(`import("./gamma.js")`);
+        expect(results.text).toContain(`import("./delta.mjs")`);
       });
 
-      it("works with d.ts files", () => {
+      it("exports work with ES modules", () => {
         const root = `${cwd}/test/fixtures/esModuleExtensions`;
         const aliases: Alias[] = [
           {
@@ -697,15 +702,68 @@ describe("steps/generateChanges", () => {
           outPath: `${root}/out`,
         };
         const results = replaceAliasPathsInFile(
-          `${root}/out/index.d.ts`,
+          `${root}/out/exports.js`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.text).toContain(`export { alpha } from "./alpha.js"`);
+        expect(results.text).toContain(`export { beta as b } from "./beta.js"`);
+        expect(results.text).toContain(`export { gamma } from "./gamma.js"`);
+        expect(results.text).toContain(`export * as delta from "./delta.mjs"`);
+        expect(results.text).toContain(`export { value } from "./test.json"`);
+      });
+
+      it("imports work with d.ts files", () => {
+        const root = `${cwd}/test/fixtures/esModuleExtensions`;
+        const aliases: Alias[] = [
+          {
+            alias: "*",
+            prefix: "",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/imports.d.ts`,
           aliases,
           programPaths
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(`import { alpha } from "./alpha"`);
-        expect(results.text).toContain(`import { beta } from "./beta.js"`);
+        expect(results.text).toContain(`import { beta as b } from "./beta.js"`);
         expect(results.text).toContain(`import { gamma } from "./gamma"`);
-        expect(results.text).toContain(`import { delta } from "./delta.mjs"`);
+        expect(results.text).toContain(`import * as delta from "./delta.mjs"`);
+        expect(results.text).toContain(`import toast from "./test.json"`);
+      });
+
+      it("exports work with d.ts files", () => {
+        const root = `${cwd}/test/fixtures/esModuleExtensions`;
+        const aliases: Alias[] = [
+          {
+            alias: "*",
+            prefix: "",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/exports.d.ts`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.text).toContain(`export { alpha } from "./alpha"`);
+        expect(results.text).toContain(`export { beta as b } from "./beta.js"`);
+        expect(results.text).toContain(`export { gamma } from "./gamma"`);
+        expect(results.text).toContain(`export * as delta from "./delta.mjs"`);
+        expect(results.text).toContain(`export { value } from "./test.json"`);
       });
     });
 
