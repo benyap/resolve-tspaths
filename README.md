@@ -126,6 +126,9 @@ file, set the `TS_NODE_PROJECT` environment variable.
 node --loader ts-node/esm --loader resolve-tspaths/esm src/index.ts
 ```
 
+You need a nodejs version which supports ES module loader chaining (at least
+`16.17.0` or `18.9.0`).
+
 ### With commonjs modules
 
 ```sh
