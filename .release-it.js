@@ -1,7 +1,7 @@
 module.exports = {
   github: {
     release: true,
-    releaseName: "Release ${version}",
+    releaseName: "v${version}",
   },
   npm: {
     publish: false,
