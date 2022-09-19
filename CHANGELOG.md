@@ -1,5 +1,35 @@
 
 
+## [0.8.0](https://github.com/benyap/resolve-tspaths/compare/v0.7.5...v0.8.0) (2022-09-19)
+
+
+### Features
+
+* add more default extensions (mjs, cjs, .d.mts, .d.cts) ([b93a564](https://github.com/benyap/resolve-tspaths/commit/b93a564185b3da0ab7192500e7a2fe6918945af9))
+* improve support for ES modules ([cb2057c](https://github.com/benyap/resolve-tspaths/commit/cb2057cdbcc633eb80d086e52afd7ba4b6abd8e5))
+
+
+### Bug Fixes
+
+* **deps:** update dependency fast-glob to v3.2.12 ([#156](https://github.com/benyap/resolve-tspaths/issues/156)) ([ed61e68](https://github.com/benyap/resolve-tspaths/commit/ed61e6808ae54ae571a471052626b0b3c3b6258a))
+* fix broken imports ending with ts ([8e4532e](https://github.com/benyap/resolve-tspaths/commit/8e4532eca5f2ff569ec821a79b0970337a4604fa))
+
+
+### Documentation
+
+* add Zebreus as a contributor ([#159](https://github.com/benyap/resolve-tspaths/issues/159)) ([0599eec](https://github.com/benyap/resolve-tspaths/commit/0599eecfeeb44e6b1477a43c74cd8f54276f44b6))
+
+
+### Internal
+
+* add tests for dynamic imports and exports with ES Modules ([8b561ff](https://github.com/benyap/resolve-tspaths/commit/8b561fff3b3f914d216f03cb3f4633960f5028f5))
+* **deps:** update dependency all-contributors-cli to v6.20.4 ([#155](https://github.com/benyap/resolve-tspaths/issues/155)) ([7c56edd](https://github.com/benyap/resolve-tspaths/commit/7c56edd2f4231819abd85104fb5e06e0dfb0b4da))
+* **deps:** update dependency release-it to v15.4.2 ([#157](https://github.com/benyap/resolve-tspaths/issues/157)) ([478cc0b](https://github.com/benyap/resolve-tspaths/commit/478cc0b0051ef60d9862456788e8041079a1690f))
+* **deps:** update dependency typescript to v4.8.3 ([#148](https://github.com/benyap/resolve-tspaths/issues/148)) ([9821b89](https://github.com/benyap/resolve-tspaths/commit/9821b89538be9b1c44056737ee0edaf86ab9527f))
+* **deps:** update jest monorepo to v29 ([#147](https://github.com/benyap/resolve-tspaths/issues/147)) ([ea039c3](https://github.com/benyap/resolve-tspaths/commit/ea039c36779c61028afa961ae2d14ea6e20284b5))
+* formatting and typing clean up ([12578b9](https://github.com/benyap/resolve-tspaths/commit/12578b90e67775c59e813a14df0844de69e9ad96))
+* update jest config and snapshots ([738fea3](https://github.com/benyap/resolve-tspaths/commit/738fea34b472ca7feb96aba9646cc8896c9571da))
+
 ## [0.7.5](https://github.com/benyap/resolve-tspaths/compare/v0.7.4...v0.7.5) (2022-09-08)
 
 
