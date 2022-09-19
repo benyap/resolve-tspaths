@@ -1,4 +1,5 @@
 import { ProgramOptions } from "~/types";
+import { DEFAULT_EXTENSIONS } from "~/constants";
 
 import { loadTSConfig } from "~/steps/loadTSConfig";
 import { resolvePaths } from "~/steps/resolvePaths";
@@ -22,7 +23,7 @@ export async function resolveTsPaths(
   const {
     project = "tsconfig.json",
     src = "src",
-    ext = ["js", "d.ts"],
+    ext = DEFAULT_EXTENSIONS,
     out,
   } = options;
   const tsConfig = loadTSConfig(project);

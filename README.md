@@ -43,8 +43,8 @@ const { ... } = require("~/some/path");
 ```ts
 import * as stuff from "~/some/path";
 import stuff from "~/some/path";
-import { stuff } from "~/some/path";
-import { stuff as myStuff } from "~/some/path";
+import { stuff } from "~/some/path.js";
+import { stuff as myStuff } from "~/some/path.mjs";
 ```
 
 **ESM dynamic imports**
@@ -58,8 +58,8 @@ const stuff = await import("~/some/path");
 ```ts
 export * from "~/some/path";
 export * as stuff from "~/some/path";
-export { stuff } from "~/some/path";
-export { stuff as myStuff } from "~/some/path";
+export { stuff } from "~/some/path.js";
+export { stuff as myStuff } from "~/some/path.mjs";
 ```
 
 **Node.JS
@@ -136,9 +136,15 @@ not provided.
 
 #### `--ext <extension...>`
 
-Provide a (space separatated) list of file extensions in the output directory
-that the program should process. Defaults to `["js", "d.ts"]` to process js and
-type declaration files.
+Provide a space-delimited list of file extensions in the output directory that
+the program should process. Defaults to the following extensions:
+
+- `js`
+- `mjs`
+- `cjs`
+- `d.ts`
+- `d.mts`
+- `d.cts`
 
 #### `--verbose`
 
