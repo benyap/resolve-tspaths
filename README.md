@@ -16,6 +16,8 @@ Use this package after `tsc` builds your code to replace any path aliases with
 relative paths - this means that you can develop using path aliases whilst still
 being able to ship working JavaScript code.
 
+This package also provides a nodejs module loader.
+
 **Sample `tsconfig.json`:**
 
 ```ts
@@ -111,6 +113,24 @@ const path = require.resolve("~/some/path");
    ```ts
    import { resolveTsPaths } from "resolve-tspaths";
    ```
+
+## Usage as a NodeJS resolver
+
+You can use this with `ts-node` and `node` to load modules using TypeScript path
+aliases at runtime. This feature is still experimental. To specify your tsconfig
+file, set the `TS_NODE_PROJECT` environment variable.
+
+### With ES modules (type: "module")
+
+```sh
+node --loader ts-node/esm --loader resolve-tspaths/esm src/index.ts
+```
+
+### With commonjs modules
+
+```sh
+ts-node -r resolve-tspaths/cjs src/index.ts
+```
 
 ## Options
 
