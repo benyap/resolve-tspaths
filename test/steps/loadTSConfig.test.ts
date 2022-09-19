@@ -4,15 +4,15 @@ describe("steps/loadTSConfig", () => {
   it("loads tsconfig (json) correctly", () => {
     const config = loadTSConfig("test/fixtures/tsconfig/tsconfig.test.json");
     expect(config.options).toMatchInlineSnapshot(`
-      Object {
+      {
         "configFilePath": undefined,
-        "lib": Array [
+        "lib": [
           "lib.es2015.d.ts",
         ],
         "module": 1,
         "moduleResolution": 2,
-        "paths": Object {
-          "~/*": Array [
+        "paths": {
+          "~/*": [
             "./app/*",
           ],
         },
@@ -30,17 +30,17 @@ describe("steps/loadTSConfig", () => {
       "test/fixtures/tsconfig/tsconfig.extends.jsonc"
     );
     expect(config.options).toMatchInlineSnapshot(`
-      Object {
+      {
         "baseUrl": "test/fixtures/tsconfig/nested",
         "configFilePath": undefined,
-        "lib": Array [
+        "lib": [
           "lib.es2015.d.ts",
         ],
         "module": 1,
         "moduleResolution": 2,
         "outDir": "dist",
-        "paths": Object {
-          "~/*": Array [
+        "paths": {
+          "~/*": [
             "./src/*",
           ],
         },
@@ -60,15 +60,15 @@ describe("steps/loadTSConfig", () => {
       "test/fixtures/tsconfig/tsconfig.syntax-error.json"
     );
     expect(config.options).toMatchInlineSnapshot(`
-      Object {
+      {
         "configFilePath": undefined,
-        "lib": Array [
+        "lib": [
           "lib.es2015.d.ts",
         ],
         "module": 1,
         "moduleResolution": 2,
-        "paths": Object {
-          "@/*": Array [
+        "paths": {
+          "@/*": [
             "./src/*",
           ],
         },

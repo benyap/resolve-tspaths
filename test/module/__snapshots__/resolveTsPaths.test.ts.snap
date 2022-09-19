@@ -11,29 +11,29 @@ exports[`resolveTsPaths runs as a module 2`] = `
 `;
 
 exports[`resolveTsPaths runs as a module 3`] = `
-"import {} from \\"package\\";
-import {} from \\"../root\\";
-import {} from \\"~/non-existent-path\\";
+"import {} from "package";
+import {} from "../root";
+import {} from "~/non-existent-path";
 "
 `;
 
 exports[`resolveTsPaths runs as a module 4`] = `
-"import {} from \\"package\\";
-import {} from \\"../root.js\\";
-import {} from \\"~/non-existent-path\\";
+"import {} from "package";
+import {} from "../root.js";
+import {} from "~/non-existent-path";
 "
 `;
 
 exports[`resolveTsPaths runs as a module 5`] = `
-"import {} from \\"package\\";
-import {} from \\"../../root\\";
-import {} from \\"~/non-existent-path\\";
+"import {} from "package";
+import {} from "../../root";
+import {} from "~/non-existent-path";
 "
 `;
 
 exports[`resolveTsPaths runs as a module 6`] = `
-"import {} from \\"package\\";
-import {} from \\"../../root.js\\";
-import {} from \\"~/non-existent-path\\";
+"import {} from "package";
+import {} from "../../root.js";
+import {} from "~/non-existent-path";
 "
 `;

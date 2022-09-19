@@ -17,7 +17,7 @@ describe("steps/generateChanges", () => {
     it("matches import * statements", () => {
       const result = regex.exec(`import * as package from 'package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "import * as package from 'package'",
           "import * as package from ",
           "package",
@@ -28,7 +28,7 @@ describe("steps/generateChanges", () => {
     it("matches import {} statements", () => {
       const result = regex.exec(`import { package } from '~/package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "import { package } from '~/package'",
           "import { package } from ",
           "~/package",
@@ -41,7 +41,7 @@ describe("steps/generateChanges", () => {
         `import { package as myPackage } from '../package';`
       );
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "import { package as myPackage } from '../package'",
           "import { package as myPackage } from ",
           "../package",
@@ -52,7 +52,7 @@ describe("steps/generateChanges", () => {
     it("matches import statements", () => {
       const result = regex.exec(`import 'package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "import 'package'",
           "import ",
           "package",
@@ -63,7 +63,7 @@ describe("steps/generateChanges", () => {
     it("matches export * statements", () => {
       const result = regex.exec(`export * from 'package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "export * from 'package'",
           "export * from ",
           "package",
@@ -74,7 +74,7 @@ describe("steps/generateChanges", () => {
     it("matches export * as statements", () => {
       const result = regex.exec(`export * as package from 'package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "export * as package from 'package'",
           "export * as package from ",
           "package",
@@ -85,7 +85,7 @@ describe("steps/generateChanges", () => {
     it("matches export {} statements", () => {
       const result = regex.exec(`export { package } from '~/package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "export { package } from '~/package'",
           "export { package } from ",
           "~/package",
@@ -98,7 +98,7 @@ describe("steps/generateChanges", () => {
         `export { package as myPackage } from '../package';`
       );
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "export { package as myPackage } from '../package'",
           "export { package as myPackage } from ",
           "../package",
@@ -109,7 +109,7 @@ describe("steps/generateChanges", () => {
     it("matches export statements", () => {
       const result = regex.exec(`export 'package';`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "export 'package'",
           "export ",
           "package",
@@ -120,7 +120,7 @@ describe("steps/generateChanges", () => {
     it("matches require statements", () => {
       const result = regex.exec(`require('package');`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "require('package')",
           "require(",
           "package",
@@ -131,7 +131,7 @@ describe("steps/generateChanges", () => {
     it("matches const require statements", () => {
       const result = regex.exec(`const package = require('../package');`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "require('../package')",
           "require(",
           "../package",
@@ -144,7 +144,7 @@ describe("steps/generateChanges", () => {
         `const package = require.resolve('../package');`
       );
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "require.resolve('../package')",
           "require.resolve(",
           "../package",
@@ -157,7 +157,7 @@ describe("steps/generateChanges", () => {
         `const { package } = require('~/package/package');`
       );
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "require('~/package/package')",
           "require(",
           "~/package/package",
@@ -168,7 +168,7 @@ describe("steps/generateChanges", () => {
     it("matches dynamic import statements", () => {
       const result = regex.exec(`import('package');`);
       expect(result).toMatchInlineSnapshot(`
-        Array [
+        [
           "import('package')",
           "import(",
           "package",
@@ -201,7 +201,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "path",
         }
@@ -217,7 +217,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/non-existent",
         }
@@ -233,7 +233,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/root",
           "replacement": "./root",
@@ -251,7 +251,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/root",
           "replacement": "./root.js",
@@ -269,7 +269,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "./root",
           "replacement": "./root.js",
@@ -287,7 +287,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/root.js",
           "replacement": "./root.js",
@@ -304,7 +304,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/alternate",
           "replacement": "./alternateSrc/alternate",
@@ -321,7 +321,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/imports.js",
           "original": "~/nested/nested-path",
           "replacement": "./nested/nested-path",
@@ -338,7 +338,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/nested/imports.js",
           "original": "~/root",
           "replacement": "../root",
@@ -355,7 +355,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/nested/imports.js",
           "original": "../..",
         }
@@ -371,12 +371,12 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/nested/imports.js",
           "original": "~/alternate",
           "replacement": "../alternateSrc/alternate",
         }
-        `);
+      `);
     });
 
     it("does replace paths for json imports", () => {
@@ -388,7 +388,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/nested/imports.js",
           "original": "~/data.json",
           "replacement": "../data.json",
@@ -405,7 +405,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/directory/file.js",
           "original": "~/directory",
           "replacement": "../directory",
@@ -423,7 +423,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/directory/file.js",
           "original": "~/directory",
           "replacement": "../directory.js",
@@ -441,7 +441,7 @@ describe("steps/generateChanges", () => {
       );
 
       expect(result).toMatchInlineSnapshot(`
-        Object {
+        {
           "file": "test/fixtures/change/out/directory/file.js",
           "original": "./constants",
         }
@@ -483,34 +483,34 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "./data.json",
               "original": "~/data.json",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"package\\");
-          const {} = require(\\"./root\\");
-          const {} = require(\\"./nested\\");
-          const {} = require(\\"./nested/nested-path\\");
-          const {} = require(\\"~/nested/non-existent\\");
-          const {} = require(\\"@/non-existent\\");
-          const {} = require(\\"./data.json\\");
-          const {} = require(\\"~/non-existent.json\\");
+          "const {} = require("package");
+          const {} = require("./root");
+          const {} = require("./nested");
+          const {} = require("./nested/nested-path");
+          const {} = require("~/nested/non-existent");
+          const {} = require("@/non-existent");
+          const {} = require("./data.json");
+          const {} = require("~/non-existent.json");
 
           // Module code
           function sample() {}
@@ -527,28 +527,28 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"package\\");
-          const {} = require(\\"./root\\");
-          const {} = require(\\"./nested\\");
-          const {} = require(\\"./nested/nested-path\\");
-          const {} = require(\\"~/nested/non-existent\\");
-          const {} = require(\\"@/non-existent\\");
+          "const {} = require("package");
+          const {} = require("./root");
+          const {} = require("./nested");
+          const {} = require("./nested/nested-path");
+          const {} = require("~/nested/non-existent");
+          const {} = require("@/non-existent");
 
           module.exports = {
             /* omitted */
@@ -565,34 +565,34 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "../data.json",
               "original": "~/data.json",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"package\\");
-          const {} = require(\\"../root\\");
-          const {} = require(\\"./\\");
-          const {} = require(\\"./nested-path\\");
-          const {} = require(\\"~/nested/non-existent\\");
-          const {} = require(\\"@/non-existent\\");
-          const {} = require(\\"../data.json\\");
-          const {} = require(\\"~/non-existent.json\\");
+          "const {} = require("package");
+          const {} = require("../root");
+          const {} = require("./");
+          const {} = require("./nested-path");
+          const {} = require("~/nested/non-existent");
+          const {} = require("@/non-existent");
+          const {} = require("../data.json");
+          const {} = require("~/non-existent.json");
 
           // Module code
           function sample() {}
@@ -609,15 +609,15 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../directory",
               "original": "~/directory",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"../directory\\");
+          "const {} = require("../directory");
           "
         `);
       });
@@ -643,8 +643,8 @@ describe("steps/generateChanges", () => {
         expect(results.changed).toBe(true);
         expect(results.changes).toHaveLength(1);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./sameName",
               "original": "sameName",
             },
@@ -786,34 +786,34 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "./data.json",
               "original": "~/data.json",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"package\\";
-          import {} from \\"./root\\";
-          import {} from \\"./nested\\";
-          import {} from \\"./nested/nested-path\\";
-          import {} from \\"~/nested/non-existent\\";
-          import {} from \\"@/non-existent\\";
-          import {} from \\"./data.json\\";
-          import {} from \\"~/non-existent.json\\";
+          "import {} from "package";
+          import {} from "./root";
+          import {} from "./nested";
+          import {} from "./nested/nested-path";
+          import {} from "~/nested/non-existent";
+          import {} from "@/non-existent";
+          import {} from "./data.json";
+          import {} from "~/non-existent.json";
           export declare function sample(): void;
           "
         `);
@@ -827,28 +827,28 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "export * from \\"package\\";
-          export * from \\"./root\\";
-          export * from \\"./nested\\";
-          export * from \\"./nested/nested-path\\";
-          export * from \\"~/nested/non-existent\\";
-          export * from \\"@/non-existent\\";
+          "export * from "package";
+          export * from "./root";
+          export * from "./nested";
+          export * from "./nested/nested-path";
+          export * from "~/nested/non-existent";
+          export * from "@/non-existent";
           "
         `);
       });
@@ -861,34 +861,34 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "../data.json",
               "original": "~/data.json",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"package\\";
-          import {} from \\"../root\\";
-          import {} from \\"./\\";
-          import {} from \\"./nested-path\\";
-          import {} from \\"~/nested/non-existent\\";
-          import {} from \\"@/non-existent\\";
-          import {} from \\"../data.json\\";
-          import {} from \\"~/non-existent.json\\";
+          "import {} from "package";
+          import {} from "../root";
+          import {} from "./";
+          import {} from "./nested-path";
+          import {} from "~/nested/non-existent";
+          import {} from "@/non-existent";
+          import {} from "../data.json";
+          import {} from "~/non-existent.json";
           export declare function sample(): void;
           "
         `);
@@ -902,15 +902,15 @@ describe("steps/generateChanges", () => {
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../directory",
               "original": "~/directory",
             },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"../directory\\";
+          "import {} from "../directory";
           "
         `);
       });
@@ -936,8 +936,8 @@ describe("steps/generateChanges", () => {
         expect(results.changed).toBe(true);
         expect(results.changes).toHaveLength(1);
         expect(results.changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./sameName",
               "original": "sameName",
             },
@@ -986,20 +986,20 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "./data.json",
               "original": "~/data.json",
             },
@@ -1015,16 +1015,16 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
@@ -1040,20 +1040,20 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "../data.json",
               "original": "~/data.json",
             },
@@ -1069,8 +1069,8 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../directory",
               "original": "~/directory",
             },
@@ -1086,20 +1086,20 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../../root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "../../nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "../../nested/nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "../../data.json",
               "original": "~/data.json",
             },
@@ -1126,20 +1126,20 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "./data.json",
               "original": "~/data.json",
             },
@@ -1155,16 +1155,16 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "./root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested/nested-path",
               "original": "~/nested/nested-path",
             },
@@ -1180,20 +1180,20 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "./",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "./nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "../data.json",
               "original": "~/data.json",
             },
@@ -1209,8 +1209,8 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../directory",
               "original": "~/directory",
             },
@@ -1226,20 +1226,20 @@ describe("steps/generateChanges", () => {
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
-          Array [
-            Object {
+          [
+            {
               "modified": "../../root",
               "original": "~/root",
             },
-            Object {
+            {
               "modified": "../../nested",
               "original": "~/nested",
             },
-            Object {
+            {
               "modified": "../../nested/nested-path",
               "original": "~/nested/nested-path",
             },
-            Object {
+            {
               "modified": "../../data.json",
               "original": "~/data.json",
             },
