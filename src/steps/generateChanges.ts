@@ -199,7 +199,7 @@ export function aliasToRelativePath(
  * @param importPath An non-relative import path
  */
 function resolveImportPath(importPath: string) {
-  const importPathTs = importPath.replace(/\.[^.]*js[^.]*$/, (match) =>
+  const importPathTs = importPath.replace(/\.[^/.]*js[^/.]*$/, (match) =>
     match.replace("js", "ts")
   );
   const importPathWithExtensions = MODULE_EXTS.map(
