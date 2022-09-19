@@ -1,15 +1,14 @@
 {
-    "compilerOptions": {
-      "outDir": "./out",
-      "baseUrl": ".",
-      "declaration": true,
-      "module": "ES2022",
-      "moduleResolution": "node",
-      "paths": {
-        "*": ["./src/*"]
-      },
-      "resolveJsonModule": true,
-      "allowSyntheticDefaultImports": true
-    }
+  "compilerOptions": {
+    "outDir": "./out",
+    "baseUrl": ".",
+    "declaration": true,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "paths": {
+      "*": ["./src/*"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   }
-  
+}

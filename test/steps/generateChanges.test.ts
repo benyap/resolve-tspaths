@@ -241,7 +241,7 @@ describe("steps/generateChanges", () => {
       `);
     });
 
-    it("returns the correct file extension for esm modules", () => {
+    it("returns the correct file extension for ES modules", () => {
       const result = aliasToRelativePath(
         "~/root",
         "test/fixtures/change/out/imports.js",
@@ -259,7 +259,7 @@ describe("steps/generateChanges", () => {
       `);
     });
 
-    it("returns the correct file extension for already relative esm modules", () => {
+    it("returns the correct file extension for already relative ES modules", () => {
       const result = aliasToRelativePath(
         "./root",
         "test/fixtures/change/out/imports.js",
@@ -658,7 +658,7 @@ describe("steps/generateChanges", () => {
         );
       });
 
-      it("works with es Modules", () => {
+      it("works with ES modules", () => {
         const root = `${cwd}/test/fixtures/esModuleExtensions`;
         const aliases: Alias[] = [
           {

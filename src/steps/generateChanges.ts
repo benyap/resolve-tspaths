@@ -10,6 +10,7 @@ export const IMPORT_EXPORT_REGEX =
 
 export const ESM_IMPORT_EXPORT_REGEX =
   /(?:(?:import\()|(?:import|export)\s+(?:.*from\s+)?)['"]([^'"]*)['"]\)?/g;
+
 export const COMMONJS_IMPORT_EXPORT_REGEX =
   /(?:(?:require\(|require\.resolve\()\s+)['"]([^'"]*)['"]\)/g;
 
@@ -73,12 +74,13 @@ export function replaceAliasPathsInFile(
 
   const newText = originalText.replace(
     IMPORT_EXPORT_REGEX,
-    (original, importStatement, importSpecifier) => {
-      // The import is an esm import, if it is inside a typescript (definition) file or if it uses `import` or `export`
+    (original, importStatement: string, importSpecifier: string) => {
+      // The import is an esm import if it is inside a typescript (definition) file or if it uses `import` or `export`
       const esmImport =
         !filePath.endsWith(".ts") &&
         (importStatement.includes("import") ||
           importStatement.includes("export"));
+
       const result = aliasToRelativePath(
         importSpecifier,
         filePath,
@@ -140,10 +142,9 @@ export function aliasToRelativePath(
         )
       );
 
-  const absoluteImport = absoluteImportPaths.reduce(
-    (acc, path) => acc || resolveImportPath(path),
-    undefined as undefined | ReturnType<typeof resolveImportPath>
-  );
+  const absoluteImport = absoluteImportPaths.reduce<null | ReturnType<
+    typeof resolveImportPath
+  >>((acc, path) => acc || resolveImportPath(path), null);
 
   if (!absoluteImport) {
     return {
@@ -207,13 +208,15 @@ function resolveImportPath(importPath: string) {
     };
   }
 
-  // Try index files, if the path is a directory
+  // Try index files if the path is a directory
   const possiblePathsAsDirectory = isDirectory(importPath)
     ? MODULE_EXTS.map((ext) => `${importPath}/index${ext}`)
     : [];
+
   const existingIndexPath = possiblePathsAsDirectory.find((path) =>
     isFile(path)
   );
+
   if (existingIndexPath) {
     return {
       imported: importPath,
@@ -222,7 +225,7 @@ function resolveImportPath(importPath: string) {
     };
   }
 
-  return;
+  return null;
 }
 
 function isFile(path: string) {
