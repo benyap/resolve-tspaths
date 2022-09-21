@@ -31,7 +31,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./esm": "./dist/loaders/esm.js",
-    "./cjs": "./dist/loaders/cjs.js"
+    "./cjs": "./dist/loaders/cjs.js",
+    "./jest": "./dist/loaders/jest.js"
   },
   "publishConfig": {
     "access": "public"
