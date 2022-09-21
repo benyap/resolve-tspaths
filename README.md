@@ -135,6 +135,29 @@ You need a nodejs version which supports ES module loader chaining (at least
 ts-node -r resolve-tspaths/cjs src/index.ts
 ```
 
+### With jest and ES modules
+
+In your jest.config.js
+
+```
+import { resolveTsModuleNames } from "resolve-tspaths/jest"
+
+export default {
+  roots: ["<rootDir>/src"],
+  extensionsToTreatAsEsm: [".[m]?[jt]s[x]?"],
+  moduleNameMapper: resolveTsModuleNames("tsconfig.json"),
+  transform: {
+    "^.+\\.[cm]?tsx?$": [
+      "ts-jest",
+      {
+        useESM: true,
+      },
+    ],
+  },
+}
+
+```
+
 ## Options
 
 _`resolve-tspaths` uses some reasonable defaults. For most cases, you probably
