@@ -95,7 +95,6 @@ export const generateImportList = (
 };
 
 // Returns an array with imports sorted by priority
-// TODO: Improve documentation
 const generateImportsForFile = (
   sourceFile: string,
   aliasPrefix: string,
