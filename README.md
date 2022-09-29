@@ -137,25 +137,34 @@ ts-node -r resolve-tspaths/cjs src/index.ts
 
 ### With jest and ES modules
 
-In your jest.config.js
+To use resolve-tspaths with jest you need to add it as a transformer in your
+jest config. This also automatically enables `ts-jest` as a transformer, if you
+have that installed.
 
-```
-import { resolveTsModuleNames } from "resolve-tspaths/jest"
-
-export default {
-  roots: ["<rootDir>/src"],
-  extensionsToTreatAsEsm: [".[m]?[jt]s[x]?"],
-  moduleNameMapper: resolveTsModuleNames("tsconfig.json"),
-  transform: {
-    "^.+\\.[cm]?tsx?$": [
-      "ts-jest",
-      {
-        useESM: true,
-      },
-    ],
-  },
+```json
+{
+  "transform": {
+    "^.+.m?tsx?$": "resolve-tspaths/jest"
+  }
 }
+```
 
+You can also configure the typescript transformer (`ts-jest` by default) and
+what tsconfig. The default values are:
+
+```json
+{
+  "transform": {
+    "^.+.m?tsx?$": [
+      "resolve-tspaths/jest",
+      {
+        "tsconfig": "tsconfig.json", // Where to load the tsconfig from
+        "tsJest": "ts-jest", // The path to ts-jest (or another transformer). Set to an empty string, if you don't want to use another transformer
+        "tsJestConfig": {} // Config for the other transformer
+      }
+    ]
+  }
+}
 ```
 
 ## Options
