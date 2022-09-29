@@ -33,22 +33,26 @@ const MODULE_EXTS = [
  * @param programPaths Program options.
  */
 export function generateChanges(
-  files: string[],
+  files: (string | { path: string; content: string })[],
   aliases: Alias[],
   programPaths: Pick<ProgramPaths, "srcPath" | "outPath">
 ): Change[] {
   const changeList: Change[] = [];
 
   for (const file of files) {
-    const { changed, text, changes } = replaceAliasPathsInFile(
-      file,
+    const filePath = typeof file === "string" ? file : file.path;
+    const fileContent =
+      typeof file === "string" ? readFileSync(file, "utf-8") : file.content;
+    const { changed, text, changes } = replaceAliasPaths(
+      fileContent,
+      filePath,
       aliases,
       programPaths
     );
 
     if (!changed) continue;
 
-    changeList.push({ file, text, changes });
+    changeList.push({ file: filePath, text, changes });
   }
 
   return changeList;
@@ -69,10 +73,27 @@ export function replaceAliasPathsInFile(
   if (!existsSync(filePath))
     throw new FileNotFoundError(replaceAliasPathsInFile.name, filePath);
 
-  const originalText = readFileSync(filePath, "utf-8");
+  const sourceText = readFileSync(filePath, "utf-8");
+
+  return replaceAliasPaths(sourceText, filePath, aliases, programPaths);
+}
+
+/**
+ * Read the file at the given path and return the text with aliased paths replaced.
+ *
+ * @param filePath The path to the file.
+ * @param aliases The path mapping configuration from tsconfig.
+ * @param programPaths Program options.
+ */
+export function replaceAliasPaths(
+  sourceText: string,
+  filePath: string,
+  aliases: Alias[],
+  programPaths: Pick<ProgramPaths, "srcPath" | "outPath">
+): { changed: boolean; text: string; changes: TextChange[] } {
   const changes: TextChange[] = [];
 
-  const newText = originalText.replace(
+  const newText = sourceText.replace(
     IMPORT_EXPORT_REGEX,
     (original, importStatement: string, importSpecifier: string) => {
       // The import is an esm import if it is inside a typescript (definition) file or if it uses `import` or `export`
@@ -105,7 +126,7 @@ export function replaceAliasPathsInFile(
     }
   );
 
-  return { changed: originalText !== newText, text: newText, changes };
+  return { changed: sourceText !== newText, text: newText, changes };
 }
 
 /**
