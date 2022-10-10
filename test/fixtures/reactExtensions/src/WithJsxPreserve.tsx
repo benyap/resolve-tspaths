@@ -1,1 +1,1 @@
-export const WithJsxPreserve = () => <div>content</div>
+export const WithJsxPreserve = () => <div>content</div>;
