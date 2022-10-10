@@ -1,5 +1,29 @@
 
 
+## [0.8.1](https://github.com/benyap/resolve-tspaths/compare/v0.8.0...v0.8.1) (2022-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v9.4.1 ([#167](https://github.com/benyap/resolve-tspaths/issues/167)) ([04f7165](https://github.com/benyap/resolve-tspaths/commit/04f716566bf2401e2074f4a0471d38e84df06ed3))
+* fix regex ([b70b3e7](https://github.com/benyap/resolve-tspaths/commit/b70b3e714cf2ae01b2749849a862bf7020b09d15))
+* support jsx files ([5d36044](https://github.com/benyap/resolve-tspaths/commit/5d360441169293381a221c3b713733be608a4bdc))
+
+
+### Internal
+
+* **deps:** bump vm2 from 3.9.9 to 3.9.11 ([#164](https://github.com/benyap/resolve-tspaths/issues/164)) ([aa62b7a](https://github.com/benyap/resolve-tspaths/commit/aa62b7a95e7bd3ebfa8a06d80e5f3231b240b5ef))
+* **deps:** update dependency @release-it/conventional-changelog to v5.1.1 ([#171](https://github.com/benyap/resolve-tspaths/issues/171)) ([c86e820](https://github.com/benyap/resolve-tspaths/commit/c86e82085180ac44965dc7419f09c32ea1446058))
+* **deps:** update dependency all-contributors-cli to v6.22.0 ([#160](https://github.com/benyap/resolve-tspaths/issues/160)) ([3927049](https://github.com/benyap/resolve-tspaths/commit/3927049a3ecaf05a73156d5e0cceb675e28c7f46))
+* **deps:** update dependency release-it to v15.4.3 ([#168](https://github.com/benyap/resolve-tspaths/issues/168)) ([3da423d](https://github.com/benyap/resolve-tspaths/commit/3da423dc46f0073edc91c1a82ac9f5dd1e244af9))
+* **deps:** update dependency release-it to v15.5.0 ([#169](https://github.com/benyap/resolve-tspaths/issues/169)) ([14be37e](https://github.com/benyap/resolve-tspaths/commit/14be37ead1b48e1b35b18a8ba35410b7c391570f))
+* **deps:** update dependency ts-jest to v29.0.3 ([#161](https://github.com/benyap/resolve-tspaths/issues/161)) ([2ecdbbd](https://github.com/benyap/resolve-tspaths/commit/2ecdbbd4b15a11104d65f0915933b01461ee6b10))
+* **deps:** update dependency typescript to v4.8.4 ([#162](https://github.com/benyap/resolve-tspaths/issues/162)) ([2680010](https://github.com/benyap/resolve-tspaths/commit/2680010b4cb8e013e7bb9971e33fe0636b154cb1))
+* **deps:** update jest monorepo to v29.1.2 ([#163](https://github.com/benyap/resolve-tspaths/issues/163)) ([765135e](https://github.com/benyap/resolve-tspaths/commit/765135ea5ea46aa3baadd4f0bf3e7d7edf48b348))
+* format ([c592a55](https://github.com/benyap/resolve-tspaths/commit/c592a55347fa6c3a9ff70e4345be26596d0d6006))
+* remove all-contributors-cli ([51dab0e](https://github.com/benyap/resolve-tspaths/commit/51dab0ed98e798dbda19804a8e54579ba81b3ae5))
+* update release name ([1c7e8a4](https://github.com/benyap/resolve-tspaths/commit/1c7e8a4c345b0b77971fe33059605b4f87ee3fb8))
+
 ## [0.8.0](https://github.com/benyap/resolve-tspaths/compare/v0.7.5...v0.8.0) (2022-09-19)
 
 
