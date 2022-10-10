@@ -765,6 +765,33 @@ describe("steps/generateChanges", () => {
         expect(results.text).toContain(`export * as delta from "./delta.mjs"`);
         expect(results.text).toContain(`export { value } from "./test.json"`);
       });
+
+      it("imports work with jsx files in different modes", () => {
+        const root = `${cwd}/test/fixtures/reactExtensions`;
+        const aliases: Alias[] = [
+          {
+            alias: "~/*",
+            prefix: "~/",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/index.js`,
+          aliases,
+          programPaths
+        );
+        expect(results.changed).toBe(true);
+        expect(results.text).toContain(
+          `export { WithJsxPreserve } from "./WithJsxPreserve.jsx"`
+        );
+        expect(results.text).toContain(
+          `export { WithJsxReact } from "./WithJsxReact.js"`
+        );
+      });
     });
 
     describe("esm", () => {

@@ -126,6 +126,7 @@ export function aliasToRelativePath(
 ): { file: string; original: string; replacement?: string } {
   const sourceFile = resolve(srcPath, relative(outPath, outputFile));
   const sourceFileDirectory = dirname(sourceFile);
+  const outputFileDirectory = dirname(outputFile);
 
   const importPathIsRelative =
     importSpecifier.startsWith("./") || importSpecifier.startsWith("../");
@@ -170,16 +171,24 @@ export function aliasToRelativePath(
     (m) => "./" + m
   );
 
-  const extensionFixedRelativePath = prefixedRelativePath.replace(
+  const relativePathJsExtension = prefixedRelativePath.replace(
     /\.[^/.]*ts[^/.]*$/,
     (match) => match.replace("ts", "js")
+  );
+
+  const relativePathJsxExtension = relativePathJsExtension.replace(
+    /\.jsx$/,
+    (match) =>
+      isFile(resolve(outputFileDirectory, relativePathJsExtension))
+        ? match
+        : ".js"
   );
 
   return {
     file: outputFile,
     original: importSpecifier,
-    ...(importSpecifier !== extensionFixedRelativePath
-      ? { replacement: extensionFixedRelativePath }
+    ...(importSpecifier !== relativePathJsxExtension
+      ? { replacement: relativePathJsxExtension }
       : {}),
   };
 }
@@ -190,7 +199,7 @@ export function aliasToRelativePath(
  * @param importPath An non-relative import path
  */
 function resolveImportPath(importPath: string) {
-  const importPathTs = importPath.replace(/\.[^.]*js[^.]*$/, (match) =>
+  const importPathTs = importPath.replace(/\.[^/.]*js[^/.]*$/, (match) =>
     match.replace("js", "ts")
   );
   const importPathWithExtensions = MODULE_EXTS.map(
