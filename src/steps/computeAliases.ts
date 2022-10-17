@@ -1,7 +1,11 @@
-import { resolve } from "path";
+import { resolve as resolveRaw } from "path";
 
 import type { Alias } from "~/types";
 import { InvalidAliasError } from "~/utils/errors";
+
+function resolve(...pathSegments: string[]): string {
+  return resolveRaw(...pathSegments).replace(/\\/g, "/");
+}
 
 /**
  * Compute the alias paths provided by the tsconfig.

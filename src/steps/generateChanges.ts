@@ -1,5 +1,11 @@
 import { existsSync, readFileSync, statSync } from "fs";
-import { basename, dirname, join, relative, resolve } from "path";
+import {
+  basename,
+  dirname,
+  join as joinRaw,
+  relative as relativeRaw,
+  resolve as resolveRaw,
+} from "path";
 
 import { FileNotFoundError } from "~/utils/errors";
 
@@ -24,6 +30,18 @@ const MODULE_EXTS = [
   ".mdx",
   ".d.ts",
 ];
+
+function relative(from: string, to: string): string {
+  return relativeRaw(from, to).replace(/\\/g, "/");
+}
+
+function resolve(...pathSegments: string[]): string {
+  return resolveRaw(...pathSegments).replace(/\\/g, "/");
+}
+
+function join(...pathSegments: string[]): string {
+  return joinRaw(...pathSegments).replace(/\\/g, "/");
+}
 
 /**
  * Generate the alias path mapping changes to apply to the provide files.

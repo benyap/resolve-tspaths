@@ -16,7 +16,7 @@ describe("steps/computeAliases", () => {
     expect(aliases[1].prefix).toEqual("~/");
     expect(aliases[2].prefix).toEqual("@app");
 
-    const cwd = process.cwd();
+    const cwd = process.cwd().replace(/\\/g, "/");
     expect(aliases[0].aliasPaths).toEqual([`${cwd}/lib`]);
     expect(aliases[1].aliasPaths).toEqual([`${cwd}/src`, `${cwd}/root`]);
     expect(aliases[2].aliasPaths).toEqual([`${cwd}/src/app`]);
@@ -34,7 +34,7 @@ describe("steps/computeAliases", () => {
     expect(aliases[1].prefix).toEqual("~/");
     expect(aliases[2].prefix).toEqual("@app");
 
-    const cwd = process.cwd();
+    const cwd = process.cwd().replace(/\\/g, "/");
     expect(aliases[0].aliasPaths).toEqual([`${cwd}/lib`]);
     expect(aliases[1].aliasPaths).toEqual([`${cwd}/src`, `${cwd}/root`]);
     expect(aliases[2].aliasPaths).toEqual([`${cwd}/src/app`]);
