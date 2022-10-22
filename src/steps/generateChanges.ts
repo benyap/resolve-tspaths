@@ -94,8 +94,8 @@ export function replaceAliasPathsInFile(
 
       const index = original.lastIndexOf(importSpecifier);
       changes.push({
-        original: result.original,
-        modified: result.replacement,
+        original: normalizePath(result.original),
+        modified: normalizePath(result.replacement),
       });
 
       return (

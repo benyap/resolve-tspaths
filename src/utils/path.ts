@@ -11,5 +11,5 @@ export function normalizePath(path: string): string {
     .replace(/^\\\\\?\\/, "")
     .replace(/\\/g, "/")
     .replace(/\/\/+/g, "/")
-    .replace(/\^.\/\.\.\//g, "../");
+    .replace(/^.\/\.\.\//g, "../");
 }
