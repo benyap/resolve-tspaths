@@ -100,6 +100,16 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "RedMser",
+      "name": "RedMser",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5117197?v=4",
+      "profile": "https://github.com/RedMser",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
