@@ -1,5 +1,23 @@
 
 
+## [0.8.2](https://github.com/benyap/resolve-tspaths/compare/v0.8.1...v0.8.2) (2022-10-22)
+
+
+### Bug Fixes
+
+* paths ending with "ts" being incorrectly replaced ([1886a85](https://github.com/benyap/resolve-tspaths/commit/1886a856687091303f42fc13c0ad05a355b9bfad))
+* resolve paths on windows correctly ([aff3ed0](https://github.com/benyap/resolve-tspaths/commit/aff3ed093d6e6426e301293a0c36ddaa7fea46a1))
+
+
+### Documentation
+
+* add RedMser as a contributor for code, and bug ([#176](https://github.com/benyap/resolve-tspaths/issues/176)) ([2f60f55](https://github.com/benyap/resolve-tspaths/commit/2f60f55496f9d144e88f5c3babc5a71832288d58))
+
+
+### Internal
+
+* **deps:** update jest monorepo ([#173](https://github.com/benyap/resolve-tspaths/issues/173)) ([ce8fa24](https://github.com/benyap/resolve-tspaths/commit/ce8fa2487b8f695dc477caa9190e30c5255282a1))
+
 ## [0.8.1](https://github.com/benyap/resolve-tspaths/compare/v0.8.0...v0.8.1) (2022-10-10)
 
 
