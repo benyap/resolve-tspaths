@@ -1,5 +1,12 @@
 
 
+## [0.8.3](https://github.com/benyap/resolve-tspaths/compare/v0.8.2...v0.8.3) (2022-10-22)
+
+
+### Bug Fixes
+
+* inconsistent behaviour with "./.." and "../" on windows/unix ([c55b471](https://github.com/benyap/resolve-tspaths/commit/c55b471917cff308214e559ba264227d3407b35b))
+
 ## [0.8.2](https://github.com/benyap/resolve-tspaths/compare/v0.8.1...v0.8.2) (2022-10-22)
 
 
