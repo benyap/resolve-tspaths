@@ -2,6 +2,7 @@ import { existsSync, readFileSync, statSync } from "fs";
 import { basename, dirname, join, relative, resolve } from "path";
 
 import { FileNotFoundError } from "~/utils/errors";
+import { normalizePath } from "~/utils/path";
 
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
@@ -185,11 +186,11 @@ export function aliasToRelativePath(
   );
 
   return {
-    file: outputFile,
-    original: importSpecifier,
-    ...(importSpecifier !== relativePathJsxExtension
-      ? { replacement: relativePathJsxExtension }
-      : {}),
+    file: normalizePath(outputFile),
+    original: normalizePath(importSpecifier),
+    ...(importSpecifier !== relativePathJsxExtension && {
+      replacement: normalizePath(relativePathJsxExtension),
+    }),
   };
 }
 
