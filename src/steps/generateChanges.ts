@@ -174,16 +174,20 @@ export function aliasToRelativePath(
 
   const relativePathJsExtension = prefixedRelativePath.replace(
     /\.[^/.]*ts[^/.]*$/,
-    (match) => match.replace("ts", "js")
+    (match) =>
+      match
+        .replace(/\.ts$/, ".js")
+        .replace(/\.tsx$/, ".jsx")
+        .replace(/\.mts$/, ".mjs")
+        .replace(/\.cts$/, ".cjs")
   );
 
-  const relativePathJsxExtension = relativePathJsExtension.replace(
-    /\.jsx$/,
-    (match) =>
-      isFile(resolve(outputFileDirectory, relativePathJsExtension))
-        ? match
-        : ".js"
+  const jsxFileExists = isFile(
+    resolve(outputFileDirectory, relativePathJsExtension)
   );
+  const relativePathJsxExtension = jsxFileExists
+    ? relativePathJsExtension
+    : relativePathJsExtension.replace(/\.jsx$/, ".js");
 
   return {
     file: normalizePath(outputFile),
