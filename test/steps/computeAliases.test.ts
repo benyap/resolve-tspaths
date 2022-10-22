@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import { resolve, join } from "path";
 
 import { computeAliases } from "~/steps/computeAliases";
 import { InvalidAliasError } from "~/utils/errors";
@@ -17,9 +17,12 @@ describe("steps/computeAliases", () => {
     expect(aliases[2].prefix).toEqual("@app");
 
     const cwd = process.cwd();
-    expect(aliases[0].aliasPaths).toEqual([`${cwd}/lib`]);
-    expect(aliases[1].aliasPaths).toEqual([`${cwd}/src`, `${cwd}/root`]);
-    expect(aliases[2].aliasPaths).toEqual([`${cwd}/src/app`]);
+    expect(aliases[0].aliasPaths).toEqual([join(cwd, "lib")]);
+    expect(aliases[1].aliasPaths).toEqual([
+      join(cwd, "src"),
+      join(cwd, "root"),
+    ]);
+    expect(aliases[2].aliasPaths).toEqual([join(cwd, "src", "app")]);
   });
 
   it("computes aliases correctly using a nested path", () => {
@@ -35,9 +38,12 @@ describe("steps/computeAliases", () => {
     expect(aliases[2].prefix).toEqual("@app");
 
     const cwd = process.cwd();
-    expect(aliases[0].aliasPaths).toEqual([`${cwd}/lib`]);
-    expect(aliases[1].aliasPaths).toEqual([`${cwd}/src`, `${cwd}/root`]);
-    expect(aliases[2].aliasPaths).toEqual([`${cwd}/src/app`]);
+    expect(aliases[0].aliasPaths).toEqual([join(cwd, "lib")]);
+    expect(aliases[1].aliasPaths).toEqual([
+      join(cwd, "src"),
+      join(cwd, "root"),
+    ]);
+    expect(aliases[2].aliasPaths).toEqual([join(cwd, "src", "app")]);
   });
 
   it("throws an error if a path alias starting with ./ is detected", () => {

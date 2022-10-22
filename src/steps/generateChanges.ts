@@ -2,6 +2,7 @@ import { existsSync, readFileSync, statSync } from "fs";
 import { basename, dirname, join, relative, resolve } from "path";
 
 import { FileNotFoundError } from "~/utils/errors";
+import { normalizePath } from "~/utils/path";
 
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
@@ -173,23 +174,27 @@ export function aliasToRelativePath(
 
   const relativePathJsExtension = prefixedRelativePath.replace(
     /\.[^/.]*ts[^/.]*$/,
-    (match) => match.replace("ts", "js")
+    (match) =>
+      match
+        .replace(/\.ts$/, ".js")
+        .replace(/\.tsx$/, ".jsx")
+        .replace(/\.mts$/, ".mjs")
+        .replace(/\.cts$/, ".cjs")
   );
 
-  const relativePathJsxExtension = relativePathJsExtension.replace(
-    /\.jsx$/,
-    (match) =>
-      isFile(resolve(outputFileDirectory, relativePathJsExtension))
-        ? match
-        : ".js"
+  const jsxFileExists = isFile(
+    resolve(outputFileDirectory, relativePathJsExtension)
   );
+  const relativePathJsxExtension = jsxFileExists
+    ? relativePathJsExtension
+    : relativePathJsExtension.replace(/\.jsx$/, ".js");
 
   return {
-    file: outputFile,
-    original: importSpecifier,
-    ...(importSpecifier !== relativePathJsxExtension
-      ? { replacement: relativePathJsxExtension }
-      : {}),
+    file: normalizePath(outputFile),
+    original: normalizePath(importSpecifier),
+    ...(importSpecifier !== relativePathJsxExtension && {
+      replacement: normalizePath(relativePathJsxExtension),
+    }),
   };
 }
 
