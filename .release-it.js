@@ -8,6 +8,7 @@ module.exports = {
   },
   git: {
     tag: true,
+    tagName: "${version}",
     commit: true,
     commitMessage: "chore(release): release ${version}",
   },
