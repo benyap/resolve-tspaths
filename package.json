@@ -5,13 +5,12 @@
   "author": "Ben Yap <contact@benyap.com>",
   "license": "MIT",
   "homepage": "https://github.com/benyap/resolve-tspaths#readme",
-  "bugs": {
-    "url": "https://github.com/benyap/resolve-tspaths/issues"
-  },
+  "bugs": "https://github.com/benyap/resolve-tspaths/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benyap/resolve-tspaths.git"
+    "url": "https://github.com/benyap/resolve-tspaths.git"
   },
+  "packageManager": "pnpm@7.27.0",
   "keywords": [
     "typescript",
     "tsc",
@@ -33,17 +32,17 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "clean": "rimraf ./dist/* ./coverage/*",
-    "prebuild": "yarn clean",
+    "clean": "rimraf dist/*",
+    "prebuild": "pnpm clean",
     "build": "tsc -p tsconfig.build.json",
-    "postbuild": "yarn dev -p tsconfig.build.json --verbose",
+    "postbuild": "pnpm dev -p tsconfig.build.json --verbose",
     "format": "prettier --write './src/**/*.ts'",
     "dev": "ts-node -r tsconfig-paths/register src/main.ts",
     "start": "node --trace-uncaught dist/main.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "release": "yarn test && yarn release-it"
+    "release": "pnpm test && pnpm release-it"
   },
   "peerDependencies": {
     "typescript": ">=3.0.3"
