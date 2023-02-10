@@ -54,8 +54,8 @@
     "fast-glob": "3.2.12"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.3.0",
-    "@commitlint/config-conventional": "17.3.0",
+    "@commitlint/cli": "17.4.2",
+    "@commitlint/config-conventional": "17.4.2",
     "@release-it/bumper": "4.0.2",
     "@release-it/conventional-changelog": "5.1.1",
     "@types/jest": "29.2.4",
