@@ -1,5 +1,12 @@
 
 
+## [0.8.6](https://github.com/benyap/resolve-tspaths/compare/v0.8.5...v0.8.6) (2023-02-10)
+
+
+### Internal
+
+* debug release script ([af0d22e](https://github.com/benyap/resolve-tspaths/commit/af0d22eb359edbe5ab607c6f6ef2837568e13e30))
+
 ## [0.8.5](https://github.com/benyap/resolve-tspaths/compare/v0.8.4...v0.8.5) (2023-02-10)
 
 
