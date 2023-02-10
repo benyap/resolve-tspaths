@@ -27,9 +27,6 @@
   "bin": {
     "resolve-tspaths": "dist/main.js"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "prepare": "husky install",
     "clean": "rimraf dist coverage",

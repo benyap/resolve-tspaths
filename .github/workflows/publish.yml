@@ -2,19 +2,44 @@ name: Publish to npm
 
 on:
   release:
-    types: [created]
+    types: [released, prereleased]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2.2.4
         with:
-          node-version: "14.x"
+          version: 7
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
-      - run: yarn install
-      - run: yarn build
-      - run: npm publish
+
+      - name: Get release version
+        uses: actions/github-script@v6
+        id: version
+        with:
+          script: |
+            const release = context.ref.substring(10)
+            const releaseType = release.replace(/^(\d+\.)+\d+-?/, "").replace(/\.\d+$/, "")
+            core.setOutput("release", release)
+            core.setOutput("releaseType", releaseType || "latest")
+
+      - name: Install
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Publish to npm
+        run: |
+          pnpm publish --no-git-checks --access public --tag ${{ steps.version.outputs.releaseType }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
