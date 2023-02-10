@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import { loadTSConfig } from "~/steps/loadTSConfig";
 
 describe("steps/loadTSConfig", () => {

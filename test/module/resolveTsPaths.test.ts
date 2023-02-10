@@ -1,4 +1,5 @@
 import { rmSync, mkdirSync, copyFileSync, readFileSync } from "fs";
+import { describe, expect, beforeEach, it } from "vitest";
 
 import { resolveTsPaths } from "~/index";
 

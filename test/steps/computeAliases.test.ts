@@ -1,4 +1,5 @@
 import { resolve, join } from "path";
+import { describe, expect, it } from "vitest";
 
 import { computeAliases } from "~/steps/computeAliases";
 import { InvalidAliasError } from "~/utils/errors";
