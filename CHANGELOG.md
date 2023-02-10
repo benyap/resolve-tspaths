@@ -1,5 +1,12 @@
 
 
+## [0.8.5](https://github.com/benyap/resolve-tspaths/compare/v0.8.4...v0.8.5) (2023-02-10)
+
+
+### Internal
+
+* use pnpm in publish action ([06f3b19](https://github.com/benyap/resolve-tspaths/commit/06f3b19fc5764cb34765a0ee8281a66ccd77b25c))
+
 ## [0.8.4](https://github.com/benyap/resolve-tspaths/compare/v0.8.3...v0.8.4) (2023-02-10)
 
 
