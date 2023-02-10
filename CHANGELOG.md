@@ -1,5 +1,12 @@
 
 
+## [0.8.7](https://github.com/benyap/resolve-tspaths/compare/v0.8.6...0.8.7) (2023-02-10)
+
+
+### Internal
+
+* explicitly set tag name format when releasing ([3c9dc72](https://github.com/benyap/resolve-tspaths/commit/3c9dc72235d6848af8de8a5ffaa0d5d26c7881ba))
+
 ## [0.8.6](https://github.com/benyap/resolve-tspaths/compare/v0.8.5...v0.8.6) (2023-02-10)
 
 
