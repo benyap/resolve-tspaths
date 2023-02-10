@@ -21,16 +21,19 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
+          cache: pnpm
 
       - name: Get release version
         uses: actions/github-script@v6
         id: version
         with:
           script: |
-            const release = context.ref.substring(10)
+            const ref = context.ref
+            const release = ref.substring(10)
             const releaseType = release.replace(/^(\d+\.)+\d+-?/, "").replace(/\.\d+$/, "")
             core.setOutput("release", release)
             core.setOutput("releaseType", releaseType || "latest")
+            console.log({ ref, release, releaseType })
 
       - name: Install
         run: pnpm install
