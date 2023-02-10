@@ -1,5 +1,12 @@
 
 
+## [0.8.8](https://github.com/benyap/resolve-tspaths/compare/0.8.7...0.8.8) (2023-02-10)
+
+
+### Internal
+
+* fix build output ([ceb6bfa](https://github.com/benyap/resolve-tspaths/commit/ceb6bfa76eb6c04ad301a30e03c25ae84b7973c6))
+
 ## [0.8.7](https://github.com/benyap/resolve-tspaths/compare/v0.8.6...0.8.7) (2023-02-10)
 
 
