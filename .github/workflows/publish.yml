@@ -8,37 +8,36 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 7
-
-      - name: Set up Node
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
-          registry-url: "https://registry.npmjs.org"
-          cache: pnpm
+          node-version: 18
 
-      - name: Get release version
-        uses: actions/github-script@v6
-        id: version
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+        id: pnpm-install
         with:
-          script: |
-            const ref = context.ref
-            const release = ref.substring(10)
-            const releaseType = release.replace(/^(\d+\.)+\d+-?/, "").replace(/\.\d+$/, "")
-            core.setOutput("release", release)
-            core.setOutput("releaseType", releaseType || "latest")
-            console.log({ ref, release, releaseType })
+          version: 7
+          run_install: false
 
-      - name: Install
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build package
         run: pnpm build
 
       - name: Publish to npm
