@@ -11,7 +11,7 @@ specifiers:
   commander: 10.0.0
   fast-glob: 3.2.12
   husky: 8.0.3
-  prettier: 2.8.4
+  prettier: 2.8.7
   release-it: 15.6.0
   rimraf: 4.1.2
   ts-node: 10.9.1
@@ -33,7 +33,7 @@ devDependencies:
   '@types/node': 18.13.0
   '@vitest/coverage-c8': 0.28.5
   husky: 8.0.3
-  prettier: 2.8.4
+  prettier: 2.8.7
   release-it: 15.6.0
   rimraf: 4.1.2
   ts-node: 10.9.1_4bewfcp2iebiwuold25d6rgcsy
@@ -3432,8 +3432,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier/2.8.4:
-    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+  /prettier/2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
