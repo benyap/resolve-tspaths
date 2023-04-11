@@ -1,5 +1,12 @@
 
 
+## [0.8.12](https://github.com/benyap/resolve-tspaths/compare/0.8.11...0.8.12) (2023-04-11)
+
+
+### Internal
+
+* fix workflow ([bfa3887](https://github.com/benyap/resolve-tspaths/commit/bfa3887e008de7ee951c9bba7f9908bdddf47b5b))
+
 ## [0.8.11](https://github.com/benyap/resolve-tspaths/compare/0.8.10...0.8.11) (2023-04-11)
 
 
