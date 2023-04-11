@@ -55,6 +55,33 @@ describe("steps/loadTSConfig", () => {
     `);
   });
 
+  it("loads tsconfig (jsonc) with extends correctly (no baseUrl)", () => {
+    const config = loadTSConfig(
+      "test/fixtures/tsconfig/tsconfig.extends.no-base-url.jsonc"
+    );
+    expect(config.options).toMatchInlineSnapshot(`
+      {
+        "configFilePath": undefined,
+        "lib": [
+          "lib.es2015.d.ts",
+        ],
+        "module": 1,
+        "moduleResolution": 2,
+        "outDir": "dist",
+        "paths": {
+          "~/*": [
+            "./src/*",
+          ],
+        },
+        "pathsBasePath": "test/fixtures/tsconfig/nested",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "target": 2,
+      }
+    `);
+  });
+
   // Was going to use this test to make sure that syntax errors were reported sensibly.
   // Turns out the Typescript config loader does some crazy stuff to recover from syntax errors!
   it("loads tsconfig with syntax errors (crazy stuff!)", () => {
