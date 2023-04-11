@@ -110,6 +110,15 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "Jokero",
+      "name": "Dmitry Kirilyuk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/434135?v=4",
+      "profile": "https://github.com/Jokero",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
