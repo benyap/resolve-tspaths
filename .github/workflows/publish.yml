@@ -52,8 +52,12 @@ jobs:
             core.setOutput("releaseType", releaseType || "latest")
             console.log({ ref, release, releaseType })
 
+      - name: Set publish config
+        run: |
+          pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
       - name: Publish to npm
         run: |
           pnpm publish --no-git-checks --access public --tag ${{ steps.version.outputs.releaseType }}
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

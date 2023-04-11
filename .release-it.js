@@ -13,7 +13,7 @@ module.exports = {
     commitMessage: "chore(release): release ${version}",
   },
   hooks: {
-    "after:bump": ["yarn build"],
+    "after:bump": ["pnpm build"],
   },
   plugins: {
     "@release-it/bumper": {
