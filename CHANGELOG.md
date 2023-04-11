@@ -1,5 +1,12 @@
 
 
+## [0.8.13](https://github.com/benyap/resolve-tspaths/compare/0.8.12...0.8.13) (2023-04-11)
+
+
+### Internal
+
+* use pnpm v8 for publish workflow ([4f781e3](https://github.com/benyap/resolve-tspaths/commit/4f781e32be999d4210718346edbd9374d3f5205c))
+
 ## [0.8.12](https://github.com/benyap/resolve-tspaths/compare/0.8.11...0.8.12) (2023-04-11)
 
 
