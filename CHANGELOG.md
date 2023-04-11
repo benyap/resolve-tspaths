@@ -1,5 +1,36 @@
 
 
+## [0.8.9](https://github.com/benyap/resolve-tspaths/compare/0.8.8...0.8.9) (2023-04-11)
+
+
+### Bug Fixes
+
+* make `baseUrl` optional ([47abcff](https://github.com/benyap/resolve-tspaths/commit/47abcff67198a186176504587c69561246fe7817))
+
+
+### Documentation
+
+* add Jokero as a contributor for bug ([#220](https://github.com/benyap/resolve-tspaths/issues/220)) ([7ec37c6](https://github.com/benyap/resolve-tspaths/commit/7ec37c6bbf3ff03a523e27cbbcaa430ddf64f712))
+
+
+### Internal
+
+* **deps:** update commitlint monorepo ([#208](https://github.com/benyap/resolve-tspaths/issues/208)) ([f69af2f](https://github.com/benyap/resolve-tspaths/commit/f69af2f1656133fa62ede6b015783f0c298933a9))
+* **deps:** update commitlint monorepo to v17.4.3 ([#205](https://github.com/benyap/resolve-tspaths/issues/205)) ([4702569](https://github.com/benyap/resolve-tspaths/commit/47025695ac79a111e74d80c4c4088ad52ec0261f))
+* **deps:** update dependency @types/node to v18.15.11 ([#209](https://github.com/benyap/resolve-tspaths/issues/209)) ([0261963](https://github.com/benyap/resolve-tspaths/commit/026196341e655ccf2145d967b6ef7892d6461c67))
+* **deps:** update dependency prettier to v2.8.7 ([#215](https://github.com/benyap/resolve-tspaths/issues/215)) ([2cd5069](https://github.com/benyap/resolve-tspaths/commit/2cd5069ef860a931df413935f14c1f09d8c6c64a))
+* **deps:** update dependency release-it to v15.10.1 ([#212](https://github.com/benyap/resolve-tspaths/issues/212)) ([9714eb7](https://github.com/benyap/resolve-tspaths/commit/9714eb7f46297d079a2834d59aa50079dee94500))
+* **deps:** update dependency rimraf to v4.4.1 ([#213](https://github.com/benyap/resolve-tspaths/issues/213)) ([540f4ac](https://github.com/benyap/resolve-tspaths/commit/540f4acb2d54a48d1f0450b5de7bbcaf501c6d54))
+* **deps:** update dependency rimraf to v5 ([#222](https://github.com/benyap/resolve-tspaths/issues/222)) ([404f2dc](https://github.com/benyap/resolve-tspaths/commit/404f2dcd2243a8e09e69ad80e5a6e4e2ce753dd8))
+* **deps:** update dependency tsconfig-paths to v4.2.0 ([#221](https://github.com/benyap/resolve-tspaths/issues/221)) ([1d97d7d](https://github.com/benyap/resolve-tspaths/commit/1d97d7d5004e33cb96970747767a19bb8bfc8697))
+* **deps:** update dependency typescript to v5 ([#214](https://github.com/benyap/resolve-tspaths/issues/214)) ([05bf646](https://github.com/benyap/resolve-tspaths/commit/05bf64643014386abb149ccf90861318808a76a7))
+* **deps:** update dependency vite to v4.2.1 ([#207](https://github.com/benyap/resolve-tspaths/issues/207)) ([a46d3a8](https://github.com/benyap/resolve-tspaths/commit/a46d3a873bc9eed8b3602d3eb76b0b10e78c70be))
+* **deps:** update pnpm to v7.32.0 ([#210](https://github.com/benyap/resolve-tspaths/issues/210)) ([f100857](https://github.com/benyap/resolve-tspaths/commit/f10085779eb93e1261d99eea3678c30d1689e980))
+* **deps:** update pnpm to v8 ([#217](https://github.com/benyap/resolve-tspaths/issues/217)) ([023f4dd](https://github.com/benyap/resolve-tspaths/commit/023f4ddf4bf59bc28d148d917e1788970630860c))
+* **deps:** update vitest monorepo to v0.28.5 ([#206](https://github.com/benyap/resolve-tspaths/issues/206)) ([afd6861](https://github.com/benyap/resolve-tspaths/commit/afd6861d3f3707910b38ac1376c697dd1bbee481))
+* **deps:** update vitest monorepo to v0.30.0 ([#211](https://github.com/benyap/resolve-tspaths/issues/211)) ([b6218b0](https://github.com/benyap/resolve-tspaths/commit/b6218b01f1ce6edb2c6b2d9799fef61687b484fb))
+* workflow improvements ([06af7f6](https://github.com/benyap/resolve-tspaths/commit/06af7f67b6a1bb186920ee880420039bd3fe6bfc))
+
 ## [0.8.8](https://github.com/benyap/resolve-tspaths/compare/0.8.7...0.8.8) (2023-02-10)
 
 
