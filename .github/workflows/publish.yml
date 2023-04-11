@@ -56,4 +56,4 @@ jobs:
         run: |
           pnpm publish --no-git-checks --access public --tag ${{ steps.version.outputs.releaseType }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
