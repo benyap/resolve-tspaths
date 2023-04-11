@@ -57,7 +57,7 @@
     "@vitest/coverage-c8": "0.30.0",
     "husky": "8.0.3",
     "prettier": "2.8.7",
-    "release-it": "15.6.0",
+    "release-it": "15.10.1",
     "rimraf": "5.0.0",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.2.0",
