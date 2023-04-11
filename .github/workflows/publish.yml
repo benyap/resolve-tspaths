@@ -40,6 +40,18 @@ jobs:
       - name: Build package
         run: pnpm build
 
+      - name: Get release version
+        uses: actions/github-script@v6
+        id: version
+        with:
+          script: |
+            const ref = context.ref
+            const release = ref.substring(10)
+            const releaseType = release.replace(/^(\d+\.)+\d+-?/, "").replace(/\.\d+$/, "")
+            core.setOutput("release", release)
+            core.setOutput("releaseType", releaseType || "latest")
+            console.log({ ref, release, releaseType })
+
       - name: Publish to npm
         run: |
           pnpm publish --no-git-checks --access public --tag ${{ steps.version.outputs.releaseType }}
