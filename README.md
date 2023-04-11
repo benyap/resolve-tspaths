@@ -21,7 +21,6 @@ being able to ship working JavaScript code.
 ```ts
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     }

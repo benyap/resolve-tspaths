@@ -11,7 +11,7 @@ export function resolvePaths(
   options: Pick<ProgramOptions, "out" | "project" | "src">,
   tsConfig: TSConfig
 ): ProgramPaths {
-  const { baseUrl, outDir, paths } = tsConfig.options ?? {};
+  const { baseUrl = "", outDir, paths } = tsConfig.options ?? {};
 
   const out = options.out ?? outDir;
   if (!out) {
@@ -20,12 +20,6 @@ export function resolvePaths(
       `Output directory must be specified using either the --out option or in tsconfig`
     );
   }
-
-  if (!baseUrl)
-    throw new TSConfigPropertyError(
-      resolvePaths.name,
-      "compilerOptions.baseUrl"
-    );
 
   if (!paths)
     throw new TSConfigPropertyError(resolvePaths.name, "compilerOptions.paths");

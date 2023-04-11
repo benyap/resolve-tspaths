@@ -1,0 +1,10 @@
+{
+  "extends": "./test/fixtures/tsconfig/nested/tsconfig.parent.no-base-url.jsonc",
+  /**
+   * This is a multiline comment
+   */
+  "compilerOptions": {
+    // This is a single line comment
+    "outDir": "dist"
+  }
+}
