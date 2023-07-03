@@ -44,7 +44,11 @@ import * as stuff from "~/some/path";
 import stuff from "~/some/path";
 import { stuff } from "~/some/path.js";
 import { stuff as myStuff } from "~/some/path.mjs";
+import data from "~/some/data/path.json";
 ```
+
+_NOTE: When importing JSON files, ensure that you use the `.json` extension. See
+issue [#253](https://github.com/benyap/resolve-tspaths/issues/253)._
 
 **ESM dynamic imports**
 
