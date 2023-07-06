@@ -54,7 +54,7 @@
     "@release-it/bumper": "4.0.2",
     "@release-it/conventional-changelog": "5.1.1",
     "@types/node": "18.16.19",
-    "@vitest/coverage-c8": "0.32.4",
+    "@vitest/coverage-c8": "0.33.0",
     "husky": "8.0.3",
     "prettier": "2.8.8",
     "release-it": "15.11.0",
@@ -63,6 +63,6 @@
     "tsconfig-paths": "4.2.0",
     "typescript": "5.1.6",
     "vite": "4.3.9",
-    "vitest": "0.32.4"
+    "vitest": "0.33.0"
   }
 }
