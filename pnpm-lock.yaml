@@ -23,8 +23,8 @@ devDependencies:
     specifier: 17.6.6
     version: 17.6.6
   '@release-it/bumper':
-    specifier: 4.0.2
-    version: 4.0.2(release-it@16.1.0)
+    specifier: 5.0.0
+    version: 5.0.0(release-it@16.1.0)
   '@release-it/conventional-changelog':
     specifier: 7.0.0
     version: 7.0.0(release-it@16.1.0)
@@ -705,22 +705,22 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@release-it/bumper@4.0.2(release-it@16.1.0):
-    resolution: {integrity: sha512-HjiFIBNvb67cLTbzdm6EqiSRwpB4MJY4TGJFY/ac5qnIxERWK5gx1zBnwbJZffDSoS46hJMugoXrDbITEfX4gA==}
-    engines: {node: '>=14'}
+  /@release-it/bumper@5.0.0(release-it@16.1.0):
+    resolution: {integrity: sha512-s5DNaLhM177WSaV8GtHTKbEmkKmszsqChktFUVpAmoLDlUW4WmXq/S92DSfC9BHdM7SFhVTHsjgZBYReRpp3zw==}
+    engines: {node: '>=16'}
     peerDependencies:
-      release-it: ^15.2.0
+      release-it: ^16.0.0
     dependencies:
       '@iarna/toml': 2.2.5
       detect-indent: 7.0.1
-      fast-glob: 3.2.12
-      ini: 3.0.1
+      fast-glob: 3.3.0
+      ini: 4.1.1
       js-yaml: 4.1.0
       lodash.castarray: 4.4.0
       lodash.get: 4.4.2
       lodash.set: 4.3.2
       release-it: 16.1.0
-      semver: 7.3.8
+      semver: 7.5.3
     dev: true
 
   /@release-it/conventional-changelog@7.0.0(release-it@16.1.0):
@@ -1942,17 +1942,6 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
 
-  /fast-glob@3.2.12:
-    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
-    engines: {node: '>=8.6.0'}
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.5
-    dev: true
-
   /fast-glob@3.3.0:
     resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
     engines: {node: '>=8.6.0'}
@@ -2504,9 +2493,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /ini@3.0.1:
-    resolution: {integrity: sha512-it4HyVAUTKBc6m8e1iXWvXSTdndF7HbdN713+kvLrymxTaU4AUBWrJ4vEooP+V7fexnVD3LKcBshjGGPefSMUQ==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+  /ini@4.1.1:
+    resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
   /inquirer@9.2.7:
@@ -4085,14 +4074,6 @@ packages:
   /semver@6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
-    dev: true
-
-  /semver@7.3.8:
-    resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
     dev: true
 
   /semver@7.5.1:
