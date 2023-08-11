@@ -53,7 +53,7 @@
     "@commitlint/config-conventional": "17.6.7",
     "@release-it/bumper": "5.0.0",
     "@release-it/conventional-changelog": "7.0.0",
-    "@types/node": "18.16.19",
+    "@types/node": "18.17.5",
     "@vitest/coverage-c8": "0.33.0",
     "husky": "8.0.3",
     "prettier": "3.0.0",
