@@ -1,5 +1,30 @@
 
 
+## [0.8.15](https://github.com/benyap/resolve-tspaths/compare/0.8.14...0.8.15) (2023-08-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fast-glob to v3.3.1 ([#288](https://github.com/benyap/resolve-tspaths/issues/288)) ([bfe3a84](https://github.com/benyap/resolve-tspaths/commit/bfe3a84585c50987257f13272e58c5230fe12143))
+
+
+### Internal
+
+* **deps-dev:** bump word-wrap from 1.2.3 to 1.2.4 ([#286](https://github.com/benyap/resolve-tspaths/issues/286)) ([830b492](https://github.com/benyap/resolve-tspaths/commit/830b492395f04fb2957dc2e0b61106f763cf9fec))
+* **deps:** update commitlint monorepo to v17.6.7 ([#285](https://github.com/benyap/resolve-tspaths/issues/285)) ([cc304d4](https://github.com/benyap/resolve-tspaths/commit/cc304d448bb6de0637d94fc5d035055d3a849548))
+* **deps:** update dependency @release-it/bumper to v5 ([#280](https://github.com/benyap/resolve-tspaths/issues/280)) ([d4a53a2](https://github.com/benyap/resolve-tspaths/commit/d4a53a23571de6f400aa41550947e85e06f9d7c6))
+* **deps:** update dependency @release-it/conventional-changelog to v7 ([#281](https://github.com/benyap/resolve-tspaths/issues/281)) ([833f4e5](https://github.com/benyap/resolve-tspaths/commit/833f4e5fc074781e202a4af055d60eecf7279ab7))
+* **deps:** update dependency prettier to v3 ([#276](https://github.com/benyap/resolve-tspaths/issues/276)) ([ade4dae](https://github.com/benyap/resolve-tspaths/commit/ade4dae1118d21989825f420134209d4d0240d89))
+* **deps:** update dependency release-it to v16 ([#277](https://github.com/benyap/resolve-tspaths/issues/277)) ([c1fa3d9](https://github.com/benyap/resolve-tspaths/commit/c1fa3d981f20a14f7cdb86c9be48f70688f06285))
+* **deps:** update dependency vite to v4.4.3 ([#278](https://github.com/benyap/resolve-tspaths/issues/278)) ([efabbd1](https://github.com/benyap/resolve-tspaths/commit/efabbd11265323a89214a044ee8717ee7ba4eb5a))
+* **deps:** update dependency vite to v4.4.7 ([#282](https://github.com/benyap/resolve-tspaths/issues/282)) ([f97e954](https://github.com/benyap/resolve-tspaths/commit/f97e954855337ac48f4e61fecabb30cd223c9c71))
+* **deps:** update pnpm to v8.6.10 ([#284](https://github.com/benyap/resolve-tspaths/issues/284)) ([0e590b1](https://github.com/benyap/resolve-tspaths/commit/0e590b198d29f444243556d69cd6d0e549c696a4))
+* **deps:** update pnpm to v8.6.7 ([#274](https://github.com/benyap/resolve-tspaths/issues/274)) ([cd8a6ad](https://github.com/benyap/resolve-tspaths/commit/cd8a6ad1fa3409fef3b02e1053ce5f3667c0c8a2))
+* **deps:** update pnpm/action-setup action to v2.4.0 ([#289](https://github.com/benyap/resolve-tspaths/issues/289)) ([600743f](https://github.com/benyap/resolve-tspaths/commit/600743f930389a6325ed3fb9416d545ad56782cc))
+* **deps:** update vitest monorepo to v0.33.0 ([#279](https://github.com/benyap/resolve-tspaths/issues/279)) ([ce54713](https://github.com/benyap/resolve-tspaths/commit/ce54713e4d18ddd152f228326e013236082d69a0))
+* **deps:** upgrade dependencies ([99c0dbe](https://github.com/benyap/resolve-tspaths/commit/99c0dbe61b2ecc4d9ea1ff0c8986e1e2e7adfb11))
+* reduce stale job frequency ([999fda0](https://github.com/benyap/resolve-tspaths/commit/999fda067cd0405a565e0b021031ede2542683b6))
+
 ## [0.8.14](https://github.com/benyap/resolve-tspaths/compare/0.8.13...0.8.14) (2023-07-03)
 
 
