@@ -52,7 +52,7 @@
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
     "@release-it/bumper": "5.1.0",
-    "@release-it/conventional-changelog": "7.0.0",
+    "@release-it/conventional-changelog": "7.0.2",
     "@types/node": "20.4.10",
     "@vitest/coverage-c8": "0.33.0",
     "husky": "8.0.3",
