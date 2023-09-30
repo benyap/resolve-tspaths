@@ -128,6 +128,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "kotarella1110",
+      "name": "Kotaro Sugawara",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12913947?v=4",
+      "profile": "https://github.com/kotarella1110",
+      "contributions": [
+        "bug",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
