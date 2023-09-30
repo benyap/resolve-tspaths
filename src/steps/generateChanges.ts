@@ -10,7 +10,7 @@ export const IMPORT_EXPORT_REGEX =
   /((?:require\(|require\.resolve\(|import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g;
 
 export const ESM_IMPORT_EXPORT_REGEX =
-  /(?:(?:import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g
+  /(?:(?:import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g;
 
 export const COMMONJS_IMPORT_EXPORT_REGEX =
   /(?:(?:require\(|require\.resolve\()\s+)['"]([^'"]*)['"]\)/g;
@@ -36,7 +36,7 @@ const MODULE_EXTS = [
 export function generateChanges(
   files: string[],
   aliases: Alias[],
-  programPaths: Pick<ProgramPaths, "srcPath" | "outPath">
+  programPaths: Pick<ProgramPaths, "srcPath" | "outPath">,
 ): Change[] {
   const changeList: Change[] = [];
 
@@ -44,7 +44,7 @@ export function generateChanges(
     const { changed, text, changes } = replaceAliasPathsInFile(
       file,
       aliases,
-      programPaths
+      programPaths,
     );
 
     if (!changed) continue;
@@ -65,7 +65,7 @@ export function generateChanges(
 export function replaceAliasPathsInFile(
   filePath: string,
   aliases: Alias[],
-  programPaths: Pick<ProgramPaths, "srcPath" | "outPath">
+  programPaths: Pick<ProgramPaths, "srcPath" | "outPath">,
 ): { changed: boolean; text: string; changes: TextChange[] } {
   if (!existsSync(filePath))
     throw new FileNotFoundError(replaceAliasPathsInFile.name, filePath);
@@ -87,7 +87,7 @@ export function replaceAliasPathsInFile(
         filePath,
         aliases,
         programPaths,
-        esmImport
+        esmImport,
       );
 
       if (!result.replacement) return original;
@@ -103,7 +103,7 @@ export function replaceAliasPathsInFile(
         result.replacement +
         original.substring(index + importSpecifier.length)
       );
-    }
+    },
   );
 
   return { changed: originalText !== newText, text: newText, changes };
@@ -123,7 +123,7 @@ export function aliasToRelativePath(
   outputFile: string,
   aliases: Alias[],
   { srcPath, outPath }: Pick<ProgramPaths, "srcPath" | "outPath">,
-  esModule?: boolean
+  esModule?: boolean,
 ): { file: string; original: string; replacement?: string } {
   const sourceFile = resolve(srcPath, relative(outPath, outputFile));
   const sourceFileDirectory = dirname(sourceFile);
@@ -133,15 +133,15 @@ export function aliasToRelativePath(
     importSpecifier.startsWith("./") || importSpecifier.startsWith("../");
 
   const matchingAliases = aliases.filter(({ prefix }) =>
-    importSpecifier.startsWith(prefix)
+    importSpecifier.startsWith(prefix),
   );
 
   const absoluteImportPaths = importPathIsRelative
     ? [resolve(sourceFileDirectory, importSpecifier)]
     : matchingAliases.flatMap(({ prefix, aliasPaths }) =>
         aliasPaths.map((aliasPath) =>
-          resolve(aliasPath, importSpecifier.replace(prefix, ""))
-        )
+          resolve(aliasPath, importSpecifier.replace(prefix, "")),
+        ),
       );
 
   const absoluteImport = absoluteImportPaths.reduce<null | ReturnType<
@@ -163,13 +163,13 @@ export function aliasToRelativePath(
     absoluteImport.type === "file"
       ? join(
           relative(sourceFileDirectory, dirname(absoluteImportPath)),
-          basename(absoluteImportPath)
+          basename(absoluteImportPath),
         )
       : relative(sourceFileDirectory, absoluteImportPath);
 
   const prefixedRelativePath = relativeImportPath.replace(
     /^(?!\.+\/)/,
-    (m) => "./" + m
+    (m) => "./" + m,
   );
 
   const relativePathJsExtension = prefixedRelativePath.replace(
@@ -179,11 +179,11 @@ export function aliasToRelativePath(
         .replace(/\.ts$/, ".js")
         .replace(/\.tsx$/, ".jsx")
         .replace(/\.mts$/, ".mjs")
-        .replace(/\.cts$/, ".cjs")
+        .replace(/\.cts$/, ".cjs"),
   );
 
   const jsxFileExists = isFile(
-    resolve(outputFileDirectory, relativePathJsExtension)
+    resolve(outputFileDirectory, relativePathJsExtension),
   );
   const relativePathJsxExtension = jsxFileExists
     ? relativePathJsExtension
@@ -205,10 +205,10 @@ export function aliasToRelativePath(
  */
 function resolveImportPath(importPath: string) {
   const importPathTs = importPath.replace(/\.[^/.]*js[^/.]*$/, (match) =>
-    match.replace("js", "ts")
+    match.replace("js", "ts"),
   );
   const importPathWithExtensions = MODULE_EXTS.map(
-    (ext) => `${importPath}${ext}`
+    (ext) => `${importPath}${ext}`,
   );
 
   const possiblePaths = [importPath, importPathTs, ...importPathWithExtensions];
@@ -228,7 +228,7 @@ function resolveImportPath(importPath: string) {
     : [];
 
   const existingIndexPath = possiblePathsAsDirectory.find((path) =>
-    isFile(path)
+    isFile(path),
   );
 
   if (existingIndexPath) {

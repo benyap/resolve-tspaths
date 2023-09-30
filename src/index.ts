@@ -18,7 +18,7 @@ export type ResolveTsPathOptions = Omit<
  * in your transpiled JavaScript code.
  */
 export async function resolveTsPaths(
-  options: ResolveTsPathOptions = {}
+  options: ResolveTsPathOptions = {},
 ): Promise<void> {
   const {
     project = "tsconfig.json",
@@ -30,7 +30,7 @@ export async function resolveTsPaths(
   const programPaths = resolvePaths({ project, src, out }, tsConfig);
   const aliases = computeAliases(
     programPaths.basePath,
-    tsConfig?.options?.paths ?? {}
+    tsConfig?.options?.paths ?? {},
   );
   const files = getFilesToProcess(programPaths.outPath, ext);
   const changes = generateChanges(files, aliases, programPaths);

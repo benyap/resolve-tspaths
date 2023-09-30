@@ -8,7 +8,7 @@ import { InvalidAliasError } from "~/utils/errors";
  */
 export function computeAliases(
   basePath: string,
-  paths: { [key: string]: string[] }
+  paths: { [key: string]: string[] },
 ): Alias[] {
   const regex = /\*$/;
 
@@ -16,7 +16,7 @@ export function computeAliases(
     alias,
     prefix: alias.replace(regex, ""),
     aliasPaths: paths[alias].map((path: string) =>
-      resolve(basePath, path.replace(regex, ""))
+      resolve(basePath, path.replace(regex, "")),
     ),
   }));
 

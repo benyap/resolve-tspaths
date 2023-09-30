@@ -9,7 +9,7 @@ import type { ProgramOptions, ProgramPaths, TSConfig } from "~/types";
  */
 export function resolvePaths(
   options: Pick<ProgramOptions, "out" | "project" | "src">,
-  tsConfig: TSConfig
+  tsConfig: TSConfig,
 ): ProgramPaths {
   const { baseUrl = "", outDir, paths } = tsConfig.options ?? {};
 
@@ -17,7 +17,7 @@ export function resolvePaths(
   if (!out) {
     throw new StepError(
       resolvePaths.name,
-      `Output directory must be specified using either the --out option or in tsconfig`
+      `Output directory must be specified using either the --out option or in tsconfig`,
     );
   }
 

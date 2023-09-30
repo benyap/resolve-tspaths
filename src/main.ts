@@ -32,7 +32,7 @@ function main() {
 
     const aliases = computeAliases(
       programPaths.basePath,
-      tsConfig?.options?.paths ?? {}
+      tsConfig?.options?.paths ?? {},
     );
     logger.fancyParams("aliases", aliases);
 
@@ -42,7 +42,7 @@ function main() {
     const changes = generateChanges(files, aliases, programPaths);
     logger.fancyParams(
       "fileChanges",
-      changes.map(({ file, changes }) => ({ file, changes }))
+      changes.map(({ file, changes }) => ({ file, changes })),
     );
 
     if (options.noEmit) {
@@ -50,7 +50,7 @@ function main() {
         bold("resolve-tspaths:"),
         "discovered",
         changes.length,
-        "file(s) for change (none actually changed since --noEmit was given)"
+        "file(s) for change (none actually changed since --noEmit was given)",
       );
     } else {
       applyChanges(changes);
@@ -58,14 +58,14 @@ function main() {
         bold("resolve-tspaths:"),
         "changed",
         changes.length,
-        "file(s)"
+        "file(s)",
       );
     }
   } catch (error: any) {
     if (error instanceof StepError) {
       logger.fancyError(
         `Error during step '${bold(error.step)}'`,
-        error.message
+        error.message,
       );
     } else throw error;
   }

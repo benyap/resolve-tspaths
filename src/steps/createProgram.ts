@@ -24,7 +24,7 @@ export function createProgram() {
     .option(
       "--ext <extensions...>",
       "space-delimited list of file extensions to process",
-      DEFAULT_EXTENSIONS as any
+      DEFAULT_EXTENSIONS as any,
     )
     .option("--verbose", "output logs", false)
     .option("--noEmit", "changes will not be emitted", false);

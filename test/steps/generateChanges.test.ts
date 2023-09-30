@@ -40,7 +40,7 @@ describe("steps/generateChanges", () => {
 
     it("matches import { as } statements", () => {
       const result = regex.exec(
-        `import { package as myPackage } from '../package';`
+        `import { package as myPackage } from '../package';`,
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -80,7 +80,7 @@ describe("steps/generateChanges", () => {
           "../package",
         ]
       `);
-    })
+    });
 
     it("matches export * statements", () => {
       const result = regex.exec(`export * from 'package';`);
@@ -117,7 +117,7 @@ describe("steps/generateChanges", () => {
 
     it("matches export { as } statements", () => {
       const result = regex.exec(
-        `export { package as myPackage } from '../package';`
+        `export { package as myPackage } from '../package';`,
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -157,7 +157,7 @@ describe("steps/generateChanges", () => {
           "../package",
         ]
       `);
-    })
+    });
 
     it("matches require statements", () => {
       const result = regex.exec(`require('package');`);
@@ -183,7 +183,7 @@ describe("steps/generateChanges", () => {
 
     it("matches const require.resolve statements", () => {
       const result = regex.exec(
-        `const package = require.resolve('../package');`
+        `const package = require.resolve('../package');`,
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -196,7 +196,7 @@ describe("steps/generateChanges", () => {
 
     it("matches const {} require statements", () => {
       const result = regex.exec(
-        `const { package } = require('~/package/package');`
+        `const { package } = require('~/package/package');`,
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -239,7 +239,7 @@ describe("steps/generateChanges", () => {
         "path",
         "test/fixtures/change/out/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -255,7 +255,7 @@ describe("steps/generateChanges", () => {
         "~/non-existent",
         "test/fixtures/change/out/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -271,7 +271,7 @@ describe("steps/generateChanges", () => {
         "~/root",
         "test/fixtures/change/out/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -289,7 +289,7 @@ describe("steps/generateChanges", () => {
         "test/fixtures/change/out/imports.js",
         aliases,
         programPaths,
-        true
+        true,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -307,7 +307,7 @@ describe("steps/generateChanges", () => {
         "test/fixtures/change/out/imports.js",
         aliases,
         programPaths,
-        true
+        true,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -325,7 +325,7 @@ describe("steps/generateChanges", () => {
         "test/fixtures/change/out/imports.js",
         aliases,
         programPaths,
-        true
+        true,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -342,7 +342,7 @@ describe("steps/generateChanges", () => {
         "~/alternate",
         "test/fixtures/change/out/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -359,7 +359,7 @@ describe("steps/generateChanges", () => {
         "~/nested/nested-path",
         "test/fixtures/change/out/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -376,7 +376,7 @@ describe("steps/generateChanges", () => {
         "~/root",
         "test/fixtures/change/out/nested/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -393,7 +393,7 @@ describe("steps/generateChanges", () => {
         "../..",
         "test/fixtures/change/out/nested/imports.js",
         [{ alias: "*", prefix: "", aliasPaths: [`${root}/src`] }],
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -409,7 +409,7 @@ describe("steps/generateChanges", () => {
         "~/alternate",
         "test/fixtures/change/out/nested/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -426,7 +426,7 @@ describe("steps/generateChanges", () => {
         "~/data.json",
         "test/fixtures/change/out/nested/imports.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -443,7 +443,7 @@ describe("steps/generateChanges", () => {
         "~/directory",
         "test/fixtures/change/out/directory/file.js",
         aliases,
-        programPaths
+        programPaths,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -461,7 +461,7 @@ describe("steps/generateChanges", () => {
         "test/fixtures/change/out/directory/file.js",
         aliases,
         programPaths,
-        true
+        true,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -479,7 +479,7 @@ describe("steps/generateChanges", () => {
         "test/fixtures/change/out/directory/file.js",
         aliases,
         programPaths,
-        true
+        true,
       );
 
       expect(result).toMatchInlineSnapshot(`
@@ -511,7 +511,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/no-change.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(false);
         expect(results.changes).toHaveLength(0);
@@ -521,7 +521,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/imports.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -565,7 +565,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/exports.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -603,7 +603,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/nested/index.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -647,7 +647,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/directory/file.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -680,7 +680,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/import.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toHaveLength(1);
@@ -693,10 +693,10 @@ describe("steps/generateChanges", () => {
           ]
         `);
         expect(results.text).not.toContain(
-          'const { ./sameName } = require("sameName");'
+          'const { ./sameName } = require("sameName");',
         );
         expect(results.text).toContain(
-          'const { sameName } = require("./sameName");'
+          'const { sameName } = require("./sameName");',
         );
       });
 
@@ -716,7 +716,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/imports.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(`import { alpha } from "./alpha.js"`);
@@ -746,7 +746,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/exports.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(`export { alpha } from "./alpha.js"`);
@@ -772,7 +772,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/imports.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(`import { alpha } from "./alpha"`);
@@ -798,7 +798,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/exports.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(`export { alpha } from "./alpha"`);
@@ -824,14 +824,14 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/index.js`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.text).toContain(
-          `export { WithJsxPreserve } from "./WithJsxPreserve.jsx"`
+          `export { WithJsxPreserve } from "./WithJsxPreserve.jsx"`,
         );
         expect(results.text).toContain(
-          `export { WithJsxReact } from "./WithJsxReact.js"`
+          `export { WithJsxReact } from "./WithJsxReact.js"`,
         );
       });
     });
@@ -841,7 +841,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/no-change.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(false);
         expect(results.changes).toHaveLength(0);
@@ -851,7 +851,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/imports.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -892,7 +892,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/exports.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -926,7 +926,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/nested/index.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -967,7 +967,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/directory/file.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toMatchInlineSnapshot(`
@@ -1000,7 +1000,7 @@ describe("steps/generateChanges", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/import.d.ts`,
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results.changed).toBe(true);
         expect(results.changes).toHaveLength(1);
@@ -1013,10 +1013,10 @@ describe("steps/generateChanges", () => {
           ]
         `);
         expect(results.text).not.toContain(
-          'export { ./sameName } from "sameName";'
+          'export { ./sameName } from "sameName";',
         );
         expect(results.text).toContain(
-          'export { sameName } from "./sameName";'
+          'export { sameName } from "./sameName";',
         );
       });
     });
@@ -1042,7 +1042,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/no-change.js`, `${root}/out/directory.js`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(0);
       });
@@ -1051,7 +1051,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/imports.js`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1080,7 +1080,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/exports.js`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1105,7 +1105,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/nested/index.js`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1134,7 +1134,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/directory/file.js`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1151,7 +1151,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/alternateSrc/alternate/index.js`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1182,7 +1182,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/no-change.d.ts`, `${root}/out/directory.d.ts`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(0);
       });
@@ -1191,7 +1191,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/imports.d.ts`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1220,7 +1220,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/exports.d.ts`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1245,7 +1245,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/nested/index.d.ts`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1274,7 +1274,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/directory/file.d.ts`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
@@ -1291,7 +1291,7 @@ describe("steps/generateChanges", () => {
         const results = generateChanges(
           [`${root}/out/alternateSrc/alternate/index.d.ts`],
           aliases,
-          programPaths
+          programPaths,
         );
         expect(results).toHaveLength(1);
         expect(results[0].changes).toMatchInlineSnapshot(`
