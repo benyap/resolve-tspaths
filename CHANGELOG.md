@@ -1,5 +1,28 @@
 
 
+## [0.8.16](https://github.com/benyap/resolve-tspaths/compare/0.8.15...0.8.16) (2023-09-30)
+
+
+### Bug Fixes
+
+* fix import and export regex to accurately match whitespace, including newlines ([4913caa](https://github.com/benyap/resolve-tspaths/commit/4913caaadd06efdbc08d3c7033525357ad459931))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([887ad00](https://github.com/benyap/resolve-tspaths/commit/887ad0038b074395bdbdaeebde05a890712e5679))
+* update README.md [skip ci] ([e5cddb2](https://github.com/benyap/resolve-tspaths/commit/e5cddb2c95911074b6095a35dadbaf497308717b))
+
+
+### Internal
+
+* add IMPORT_EXPORT_REGEX test ([90e7255](https://github.com/benyap/resolve-tspaths/commit/90e72554b2584c4fecb0b7dda73ea2ef5b1808e3))
+* **deps:** update actions/checkout action to v4 ([#301](https://github.com/benyap/resolve-tspaths/issues/301)) ([199e283](https://github.com/benyap/resolve-tspaths/commit/199e2835bd313451d4374cae74e4ed50260ea197))
+* **deps:** update pnpm to v8.6.12 ([#291](https://github.com/benyap/resolve-tspaths/issues/291)) ([988a0ac](https://github.com/benyap/resolve-tspaths/commit/988a0ac68a873803af50d9e5dd234aa62c4d7515))
+* **deps:** update pnpm to v8.8.0 ([#299](https://github.com/benyap/resolve-tspaths/issues/299)) ([7018bbf](https://github.com/benyap/resolve-tspaths/commit/7018bbf10686668bd3ccf5a923d44338371bc596))
+* **deps:** upgrade dependencies ([10cf47a](https://github.com/benyap/resolve-tspaths/commit/10cf47a43e2c90152c24ed85ca64dc2988e879cd))
+* format ([0a6bba6](https://github.com/benyap/resolve-tspaths/commit/0a6bba66fea39c6d67d8a14ad126cd97d4392b21))
+
 ## [0.8.15](https://github.com/benyap/resolve-tspaths/compare/0.8.14...0.8.15) (2023-08-13)
 
 
