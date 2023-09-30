@@ -62,6 +62,26 @@ describe("steps/generateChanges", () => {
       `);
     });
 
+    it("matches import statements with multiple named imports", () => {
+      const result = regex.exec(`import {
+  package as myPackage,
+  otherPackage,
+} from '../package';`);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          "import {
+          package as myPackage,
+          otherPackage,
+        } from '../package'",
+          "import {
+          package as myPackage,
+          otherPackage,
+        } from ",
+          "../package",
+        ]
+      `);
+    })
+
     it("matches export * statements", () => {
       const result = regex.exec(`export * from 'package';`);
       expect(result).toMatchInlineSnapshot(`
@@ -118,6 +138,26 @@ describe("steps/generateChanges", () => {
         ]
       `);
     });
+
+    it("matches import statements with multiple named imports", () => {
+      const result = regex.exec(`export {
+  package as myPackage,
+  otherPackage,
+} from '../package';`);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          "export {
+          package as myPackage,
+          otherPackage,
+        } from '../package'",
+          "export {
+          package as myPackage,
+          otherPackage,
+        } from ",
+          "../package",
+        ]
+      `);
+    })
 
     it("matches require statements", () => {
       const result = regex.exec(`require('package');`);

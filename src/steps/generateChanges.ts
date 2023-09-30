@@ -7,10 +7,10 @@ import { normalizePath } from "~/utils/path";
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
 export const IMPORT_EXPORT_REGEX =
-  /((?:require\(|require\.resolve\(|import\()|(?:import|export) (?:.*from )?)['"]([^'"]*)['"]\)?/g;
+  /((?:require\(|require\.resolve\(|import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g;
 
 export const ESM_IMPORT_EXPORT_REGEX =
-  /(?:(?:import\()|(?:import|export)\s+(?:.*from\s+)?)['"]([^'"]*)['"]\)?/g;
+  /(?:(?:import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g
 
 export const COMMONJS_IMPORT_EXPORT_REGEX =
   /(?:(?:require\(|require\.resolve\()\s+)['"]([^'"]*)['"]\)/g;
