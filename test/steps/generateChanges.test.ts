@@ -643,6 +643,52 @@ describe("steps/generateChanges", () => {
         `);
       });
 
+      it("generates replacements for imports with comments", () => {
+        const results = replaceAliasPathsInFile(
+          `${root}/out/nested/comments.js`,
+          aliases,
+          programPaths,
+        );
+        expect(results.changed).toBe(true);
+        expect(results.changes).toMatchInlineSnapshot(`
+          [
+            {
+              "modified": "../comments/above",
+              "original": "~/comments/above",
+            },
+            {
+              "modified": "../comments/above",
+              "original": "~/comments/above",
+            },
+            {
+              "modified": "../comments/comment.js",
+              "original": "~/comments/comment",
+            },
+            {
+              "modified": "../comments/comment.js",
+              "original": "~/comments/comment",
+            },
+            {
+              "modified": "../comments/below",
+              "original": "~/comments/below",
+            },
+            {
+              "modified": "../comments/below",
+              "original": "~/comments/below",
+            },
+          ]
+        `);
+        expect(results.text).toMatchInlineSnapshot(`
+          "var above1 = __importDefault(require(\\"../comments/above\\"));
+          var above2 = __importDefault(require(\\"../comments/above\\"));
+          // import comment1 from \\"../comments/comment.js\\";
+          // import comment2 from \\"../comments/comment.js\\";
+          var below1 = __importDefault(require(\\"../comments/below\\"));
+          var below2 = __importDefault(require(\\"../comments/below\\"));
+          "
+        `);
+      });
+
       it("generates replacements for a file that has an import matching a directory name correctly", () => {
         const results = replaceAliasPathsInFile(
           `${root}/out/directory/file.js`,
