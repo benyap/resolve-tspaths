@@ -62,7 +62,7 @@
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.2.2",
-    "vite": "4.4.9",
+    "vite": "4.5.0",
     "vitest": "0.34.6"
   }
 }
