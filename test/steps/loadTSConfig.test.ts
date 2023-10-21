@@ -29,7 +29,7 @@ describe("steps/loadTSConfig", () => {
             "./app/*",
           ],
         },
-        "pathsBasePath": ".",
+        "pathsBasePath": "(relative)/test/fixtures/tsconfig",
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
@@ -47,20 +47,20 @@ describe("steps/loadTSConfig", () => {
     config.options.pathsBasePath = toRelativePath(config.options.pathsBasePath);
     expect(config.options).toMatchInlineSnapshot(`
       {
-        "baseUrl": "test/fixtures/tsconfig/nested",
+        "baseUrl": "(relative)/test/fixtures/tsconfig/nested",
         "configFilePath": undefined,
         "lib": [
           "lib.es2015.d.ts",
         ],
         "module": 1,
         "moduleResolution": 2,
-        "outDir": "dist",
+        "outDir": "(relative)/test/fixtures/tsconfig/dist",
         "paths": {
           "~/*": [
             "./src/*",
           ],
         },
-        "pathsBasePath": "test/fixtures/tsconfig/nested",
+        "pathsBasePath": "(relative)/test/fixtures/tsconfig/nested",
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
@@ -83,13 +83,13 @@ describe("steps/loadTSConfig", () => {
         ],
         "module": 1,
         "moduleResolution": 2,
-        "outDir": "dist",
+        "outDir": "(relative)/test/fixtures/tsconfig/dist",
         "paths": {
           "~/*": [
             "./src/*",
           ],
         },
-        "pathsBasePath": "test/fixtures/tsconfig/nested",
+        "pathsBasePath": "(relative)/test/fixtures/tsconfig/nested",
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
@@ -118,7 +118,7 @@ describe("steps/loadTSConfig", () => {
             "./src/*",
           ],
         },
-        "pathsBasePath": ".",
+        "pathsBasePath": "(relative)/test/fixtures/tsconfig",
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": undefined,
