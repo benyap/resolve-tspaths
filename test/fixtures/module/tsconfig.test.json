@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./test/fixtures/module/dist",
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]

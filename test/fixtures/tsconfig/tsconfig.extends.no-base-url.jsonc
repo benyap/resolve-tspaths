@@ -1,5 +1,5 @@
 {
-  "extends": "./test/fixtures/tsconfig/nested/tsconfig.parent.no-base-url.jsonc",
+  "extends": "./nested/tsconfig.parent.no-base-url.jsonc",
   /**
    * This is a multiline comment
    */

@@ -19,8 +19,8 @@ describe(resolveTsPaths.name, () => {
     files.forEach((path) =>
       copyFileSync(
         `test/fixtures/module/src/${path}`,
-        `test/fixtures/module/dist/${path}`
-      )
+        `test/fixtures/module/dist/${path}`,
+      ),
     );
   });
 
@@ -31,8 +31,8 @@ describe(resolveTsPaths.name, () => {
     });
     files.forEach((file) =>
       expect(
-        readFileSync(`test/fixtures/module/dist/${file}`).toString()
-      ).toMatchSnapshot()
+        readFileSync(`test/fixtures/module/dist/${file}`).toString(),
+      ).toMatchSnapshot(),
     );
   });
 });

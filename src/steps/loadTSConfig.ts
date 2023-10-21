@@ -1,3 +1,4 @@
+import { dirname } from "path";
 import {
   findConfigFile,
   parseJsonConfigFileContent,
@@ -17,6 +18,7 @@ export function loadTSConfig(path: string): TSConfig {
   const configFileName = findConfigFile(process.cwd(), sys.fileExists, path);
   if (!configFileName) throw new FileNotFoundError(loadTSConfig.name, path);
   const configFile = readConfigFile(configFileName, sys.readFile);
-  const options = parseJsonConfigFileContent(configFile.config, sys, ".");
+  const directory = dirname(configFileName);
+  const options = parseJsonConfigFileContent(configFile.config, sys, directory);
   return options;
 }
