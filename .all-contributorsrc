@@ -138,6 +138,15 @@
         "bug",
         "test"
       ]
+    },
+    {
+      "login": "Nooka10",
+      "name": "Nooka10",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11243999?v=4",
+      "profile": "https://github.com/Nooka10",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
