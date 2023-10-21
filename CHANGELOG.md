@@ -1,5 +1,26 @@
 
 
+## [0.8.17](https://github.com/benyap/resolve-tspaths/compare/0.8.16...0.8.17) (2023-10-21)
+
+
+### Bug Fixes
+
+* `extends` field in tsconfig not resolved correctly ([c2bd8ab](https://github.com/benyap/resolve-tspaths/commit/c2bd8ab8cfd3ec42bda1eed1176569615269826e))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([de03088](https://github.com/benyap/resolve-tspaths/commit/de03088ced5f71b4390f25230ee67df354a949c0))
+* update README.md [skip ci] ([40bba4b](https://github.com/benyap/resolve-tspaths/commit/40bba4b6547d0e501d967162c034bab1fa49db9b))
+
+
+### Internal
+
+* **deps:** update pnpm to v8.9.2 ([#310](https://github.com/benyap/resolve-tspaths/issues/310)) ([ac03149](https://github.com/benyap/resolve-tspaths/commit/ac0314900eeaac8c0159d273caf30082af1b83a3))
+* **deps:** upgrade dependencies ([54f86cf](https://github.com/benyap/resolve-tspaths/commit/54f86cf5f2b0b7f663561bdc7a46c857c24868b6))
+* reduce stale job frequency ([be5beb3](https://github.com/benyap/resolve-tspaths/commit/be5beb383cf998257fb51200073a8f3aabb10779))
+* update test snapshots ([11bb8e8](https://github.com/benyap/resolve-tspaths/commit/11bb8e8f53275c51b7f08bbf9d7600ce3290fc63))
+
 ## [0.8.16](https://github.com/benyap/resolve-tspaths/compare/0.8.15...0.8.16) (2023-09-30)
 
 
