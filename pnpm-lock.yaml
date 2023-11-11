@@ -23,8 +23,8 @@ devDependencies:
     specifier: 18.0.0
     version: 18.0.0
   '@release-it/bumper':
-    specifier: 5.1.0
-    version: 5.1.0(release-it@16.2.1)
+    specifier: 6.0.1
+    version: 6.0.1(release-it@16.2.1)
   '@release-it/conventional-changelog':
     specifier: 7.0.2
     version: 7.0.2(release-it@16.2.1)
@@ -721,15 +721,15 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@release-it/bumper@5.1.0(release-it@16.2.1):
-    resolution: {integrity: sha512-mnM5QQJvK+4sqLpU7vkDbGMGh1QNwdnWNPqrkfOCyr/cKgRDvb8e+nbiNZzyI/1XsxSjnfLHDecRVuqucwE6BQ==}
-    engines: {node: '>=16'}
+  /@release-it/bumper@6.0.1(release-it@16.2.1):
+    resolution: {integrity: sha512-yeQsbGNMzzN0c/5JV1awXP6UHX/kJamXCKR6/daS0YQfj98SZXAcLn3JEq+qfK/Jq/cnATnlz5r6UY0cfBkm1A==}
+    engines: {node: '>=18'}
     peerDependencies:
-      release-it: ^16.0.0
+      release-it: ^17.0.0
     dependencies:
       '@iarna/toml': 2.2.5
       detect-indent: 7.0.1
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       ini: 4.1.1
       js-yaml: 4.1.0
       lodash-es: 4.17.21
@@ -1981,6 +1981,17 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
+
+  /fast-glob@3.3.2:
+    resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+    dev: true
 
   /fastq@1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
