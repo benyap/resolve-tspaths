@@ -24,6 +24,7 @@ const MODULE_EXTS = [
   ".mjs",
   ".mdx",
   ".d.ts",
+  ".json",
 ];
 
 /**
@@ -207,8 +208,14 @@ function resolveImportPath(importPath: string) {
   const importPathTs = importPath.replace(/\.[^/.]*js[^/.]*$/, (match) =>
     match.replace("js", "ts"),
   );
+
+  const importPathWithoutFileExtension = importPath.replace(
+    /\.[^/.]*(js|json)[^/.]*$/,
+    "",
+  );
+
   const importPathWithExtensions = MODULE_EXTS.map(
-    (ext) => `${importPath}${ext}`,
+    (ext) => `${importPathWithoutFileExtension}${ext}`,
   );
 
   const possiblePaths = [importPath, importPathTs, ...importPathWithExtensions];
