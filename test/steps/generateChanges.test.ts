@@ -489,6 +489,37 @@ describe("steps/generateChanges", () => {
         }
       `);
     });
+
+    it("does replace paths for module resolution nodenext import", () => {
+      const root = `${cwd}/test/fixtures/moduleResolutionNodeNext`;
+      const aliases: Alias[] = [
+        {
+          alias: "~/*",
+          prefix: "~/",
+          aliasPaths: [`${root}/src`],
+        },
+      ];
+      const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+        srcPath: `${root}/src`,
+        outPath: `${root}/out`,
+      };
+
+      const result = aliasToRelativePath(
+        "~/components/App/index.js",
+        "test/fixtures/moduleResolutionNodeNext/out/index.js",
+        aliases,
+        programPaths,
+        true,
+      );
+
+      expect(result).toMatchInlineSnapshot(`
+        {
+          "file": "test/fixtures/moduleResolutionNodeNext/out/index.js",
+          "original": "~/components/App/index.js",
+          "replacement": "./components/App/index.js",
+        }
+      `);
+    });
   });
 
   describe(replaceAliasPathsInFile.name, () => {
@@ -1018,6 +1049,39 @@ describe("steps/generateChanges", () => {
         expect(results.text).toContain(
           'export { sameName } from "./sameName";',
         );
+      });
+
+      it("generates replacements for a file with imports of module resolution node next", () => {
+        const root = `${cwd}/test/fixtures/moduleResolutionNodeNext`;
+        const aliases: Alias[] = [
+          {
+            alias: "~/*",
+            prefix: "~/",
+            aliasPaths: [`${root}/src`],
+          },
+        ];
+        const programPaths: Pick<ProgramPaths, "srcPath" | "outPath"> = {
+          srcPath: `${root}/src`,
+          outPath: `${root}/out`,
+        };
+        const results = replaceAliasPathsInFile(
+          `${root}/out/index.js`,
+          aliases,
+          programPaths,
+        );
+        expect(results.changed).toBe(true);
+        expect(results.changes).toMatchInlineSnapshot(`
+          [
+            {
+              "modified": "./components/App/index.js",
+              "original": "~/components/App/index.js",
+            },
+          ]
+        `);
+        expect(results.text).toMatchInlineSnapshot(`
+          "export * from \\"./components/App/index.js\\";
+          "
+        `);
       });
     });
   });

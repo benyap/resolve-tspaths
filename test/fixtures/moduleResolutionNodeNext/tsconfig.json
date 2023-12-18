@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./out",
+    "baseUrl": ".",
+    "declaration": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "jsx": "react-jsx",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
