@@ -214,6 +214,9 @@ Thanks goes to these wonderful people
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kotarella1110"><img src="https://avatars.githubusercontent.com/u/12913947?v=4?s=80" width="80px;" alt="Kotaro Sugawara"/><br /><sub><b>Kotaro Sugawara</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3Akotarella1110" title="Bug reports">🐛</a> <a href="https://github.com/benyap/resolve-tspaths/commits?author=kotarella1110" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Nooka10"><img src="https://avatars.githubusercontent.com/u/11243999?v=4?s=80" width="80px;" alt="Nooka10"/><br /><sub><b>Nooka10</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3ANooka10" title="Bug reports">🐛</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ajsuvarna6"><img src="https://avatars.githubusercontent.com/u/15179597?v=4?s=80" width="80px;" alt="Ajay Dharnappa Poojary"/><br /><sub><b>Ajay Dharnappa Poojary</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3Aajsuvarna6" title="Bug reports">🐛</a></td>
+    </tr>
   </tbody>
 </table>
 
