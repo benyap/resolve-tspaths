@@ -1,5 +1,23 @@
 
 
+## [0.8.18](https://github.com/benyap/resolve-tspaths/compare/0.8.17...0.8.18) (2024-02-16)
+
+
+### Bug Fixes
+
+* resolve importPath with file extension ([42dca3f](https://github.com/benyap/resolve-tspaths/commit/42dca3f6b8364f93e3e2aa94c8a8b2ec3cc90be1))
+
+
+### Documentation
+
+* update .all-contributorsrc [skip ci] ([67c743d](https://github.com/benyap/resolve-tspaths/commit/67c743dd8b2d40383371e9c04f033d3015270b73))
+* update README.md [skip ci] ([9a12069](https://github.com/benyap/resolve-tspaths/commit/9a12069884d221ac4843fbcfed37336f05885a0a))
+
+
+### Internal
+
+* **test:** added additional tests for the new changes ([5b02bbf](https://github.com/benyap/resolve-tspaths/commit/5b02bbfddc6d5dba3999c1a4d9aa7d9a760944d4))
+
 ## [0.8.17](https://github.com/benyap/resolve-tspaths/compare/0.8.16...0.8.17) (2023-10-21)
 
 
