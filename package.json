@@ -51,7 +51,7 @@
   "devDependencies": {
     "@commitlint/cli": "18.0.0",
     "@commitlint/config-conventional": "18.0.0",
-    "@release-it/bumper": "5.1.0",
+    "@release-it/bumper": "6.0.1",
     "@release-it/conventional-changelog": "7.0.2",
     "@types/node": "20.8.7",
     "@vitest/coverage-c8": "0.33.0",
