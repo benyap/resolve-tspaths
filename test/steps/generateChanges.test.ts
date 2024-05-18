@@ -1,7 +1,7 @@
 import { describe, expect, beforeEach, it } from "vitest";
 
 import {
-  IMPORT_EXPORT_REGEX,
+  MATCHERS,
   aliasToRelativePath,
   replaceAliasPathsInFile,
   generateChanges,
@@ -10,210 +10,395 @@ import type { Alias, ProgramPaths } from "~/types";
 
 describe("steps/generateChanges", () => {
   describe("IMPORT_EXPORT_REGEX", () => {
-    let regex: RegExp;
+    let regexes: RegExp[];
 
     beforeEach(() => {
-      regex = new RegExp(IMPORT_EXPORT_REGEX);
+      regexes = MATCHERS.map((regex) => new RegExp(regex, "g"));
     });
 
     it("matches import * statements", () => {
-      const result = regex.exec(`import * as package from 'package';`);
+      const result = regexes.map((regex) =>
+        regex.exec(`import * as package from 'package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "import * as package from 'package'",
-          "import * as package from ",
-          "package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "import * as package from 'package'",
+            "import * as package from 'package'",
+            "package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches import {} statements", () => {
-      const result = regex.exec(`import { package } from '~/package';`);
+      const result = regexes.map((regex) =>
+        regex.exec(`import { package } from '~/package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "import { package } from '~/package'",
-          "import { package } from ",
-          "~/package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "import { package } from '~/package'",
+            "import { package } from '~/package'",
+            "~/package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches import { as } statements", () => {
-      const result = regex.exec(
-        `import { package as myPackage } from '../package';`,
+      const result = regexes.map((regex) =>
+        regex.exec(`import { package as myPackage } from '../package';`),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          "import { package as myPackage } from '../package'",
-          "import { package as myPackage } from ",
-          "../package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "import { package as myPackage } from '../package'",
+            "import { package as myPackage } from '../package'",
+            "../package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches import statements", () => {
-      const result = regex.exec(`import 'package';`);
+      const result = regexes.map((regex) => regex.exec(`import 'package';`));
       expect(result).toMatchInlineSnapshot(`
         [
-          "import 'package'",
-          "import ",
-          "package",
+          null,
+          null,
+          null,
+          [
+            "import 'package'",
+            "import 'package'",
+            "package",
+          ],
+          null,
+          null,
+          null,
+          null,
         ]
       `);
     });
 
     it("matches import statements with multiple named imports", () => {
-      const result = regex.exec(`import {
+      const result = regexes.map((regex) =>
+        regex.exec(`import {
   package as myPackage,
   otherPackage,
-} from '../package';`);
+} from '../package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "import {
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "import {
           package as myPackage,
           otherPackage,
         } from '../package'",
-          "import {
+            "import {
           package as myPackage,
           otherPackage,
-        } from ",
-          "../package",
+        } from '../package'",
+            "../package",
+          ],
         ]
       `);
     });
 
     it("matches export * statements", () => {
-      const result = regex.exec(`export * from 'package';`);
+      const result = regexes.map((regex) =>
+        regex.exec(`export * from 'package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "export * from 'package'",
-          "export * from ",
-          "package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "export * from 'package'",
+            "export * from 'package'",
+            "package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches export * as statements", () => {
-      const result = regex.exec(`export * as package from 'package';`);
+      const result = regexes.map((regex) =>
+        regex.exec(`export * as package from 'package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "export * as package from 'package'",
-          "export * as package from ",
-          "package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "export * as package from 'package'",
+            "export * as package from 'package'",
+            "package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches export {} statements", () => {
-      const result = regex.exec(`export { package } from '~/package';`);
+      const result = regexes.map((regex) =>
+        regex.exec(`export { package } from '~/package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "export { package } from '~/package'",
-          "export { package } from ",
-          "~/package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "export { package } from '~/package'",
+            "export { package } from '~/package'",
+            "~/package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches export { as } statements", () => {
-      const result = regex.exec(
-        `export { package as myPackage } from '../package';`,
+      const result = regexes.map((regex) =>
+        regex.exec(`export { package as myPackage } from '../package';`),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          "export { package as myPackage } from '../package'",
-          "export { package as myPackage } from ",
-          "../package",
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "export { package as myPackage } from '../package'",
+            "export { package as myPackage } from '../package'",
+            "../package",
+          ],
+          null,
+          null,
         ]
       `);
     });
 
     it("matches export statements", () => {
-      const result = regex.exec(`export 'package';`);
+      const result = regexes.map((regex) => regex.exec(`export 'package';`));
       expect(result).toMatchInlineSnapshot(`
         [
-          "export 'package'",
-          "export ",
-          "package",
+          null,
+          null,
+          null,
+          [
+            "export 'package'",
+            "export 'package'",
+            "package",
+          ],
+          null,
+          null,
+          null,
+          null,
         ]
       `);
     });
 
     it("matches import statements with multiple named imports", () => {
-      const result = regex.exec(`export {
+      const result = regexes.map((regex) =>
+        regex.exec(`export {
   package as myPackage,
   otherPackage,
-} from '../package';`);
+} from '../package';`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "export {
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          [
+            "export {
           package as myPackage,
           otherPackage,
         } from '../package'",
-          "export {
+            "export {
           package as myPackage,
           otherPackage,
-        } from ",
-          "../package",
+        } from '../package'",
+            "../package",
+          ],
         ]
       `);
     });
 
     it("matches require statements", () => {
-      const result = regex.exec(`require('package');`);
+      const result = regexes.map((regex) => regex.exec(`require('package');`));
       expect(result).toMatchInlineSnapshot(`
         [
-          "require('package')",
-          "require(",
-          "package",
+          null,
+          [
+            "require('package')",
+            "require('package')",
+            "package",
+          ],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
         ]
       `);
     });
 
     it("matches const require statements", () => {
-      const result = regex.exec(`const package = require('../package');`);
+      const result = regexes.map((regex) =>
+        regex.exec(`const package = require('../package');`),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          "require('../package')",
-          "require(",
-          "../package",
+          null,
+          [
+            "require('../package')",
+            "require('../package')",
+            "../package",
+          ],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
         ]
       `);
     });
 
     it("matches const require.resolve statements", () => {
-      const result = regex.exec(
-        `const package = require.resolve('../package');`,
+      const result = regexes.map((regex) =>
+        regex.exec(`const package = require.resolve('../package');`),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          "require.resolve('../package')",
-          "require.resolve(",
-          "../package",
+          null,
+          [
+            "require.resolve('../package')",
+            "require.resolve('../package')",
+            "../package",
+          ],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
         ]
       `);
     });
 
     it("matches const {} require statements", () => {
-      const result = regex.exec(
-        `const { package } = require('~/package/package');`,
+      const result = regexes.map((regex) =>
+        regex.exec(`const { package } = require('~/package/package');`),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          "require('~/package/package')",
-          "require(",
-          "~/package/package",
+          null,
+          [
+            "require('~/package/package')",
+            "require('~/package/package')",
+            "~/package/package",
+          ],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
         ]
       `);
     });
 
     it("matches dynamic import statements", () => {
-      const result = regex.exec(`import('package');`);
+      const result = regexes.map((regex) => regex.exec(`import('package');`));
       expect(result).toMatchInlineSnapshot(`
         [
-          "import('package')",
-          "import(",
-          "package",
+          null,
+          [
+            "import('package')",
+            "import('package')",
+            "package",
+          ],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+        ]
+      `);
+    });
+
+    it("does not match comments with the word 'import'", () => {
+      const result = regexes.map((regex) =>
+        regex.exec(`
+// import comment
+import * as package from "hello";
+      `),
+      );
+      expect(result).toMatchInlineSnapshot(`
+        [
+          null,
+          null,
+          null,
+          null,
+          [
+            "import * as package from \\"hello\\"",
+            "import * as package from \\"hello\\"",
+            "hello",
+          ],
+          null,
+          null,
+          null,
         ]
       `);
     });
