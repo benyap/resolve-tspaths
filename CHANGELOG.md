@@ -1,5 +1,17 @@
 
 
+## [0.8.19](https://github.com/benyap/resolve-tspaths/compare/0.8.18...0.8.19) (2024-05-18)
+
+
+### Bug Fixes
+
+* import/export regex matching on the word "import" in comments ([a02849e](https://github.com/benyap/resolve-tspaths/commit/a02849e458c2a980238996337ef48842f3be9c2f))
+
+
+### Internal
+
+* **deps:** upgrade dependencies ([52bfdd5](https://github.com/benyap/resolve-tspaths/commit/52bfdd583b5571b3e035f63c59bff44407017890))
+
 ## [0.8.18](https://github.com/benyap/resolve-tspaths/compare/0.8.17...0.8.18) (2024-02-16)
 
 
