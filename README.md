@@ -216,6 +216,7 @@ Thanks goes to these wonderful people
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ajsuvarna6"><img src="https://avatars.githubusercontent.com/u/15179597?v=4?s=80" width="80px;" alt="Ajay Dharnappa Poojary"/><br /><sub><b>Ajay Dharnappa Poojary</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3Aajsuvarna6" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SleepyLeslie"><img src="https://avatars.githubusercontent.com/u/142967379?v=4?s=80" width="80px;" alt="Leslie H"/><br /><sub><b>Leslie H</b></sub></a><br /><a href="https://github.com/benyap/resolve-tspaths/issues?q=author%3ASleepyLeslie" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
