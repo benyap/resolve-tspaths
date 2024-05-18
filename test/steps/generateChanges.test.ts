@@ -392,8 +392,8 @@ import * as package from "hello";
           null,
           null,
           [
-            "import * as package from \\"hello\\"",
-            "import * as package from \\"hello\\"",
+            "import * as package from "hello"",
+            "import * as package from "hello"",
             "hello",
           ],
           null,
@@ -761,14 +761,14 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"package\\");
-          const {} = require(\\"./root\\");
-          const {} = require(\\"./nested\\");
-          const {} = require(\\"./nested/nested-path\\");
-          const {} = require(\\"~/nested/non-existent\\");
-          const {} = require(\\"@/non-existent\\");
-          const {} = require(\\"./data.json\\");
-          const {} = require(\\"~/non-existent.json\\");
+          "const {} = require("package");
+          const {} = require("./root");
+          const {} = require("./nested");
+          const {} = require("./nested/nested-path");
+          const {} = require("~/nested/non-existent");
+          const {} = require("@/non-existent");
+          const {} = require("./data.json");
+          const {} = require("~/non-existent.json");
 
           // Module code
           function sample() {}
@@ -801,12 +801,12 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"package\\");
-          const {} = require(\\"./root\\");
-          const {} = require(\\"./nested\\");
-          const {} = require(\\"./nested/nested-path\\");
-          const {} = require(\\"~/nested/non-existent\\");
-          const {} = require(\\"@/non-existent\\");
+          "const {} = require("package");
+          const {} = require("./root");
+          const {} = require("./nested");
+          const {} = require("./nested/nested-path");
+          const {} = require("~/nested/non-existent");
+          const {} = require("@/non-existent");
 
           module.exports = {
             /* omitted */
@@ -843,14 +843,14 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"package\\");
-          const {} = require(\\"../root\\");
-          const {} = require(\\"./\\");
-          const {} = require(\\"./nested-path\\");
-          const {} = require(\\"~/nested/non-existent\\");
-          const {} = require(\\"@/non-existent\\");
-          const {} = require(\\"../data.json\\");
-          const {} = require(\\"~/non-existent.json\\");
+          "const {} = require("package");
+          const {} = require("../root");
+          const {} = require("./");
+          const {} = require("./nested-path");
+          const {} = require("~/nested/non-existent");
+          const {} = require("@/non-existent");
+          const {} = require("../data.json");
+          const {} = require("~/non-existent.json");
 
           // Module code
           function sample() {}
@@ -875,7 +875,7 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "const {} = require(\\"../directory\\");
+          "const {} = require("../directory");
           "
         `);
       });
@@ -1091,14 +1091,14 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"package\\";
-          import {} from \\"./root\\";
-          import {} from \\"./nested\\";
-          import {} from \\"./nested/nested-path\\";
-          import {} from \\"~/nested/non-existent\\";
-          import {} from \\"@/non-existent\\";
-          import {} from \\"./data.json\\";
-          import {} from \\"~/non-existent.json\\";
+          "import {} from "package";
+          import {} from "./root";
+          import {} from "./nested";
+          import {} from "./nested/nested-path";
+          import {} from "~/nested/non-existent";
+          import {} from "@/non-existent";
+          import {} from "./data.json";
+          import {} from "~/non-existent.json";
           export declare function sample(): void;
           "
         `);
@@ -1128,12 +1128,12 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "export * from \\"package\\";
-          export * from \\"./root\\";
-          export * from \\"./nested\\";
-          export * from \\"./nested/nested-path\\";
-          export * from \\"~/nested/non-existent\\";
-          export * from \\"@/non-existent\\";
+          "export * from "package";
+          export * from "./root";
+          export * from "./nested";
+          export * from "./nested/nested-path";
+          export * from "~/nested/non-existent";
+          export * from "@/non-existent";
           "
         `);
       });
@@ -1166,14 +1166,14 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"package\\";
-          import {} from \\"../root\\";
-          import {} from \\"./\\";
-          import {} from \\"./nested-path\\";
-          import {} from \\"~/nested/non-existent\\";
-          import {} from \\"@/non-existent\\";
-          import {} from \\"../data.json\\";
-          import {} from \\"~/non-existent.json\\";
+          "import {} from "package";
+          import {} from "../root";
+          import {} from "./";
+          import {} from "./nested-path";
+          import {} from "~/nested/non-existent";
+          import {} from "@/non-existent";
+          import {} from "../data.json";
+          import {} from "~/non-existent.json";
           export declare function sample(): void;
           "
         `);
@@ -1195,7 +1195,7 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "import {} from \\"../directory\\";
+          "import {} from "../directory";
           "
         `);
       });
@@ -1264,7 +1264,7 @@ import * as package from "hello";
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
-          "export * from \\"./components/App/index.js\\";
+          "export * from "./components/App/index.js";
           "
         `);
       });
