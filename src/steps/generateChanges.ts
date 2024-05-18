@@ -6,14 +6,20 @@ import { normalizePath } from "~/utils/path";
 
 import type { Alias, Change, ProgramPaths, TextChange } from "~/types";
 
-export const IMPORT_EXPORT_REGEX =
-  /((?:require\(|require\.resolve\(|import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g;
-
-export const ESM_IMPORT_EXPORT_REGEX =
-  /(?:(?:import\()|(?:import|export)\s+(?:[\s\S]*?from\s+)?)['"]([^'"]*)['"]\)?/g;
-
-export const COMMONJS_IMPORT_EXPORT_REGEX =
-  /(?:(?:require\(|require\.resolve\()\s+)['"]([^'"]*)['"]\)/g;
+export const MATCHERS = [
+  // require("package"), require.resolve("package"), import("package")
+  /((?:require|require\.resolve|import)\((?:"([^"]+)")\))/g,
+  /((?:require|require\.resolve|import)\((?:'([^']+)')\))/g,
+  // import "package"
+  /((?:import|export) (?:"([^"]+)"))/g,
+  /((?:import|export) (?:'([^']+)'))/g,
+  // import {} from "package", import * as name from "package"
+  /((?:import|export) .+ from (?:"([^"]+)"))/g,
+  /((?:import|export) .+ from (?:'([^']+)'))/g,
+  // multiline import/exports with {}
+  /((?:import|export) {\n[^}]+} from (?:"([^']+)"))/g,
+  /((?:import|export) {\n[^}]+} from (?:'([^']+)'))/g,
+];
 
 const MODULE_EXTS = [
   ".js",
@@ -74,37 +80,41 @@ export function replaceAliasPathsInFile(
   const originalText = readFileSync(filePath, "utf-8");
   const changes: TextChange[] = [];
 
-  const newText = originalText.replace(
-    IMPORT_EXPORT_REGEX,
-    (original, importStatement: string, importSpecifier: string) => {
-      // The import is an esm import if it is inside a typescript (definition) file or if it uses `import` or `export`
-      const esmImport =
-        !filePath.endsWith(".ts") &&
-        (importStatement.includes("import") ||
-          importStatement.includes("export"));
+  const newText = MATCHERS.reduce(
+    (text, regex) =>
+      text.replace(
+        regex,
+        (original, importStatement: string, importSpecifier: string) => {
+          // The import is an esm import if it is inside a typescript (definition) file or if it uses `import` or `export`
+          const esmImport =
+            !filePath.endsWith(".ts") &&
+            (importStatement.includes("import") ||
+              importStatement.includes("export"));
 
-      const result = aliasToRelativePath(
-        importSpecifier,
-        filePath,
-        aliases,
-        programPaths,
-        esmImport,
-      );
+          const result = aliasToRelativePath(
+            importSpecifier,
+            filePath,
+            aliases,
+            programPaths,
+            esmImport,
+          );
 
-      if (!result.replacement) return original;
+          if (!result.replacement) return original;
 
-      const index = original.lastIndexOf(importSpecifier);
-      changes.push({
-        original: normalizePath(result.original),
-        modified: normalizePath(result.replacement),
-      });
+          const index = original.lastIndexOf(importSpecifier);
+          changes.push({
+            original: normalizePath(result.original),
+            modified: normalizePath(result.replacement),
+          });
 
-      return (
-        original.substring(0, index) +
-        result.replacement +
-        original.substring(index + importSpecifier.length)
-      );
-    },
+          return (
+            original.substring(0, index) +
+            result.replacement +
+            original.substring(index + importSpecifier.length)
+          );
+        },
+      ),
+    originalText,
   );
 
   return { changed: originalText !== newText, text: newText, changes };
