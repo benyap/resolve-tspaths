@@ -156,6 +156,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "SleepyLeslie",
+      "name": "Leslie H",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142967379?v=4",
+      "profile": "https://github.com/SleepyLeslie",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
