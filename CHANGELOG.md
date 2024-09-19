@@ -1,5 +1,12 @@
 
 
+## [0.8.21](https://github.com/benyap/resolve-tspaths/compare/0.8.20...0.8.21) (2024-09-19)
+
+
+### Internal
+
+* fix mismatched pnpm version in github actions ([581b87f](https://github.com/benyap/resolve-tspaths/commit/581b87faf3188d5a1e21818c2dd334f1c44d7136))
+
 ## [0.8.20](https://github.com/benyap/resolve-tspaths/compare/0.8.19...0.8.20) (2024-09-19)
 
 

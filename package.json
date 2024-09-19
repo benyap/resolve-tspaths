@@ -1,6 +1,6 @@
 {
   "name": "resolve-tspaths",
-  "version": "0.8.20",
+  "version": "0.8.21",
   "description": "Transform path mappings in your compiled Typescript code",
   "author": "Ben Yap <contact@benyap.com>",
   "license": "MIT",
