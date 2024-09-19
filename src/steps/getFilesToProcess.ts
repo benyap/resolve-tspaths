@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { sync } from "fast-glob";
+import { convertPathToPattern, sync } from "fast-glob";
 
 import { normalizePath } from "~/utils/path";
 
@@ -10,7 +10,7 @@ import { normalizePath } from "~/utils/path";
  * @param extensions A list of extensions to match.
  */
 export function getFilesToProcess(outPath: string, extensions: string[]) {
-  const normalizedOutPath = normalizePath(outPath);
+  const normalizedOutPath = convertPathToPattern(normalizePath(outPath));
 
   let glob = "*";
   if (extensions.length === 1) glob = `*.${extensions[0]}`;
