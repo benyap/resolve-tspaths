@@ -758,6 +758,10 @@ import * as package from "hello";
               "modified": "./data.json",
               "original": "~/data.json",
             },
+            {
+              "modified": "./multiline",
+              "original": "~/multiline",
+            },
           ]
         `);
         expect(results.text).toMatchInlineSnapshot(`
@@ -769,6 +773,17 @@ import * as package from "hello";
           const {} = require("@/non-existent");
           const {} = require("./data.json");
           const {} = require("~/non-existent.json");
+
+          const {
+            multi1,
+            multi2,
+            multi3,
+            multi4,
+            multi5,
+            multi6,
+            multi7,
+            multi8,
+          } = require("./multiline");
 
           // Module code
           function sample() {}
@@ -1320,6 +1335,10 @@ import * as package from "hello";
             {
               "modified": "./data.json",
               "original": "~/data.json",
+            },
+            {
+              "modified": "./multiline",
+              "original": "~/multiline",
             },
           ]
         `);
