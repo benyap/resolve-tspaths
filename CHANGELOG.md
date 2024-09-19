@@ -1,5 +1,12 @@
 
 
+## [0.8.22](https://github.com/benyap/resolve-tspaths/compare/0.8.21...0.8.22) (2024-09-19)
+
+
+### Internal
+
+* remove pnpm version from github actions to prevent conflict ([035c8d0](https://github.com/benyap/resolve-tspaths/commit/035c8d0a7f7704d18f5145269b197eb8a78ed289))
+
 ## [0.8.21](https://github.com/benyap/resolve-tspaths/compare/0.8.20...0.8.21) (2024-09-19)
 
 
