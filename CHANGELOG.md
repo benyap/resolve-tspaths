@@ -1,5 +1,30 @@
 
 
+## [0.8.20](https://github.com/benyap/resolve-tspaths/compare/0.8.19...0.8.20) (2024-09-19)
+
+
+### Bug Fixes
+
+* escape glob path correctly ([b53c8a5](https://github.com/benyap/resolve-tspaths/commit/b53c8a59a78a2f3eb9f976f8b6ca388cfcf1c4ca))
+
+
+### Documentation
+
+* add tee-yankov as a contributor for bug ([#351](https://github.com/benyap/resolve-tspaths/issues/351)) ([301ff5a](https://github.com/benyap/resolve-tspaths/commit/301ff5ac5b847937f50a32ad6068f94e63204338))
+* update .all-contributorsrc [skip ci] ([a659e85](https://github.com/benyap/resolve-tspaths/commit/a659e8503ff7a4187ce8e48a96e4ecd1e8b867ce))
+* update README.md [skip ci] ([48541bd](https://github.com/benyap/resolve-tspaths/commit/48541bdabdbc54de77c55038aa10d987f6be9660))
+
+
+### Internal
+
+* **deps:** update actions/cache action to v4 ([#338](https://github.com/benyap/resolve-tspaths/issues/338)) ([1451365](https://github.com/benyap/resolve-tspaths/commit/14513655c84fdc046ec7f5d072237a815b368b77))
+* **deps:** update actions/github-script action to v7 ([#328](https://github.com/benyap/resolve-tspaths/issues/328)) ([ca8316d](https://github.com/benyap/resolve-tspaths/commit/ca8316d575f8ff53bd4e1e9cd513b9005371829d))
+* **deps:** update actions/setup-node action to v4 ([#319](https://github.com/benyap/resolve-tspaths/issues/319)) ([af7f3aa](https://github.com/benyap/resolve-tspaths/commit/af7f3aa8178fdbf38532149e317ae2c8b0c720a6))
+* **deps:** update actions/stale action to v9 ([#339](https://github.com/benyap/resolve-tspaths/issues/339)) ([0558c3c](https://github.com/benyap/resolve-tspaths/commit/0558c3c828d476a59c4f991bdb83085d995c972e))
+* **deps:** update pnpm to v9 ([#343](https://github.com/benyap/resolve-tspaths/issues/343)) ([a0dba06](https://github.com/benyap/resolve-tspaths/commit/a0dba0668eaad25b647850b9c1a7acefc228f58d))
+* **deps:** update pnpm/action-setup action to v4 ([#344](https://github.com/benyap/resolve-tspaths/issues/344)) ([a527fc8](https://github.com/benyap/resolve-tspaths/commit/a527fc81b3e618abb95b306a3ef6b8d89abac5b4))
+* **deps:** upgrade dependencies ([fc2f7c6](https://github.com/benyap/resolve-tspaths/commit/fc2f7c660d482eaa0dbaab9f8777817e96283457))
+
 ## [0.8.19](https://github.com/benyap/resolve-tspaths/compare/0.8.18...0.8.19) (2024-05-18)
 
 
