@@ -1,5 +1,14 @@
 
 
+## <small>0.8.23 (2024-11-28)</small>
+
+* chore(deps): bump braces from 3.0.2 to 3.0.3 (#366) ([105d515](https://github.com/benyap/resolve-tspaths/commit/105d515)), closes [#366](https://github.com/benyap/resolve-tspaths/issues/366)
+* chore(deps): bump cross-spawn from 7.0.3 to 7.0.6 (#365) ([c10849f](https://github.com/benyap/resolve-tspaths/commit/c10849f)), closes [#365](https://github.com/benyap/resolve-tspaths/issues/365)
+* chore(deps): bump micromatch from 4.0.5 to 4.0.8 (#364) ([a7350a2](https://github.com/benyap/resolve-tspaths/commit/a7350a2)), closes [#364](https://github.com/benyap/resolve-tspaths/issues/364)
+* chore(deps): update pnpm to v9.14.2 (#352) ([6a749c6](https://github.com/benyap/resolve-tspaths/commit/6a749c6)), closes [#352](https://github.com/benyap/resolve-tspaths/issues/352)
+* chore(deps): upgrade dependencies ([1d455a9](https://github.com/benyap/resolve-tspaths/commit/1d455a9))
+* fix: typo in import regex, add tests ([a3c2138](https://github.com/benyap/resolve-tspaths/commit/a3c2138))
+
 ## [0.8.22](https://github.com/benyap/resolve-tspaths/compare/0.8.21...0.8.22) (2024-09-19)
 
 
