@@ -17,7 +17,7 @@ export const MATCHERS = [
   /((?:import|export) .+ from (?:"([^"]+)"))/g,
   /((?:import|export) .+ from (?:'([^']+)'))/g,
   // multiline import/exports with {}
-  /((?:import|export) {\n[^}]+} from (?:"([^']+)"))/g,
+  /((?:import|export) {\n[^}]+} from (?:"([^"]+)"))/g,
   /((?:import|export) {\n[^}]+} from (?:'([^']+)'))/g,
 ];
 

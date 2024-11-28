@@ -18,7 +18,13 @@ describe("steps/generateChanges", () => {
 
     it("matches import * statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`import * as package from 'package';`),
+        regex.exec(`
+          import * as package from 'package';
+          import * as package from "package";
+
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -26,7 +32,11 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "import * as package from "package"",
+            "import * as package from "package"",
+            "package",
+          ],
           [
             "import * as package from 'package'",
             "import * as package from 'package'",
@@ -40,7 +50,13 @@ describe("steps/generateChanges", () => {
 
     it("matches import {} statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`import { package } from '~/package';`),
+        regex.exec(`
+          import { package } from '~/package';
+          import { package } from "~/package";
+
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -48,7 +64,11 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "import { package } from "~/package"",
+            "import { package } from "~/package"",
+            "~/package",
+          ],
           [
             "import { package } from '~/package'",
             "import { package } from '~/package'",
@@ -62,7 +82,13 @@ describe("steps/generateChanges", () => {
 
     it("matches import { as } statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`import { package as myPackage } from '../package';`),
+        regex.exec(`
+          import { package as myPackage } from '../package';
+          import { package as myPackage } from "~/package";
+
+          const other = 'should not be modified'
+          const code = "should not be modified"
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -70,7 +96,11 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "import { package as myPackage } from "~/package"",
+            "import { package as myPackage } from "~/package"",
+            "~/package",
+          ],
           [
             "import { package as myPackage } from '../package'",
             "import { package as myPackage } from '../package'",
@@ -83,12 +113,21 @@ describe("steps/generateChanges", () => {
     });
 
     it("matches import statements", () => {
-      const result = regexes.map((regex) => regex.exec(`import 'package';`));
+      const result = regexes.map((regex) =>
+        regex.exec(`
+        import 'package';
+        import "package";
+      `),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
           null,
           null,
-          null,
+          [
+            "import "package"",
+            "import "package"",
+            "package",
+          ],
           [
             "import 'package'",
             "import 'package'",
@@ -104,10 +143,20 @@ describe("steps/generateChanges", () => {
 
     it("matches import statements with multiple named imports", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`import {
+        regex.exec(`
+import {
   package as myPackage,
   otherPackage,
-} from '../package';`),
+} from '../package';
+
+import {
+  package as myPackage,
+  otherPackage,
+} from "~/package";
+
+const other = 'should not be modified'
+const code = "should not be modified"
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -117,7 +166,17 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "import {
+          package as myPackage,
+          otherPackage,
+        } from "~/package"",
+            "import {
+          package as myPackage,
+          otherPackage,
+        } from "~/package"",
+            "~/package",
+          ],
           [
             "import {
           package as myPackage,
@@ -135,7 +194,12 @@ describe("steps/generateChanges", () => {
 
     it("matches export * statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`export * from 'package';`),
+        regex.exec(`
+          export * from 'package';
+          export * from "package";
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -143,32 +207,14 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
           [
-            "export * from 'package'",
-            "export * from 'package'",
+            "export * from "package"",
+            "export * from "package"",
             "package",
           ],
-          null,
-          null,
-        ]
-      `);
-    });
-
-    it("matches export * as statements", () => {
-      const result = regexes.map((regex) =>
-        regex.exec(`export * as package from 'package';`),
-      );
-      expect(result).toMatchInlineSnapshot(`
-        [
-          null,
-          null,
-          null,
-          null,
-          null,
           [
-            "export * as package from 'package'",
-            "export * as package from 'package'",
+            "export * from 'package'",
+            "export * from 'package'",
             "package",
           ],
           null,
@@ -179,7 +225,12 @@ describe("steps/generateChanges", () => {
 
     it("matches export {} statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`export { package } from '~/package';`),
+        regex.exec(`
+          export { package } from '~/package';
+          export { package } from "~/package";
+          const other = 'should not be modified'
+          const code = "should not be modified"
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -187,7 +238,11 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "export { package } from "~/package"",
+            "export { package } from "~/package"",
+            "~/package",
+          ],
           [
             "export { package } from '~/package'",
             "export { package } from '~/package'",
@@ -201,7 +256,12 @@ describe("steps/generateChanges", () => {
 
     it("matches export { as } statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`export { package as myPackage } from '../package';`),
+        regex.exec(`
+          export { package as myPackage } from '../package';
+          export { package as myPackage } from "../package";
+          const other = { text: 'should not be modified' };
+          const code = { text: "should not be modified" };
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -209,7 +269,11 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "export { package as myPackage } from "../package"",
+            "export { package as myPackage } from "../package"",
+            "../package",
+          ],
           [
             "export { package as myPackage } from '../package'",
             "export { package as myPackage } from '../package'",
@@ -222,12 +286,24 @@ describe("steps/generateChanges", () => {
     });
 
     it("matches export statements", () => {
-      const result = regexes.map((regex) => regex.exec(`export 'package';`));
+      const result = regexes.map((regex) =>
+        regex.exec(`
+          export 'package';
+          export "package";
+
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
           null,
           null,
-          null,
+          [
+            "export "package"",
+            "export "package"",
+            "package",
+          ],
           [
             "export 'package'",
             "export 'package'",
@@ -241,12 +317,22 @@ describe("steps/generateChanges", () => {
       `);
     });
 
-    it("matches import statements with multiple named imports", () => {
+    it("matches import statements with multiple named imports (single quotes)", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`export {
+        regex.exec(`
+export {
   package as myPackage,
   otherPackage,
-} from '../package';`),
+} from '../package';
+
+export {
+  package as myPackage,
+  otherPackage,
+} from "../package";
+
+const other = 'should not be modified';
+const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -256,7 +342,17 @@ describe("steps/generateChanges", () => {
           null,
           null,
           null,
-          null,
+          [
+            "export {
+          package as myPackage,
+          otherPackage,
+        } from "../package"",
+            "export {
+          package as myPackage,
+          otherPackage,
+        } from "../package"",
+            "../package",
+          ],
           [
             "export {
           package as myPackage,
@@ -273,10 +369,21 @@ describe("steps/generateChanges", () => {
     });
 
     it("matches require statements", () => {
-      const result = regexes.map((regex) => regex.exec(`require('package');`));
+      const result = regexes.map((regex) =>
+        regex.exec(`
+          require('package');
+          require("package");
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          null,
+          [
+            "require("package")",
+            "require("package")",
+            "package",
+          ],
           [
             "require('package')",
             "require('package')",
@@ -294,11 +401,20 @@ describe("steps/generateChanges", () => {
 
     it("matches const require statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`const package = require('../package');`),
+        regex.exec(`
+          const package = require('../package');
+          const package = require("../package");
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          null,
+          [
+            "require("../package")",
+            "require("../package")",
+            "../package",
+          ],
           [
             "require('../package')",
             "require('../package')",
@@ -316,11 +432,20 @@ describe("steps/generateChanges", () => {
 
     it("matches const require.resolve statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`const package = require.resolve('../package');`),
+        regex.exec(`
+          const package = require.resolve('../package');
+          const package = require.resolve("../package");
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          null,
+          [
+            "require.resolve("../package")",
+            "require.resolve("../package")",
+            "../package",
+          ],
           [
             "require.resolve('../package')",
             "require.resolve('../package')",
@@ -338,11 +463,20 @@ describe("steps/generateChanges", () => {
 
     it("matches const {} require statements", () => {
       const result = regexes.map((regex) =>
-        regex.exec(`const { package } = require('~/package/package');`),
+        regex.exec(`
+          const { package } = require('~/package/package');
+          const { package } = require("~/package/package");
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
-          null,
+          [
+            "require("~/package/package")",
+            "require("~/package/package")",
+            "~/package/package",
+          ],
           [
             "require('~/package/package')",
             "require('~/package/package')",
@@ -359,10 +493,21 @@ describe("steps/generateChanges", () => {
     });
 
     it("matches dynamic import statements", () => {
-      const result = regexes.map((regex) => regex.exec(`import('package');`));
+      const result = regexes.map((regex) =>
+        regex.exec(`
+          import('package');
+          import("package");
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
+      );
       expect(result).toMatchInlineSnapshot(`
         [
-          null,
+          [
+            "import("package")",
+            "import("package")",
+            "package",
+          ],
           [
             "import('package')",
             "import('package')",
@@ -381,9 +526,12 @@ describe("steps/generateChanges", () => {
     it("does not match comments with the word 'import'", () => {
       const result = regexes.map((regex) =>
         regex.exec(`
-// import comment
-import * as package from "hello";
-      `),
+          // import comment
+          import * as package from 'hello';
+          import * as package from "hello";
+          const other = 'should not be modified';
+          const code = "should not be modified";
+        `),
       );
       expect(result).toMatchInlineSnapshot(`
         [
@@ -396,7 +544,11 @@ import * as package from "hello";
             "import * as package from "hello"",
             "hello",
           ],
-          null,
+          [
+            "import * as package from 'hello'",
+            "import * as package from 'hello'",
+            "hello",
+          ],
           null,
           null,
         ]
