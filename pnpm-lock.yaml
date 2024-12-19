@@ -58,8 +58,8 @@ importers:
         specifier: 5.7.2
         version: 5.7.2
       vite:
-        specifier: 6.0.1
-        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)
+        specifier: 6.0.4
+        version: 6.0.4(@types/node@22.10.1)(jiti@1.21.6)
       vitest:
         specifier: 2.1.6
         version: 2.1.6(@types/node@22.10.1)(jiti@1.21.6)
@@ -1769,9 +1769,6 @@ packages:
     resolution: {integrity: sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA==}
     engines: {node: '>= 14.16'}
 
-  picocolors@1.1.0:
-    resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -2166,8 +2163,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite@6.0.1:
-    resolution: {integrity: sha512-Ldn6gorLGr4mCdFnmeAOLweJxZ34HjKnDm4HGo6P66IEqTxQb36VEdFJQENKxWjupNfoIjvRUnswjn1hpYEpjQ==}
+  vite@6.0.4:
+    resolution: {integrity: sha512-zwlH6ar+6o6b4Wp+ydhtIKLrGM/LoqZzcdVmkGAFun0KHTzIzjh+h0kungEx7KJg/PYnC80I4TII9WkjciSR6Q==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -2318,7 +2315,7 @@ snapshots:
   '@babel/code-frame@7.24.7':
     dependencies:
       '@babel/highlight': 7.24.7
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   '@babel/code-frame@7.26.2':
     dependencies:
@@ -2337,7 +2334,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   '@babel/parser@7.26.2':
     dependencies:
@@ -2803,13 +2800,13 @@ snapshots:
       chai: 5.1.2
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.6(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6))':
+  '@vitest/mocker@2.1.6(vite@6.0.4(@types/node@22.10.1)(jiti@1.21.6))':
     dependencies:
       '@vitest/spy': 2.1.6
       estree-walker: 3.0.3
       magic-string: 0.30.14
     optionalDependencies:
-      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)
+      vite: 6.0.4(@types/node@22.10.1)(jiti@1.21.6)
 
   '@vitest/pretty-format@2.1.6':
     dependencies:
@@ -3965,8 +3962,6 @@ snapshots:
 
   pathval@2.0.0: {}
 
-  picocolors@1.1.0: {}
-
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -4368,7 +4363,7 @@ snapshots:
       debug: 4.3.7
       es-module-lexer: 1.5.4
       pathe: 1.1.2
-      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)
+      vite: 6.0.4(@types/node@22.10.1)(jiti@1.21.6)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -4383,7 +4378,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6):
+  vite@6.0.4(@types/node@22.10.1)(jiti@1.21.6):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
@@ -4396,7 +4391,7 @@ snapshots:
   vitest@2.1.6(@types/node@22.10.1)(jiti@1.21.6):
     dependencies:
       '@vitest/expect': 2.1.6
-      '@vitest/mocker': 2.1.6(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6))
+      '@vitest/mocker': 2.1.6(vite@6.0.4(@types/node@22.10.1)(jiti@1.21.6))
       '@vitest/pretty-format': 2.1.6
       '@vitest/runner': 2.1.6
       '@vitest/snapshot': 2.1.6
@@ -4412,7 +4407,7 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.2
       tinyrainbow: 1.2.0
-      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)
+      vite: 6.0.4(@types/node@22.10.1)(jiti@1.21.6)
       vite-node: 2.1.6(@types/node@22.10.1)(jiti@1.21.6)
       why-is-node-running: 2.3.0
     optionalDependencies:
